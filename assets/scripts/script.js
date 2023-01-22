@@ -17,7 +17,6 @@ const B = document.getElementById('B');
 const C = document.getElementById('C');
 const D = document.getElementById('D');
 const questionText = document.getElementById("question-text");
-const nonFictionImg = document.createElement("img");
 
 /* Genres:
 A- Non-Fiction
@@ -60,10 +59,10 @@ let questions = [
     {
         question: "Pick a quote you like...",
         answers: [
-            {option: "Deviant men have been constructed as criminal, while deviant women have been constructed as insane.", answer:A},
-            {option: "What is worse: being locked outside of your own mind, or being locked inside of if?", answer:B},
-            {option: "I do not think, therefore I am a moustache", answer:C},
-            {option: "Wasn’t friendship its own miracle, the finding of another person who made the entire lonely world seem somehow less lonely?", answer:D}
+            {option: '"Deviant men have been constructed as criminal, while deviant women have been constructed as insane."', answer:A},
+            {option: '"What is worse: being locked outside of your own mind, or being locked inside of if?"', answer:B},
+            {option: '"I do not think, therefore I am a moustache"', answer:C},
+            {option: '"Wasn\’t friendship its own miracle, the finding of another person who made the entire lonely world seem somehow less lonely?"', answer:D}
         ]
     },
     {
