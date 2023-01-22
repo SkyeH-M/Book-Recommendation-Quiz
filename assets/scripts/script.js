@@ -1,9 +1,11 @@
 /*
 1) DONE- return array of letters whose buttons have been clicked 
 2) DONE- when answer button is clicked move onto next question
-3) DONE- restart empties the genreArray array
+3) DONE- restart empties the genreArray arr
 4) DONE- prev function returns to previous page
 4i) prev function removes last option selected so user can't select A, click previous, and click B- this currently would result in genreArray = ['A', 'B']
+5) DONE?- ensure that submit can only be pressed once user has answered all questions, hide submit until genreArray === 10?
+6) 
 */
 
 
@@ -312,6 +314,7 @@ function previous() {
         }
 
         function submit() {
+            if (genreArray.length === 10) {
             previousBtn.classList.add('hide');
             nextBtn.classList.add('hide');
             submitBtn.classList.add('hide');
@@ -321,6 +324,7 @@ function previous() {
             D.classList.add('hide');
            // questionText.innerHTML = mostFrequent(genreArray); // chosenGenre displays undefined, mostFrequent(genreArray) shows correct letter on screen
            displayGenre();
+            }
         }
 
         function mostFrequent(genreArray) {
@@ -347,8 +351,6 @@ function previous() {
             questionText.innerHTML = 'Non-Fiction';
         } else if (mostFrequent(genreArray) === 'B') {
             questionText.innerHTML = horrorText;
-            nonFictionImg.src = "assets/images/book-background.jpg"
-            document.body.appendChild(nonFictionImg);
         } else if (mostFrequent(genreArray) === 'C') {
             questionText.innerHTML = 'Classics';
         } else if (mostFrequent(genreArray) === 'D') {
@@ -356,9 +358,7 @@ function previous() {
         }
         }
 
-        let horrorText = "We recommend the following books..."
-        nonFictionImg.classList.add('nf-img')
-       // let horrorImg = nonFictionImg.classList.remove('hide');
+        let horrorText = "We recommend the following books...";
       
         
 

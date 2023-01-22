@@ -1,3 +1,9 @@
+/* Tasks 
+1) quiz area should be higher up on mobile page
+2) background image is too zoomed in for desktop/larger screens
+
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +29,8 @@ h1 {
     color: white;
     text-align: center;
     top: 20px;
-    background-color: rgb(106, 90, 90);
+    background-color: #4a4a3f;
+   /* background-color: rgb(106, 90, 90); */
     padding: 10px;
     margin-top: 10px;
     font-size: 1.2rem;
@@ -39,7 +46,7 @@ h1 {
 .container {
     width: 80vw;
     max-width: 80%;
-    background-color: rgb(106, 90, 90);
+    background-color: rgb(106, 90, 90); 
     height: 70vh;
     box-shadow: 0 0 5px 4px;
     display: flex;
@@ -98,6 +105,9 @@ h1 {
     font-size: 0.8rem;
 }
 
+footer {
+    background-color: #4a4a3f;
+}
 
 /* The footer css below moves the footer content into the main body, I don't think we want this
 footer {
@@ -131,7 +141,7 @@ footer ul {
 
 .social-media i {
     font-size: 2rem;
-    color: black;
+    color: white;
     padding: 20px;
 }
 
