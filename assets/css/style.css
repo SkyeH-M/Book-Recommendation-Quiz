@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Libre Baskerville', serif;
+    color: white;
+}
+
+.all {
+    background: url(../images/page-background.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    top: 20px;
+    background-color: rgb(106, 90, 90);
+    padding: 10px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
