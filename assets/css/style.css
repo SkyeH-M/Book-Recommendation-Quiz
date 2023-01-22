@@ -5,9 +5,12 @@
     color: white;
 }
 
-.all {
+.background {
     background: url(../images/page-background.jpg) no-repeat center center;
     background-size: cover;
+}
+
+.all {
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -22,11 +25,116 @@ h1 {
     top: 20px;
     background-color: rgb(106, 90, 90);
     padding: 10px;
+    margin-top: 10px;
+    font-size: 1.2rem;
 }
 
 .title {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
+.container {
+    width: 80vw;
+    max-width: 80%;
+    background-color: rgb(106, 90, 90);
+    height: 70vh;
+    box-shadow: 0 0 5px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* 
+.all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+*/
+
+.btn {
+    font-size: 0.7rem;
+    font-weight: bold;
+    background: rgb(106, 90, 90);
+    padding: 7px;
+    border-radius: 3px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    padding: 15px;
+}
+
+.options {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btn-option {
+   /* display: block;  */
+    width: 250px; /* How can I make this dynamic ?, e.g 80% width */
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.controls .btn {
+    border-radius: 12px;
+}
+
+.hide {
+    display: none;
+}
+
+#question-text {
+    font-size: 0.8rem;
+}
+
+
+/* The footer css below moves the footer content into the main body, I don't think we want this
+footer {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    position: absolute;
+}
+*/
+/*
+footer ul {
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+*/
+.social-media {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.social-media li {
+    display: inline-block; 
+    text-align: center;
+   
+}
+
+.social-media i {
+    font-size: 2rem;
+    color: black;
+    padding: 20px;
+}
+
+.social-media a {
+    text-decoration: none;
+}
