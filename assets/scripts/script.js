@@ -28,6 +28,7 @@ const B = document.getElementById('B');
 const C = document.getElementById('C');
 const D = document.getElementById('D');
 const questionText = document.getElementById("question-text");
+const horrorImg = document.getElementsByClassName("horror");
 
 /* Genres:
 A- Non-Fiction
@@ -360,7 +361,8 @@ function previous() {
         if (mostFrequent(genreArray) === 'A') {
             questionText.innerHTML = 'Non-Fiction'; // gives Non-fiction
         } else if (mostFrequent(genreArray) === 'B') {
-            questionText.innerHTML = `Hi ${user} ! We recommend the following books...`; // adding ${user} brings an error 'user is not defined'
+            questionText.innerHTML = `Hi ${user} ! We recommend the following books...`;
+            horrorImg.classList.remove('hide');
         } else if (mostFrequent(genreArray) === 'C') {
             questionText.innerHTML = 'Classics';
         } else if (mostFrequent(genreArray) === 'D') {
