@@ -5,8 +5,17 @@
 4) DONE- prev function returns to previous page
 4i) prev function removes last option selected so user can't select A, click previous, and click B- this currently would result in genreArray = ['A', 'B']
 5) DONE?- ensure that submit can only be pressed once user has answered all questions, hide submit until genreArray === 10?
-6) 
+6) user cannot be accessed in the displayGenre function
 */
+
+// get user's name:
+// W3Schools- Window prompt() theory:
+let user = prompt("Please enter your name:");
+document.body.onload = function () {
+if (typeof user === 'string' && user.length > 0) {
+    console.log(user); // prints user's name
+}
+}
 
 
 // create variables used to rep elements in our document, used to access them in the DOM:
@@ -26,6 +35,7 @@ B- Horror
 C- Classics
 D- Modern Fiction
 */
+
 let currentQuestion = 0;
 let genreArray = [];
 
@@ -113,12 +123,12 @@ let questions = [
         ]
     },
     {
-        question: "Hello",
+        question: "Pick a film",
         answers: [
-            {option: "C", answer:A},
-            {option: "D", answer:B},
-            {option: "A", answer:C},
-            {option: "B", answer:D}
+            {option: "13th", answer:A},
+            {option: "The Descent", answer:B},
+            {option: "12 Angry Men", answer:C},
+            {option: "Everything Everywhere All at Once", answer:D}
         ]
     }
 ]
@@ -323,7 +333,7 @@ function previous() {
             C.classList.add('hide');
             D.classList.add('hide');
            // questionText.innerHTML = mostFrequent(genreArray); // chosenGenre displays undefined, mostFrequent(genreArray) shows correct letter on screen
-           displayGenre();
+           displayGenre(); 
             }
         }
 
@@ -348,17 +358,19 @@ function previous() {
 
        function displayGenre() {
         if (mostFrequent(genreArray) === 'A') {
-            questionText.innerHTML = 'Non-Fiction';
+            questionText.innerHTML = 'Non-Fiction'; // gives Non-fiction
         } else if (mostFrequent(genreArray) === 'B') {
-            questionText.innerHTML = horrorText;
+            questionText.innerHTML = `Hi ${user} ! We recommend the following books...`; // adding ${user} brings an error 'user is not defined'
         } else if (mostFrequent(genreArray) === 'C') {
             questionText.innerHTML = 'Classics';
         } else if (mostFrequent(genreArray) === 'D') {
             questionText.innerHTML = 'Modern Fiction';
         }
         }
+    
 
-        let horrorText = "We recommend the following books...";
-      
+       
+
+        
         
 

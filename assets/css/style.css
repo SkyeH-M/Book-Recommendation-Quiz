@@ -103,6 +103,7 @@ h1 {
 
 #question-text {
     font-size: 0.8rem;
+    /* Needs to be higher up the page */
 }
 
 footer {
