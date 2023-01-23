@@ -5,7 +5,7 @@
 4) DONE- prev function returns to previous page
 4i) prev function removes last option selected so user can't select A, click previous, and click B- this currently would result in genreArray = ['A', 'B']
 5) DONE?- ensure that submit can only be pressed once user has answered all questions, hide submit until genreArray === 10?
-6) user cannot be accessed in the displayGenre function
+6) DONE- user cannot be accessed in the displayGenre function (was declared in func)
 */
 
 // get user's name:
