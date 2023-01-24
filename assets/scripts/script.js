@@ -9,14 +9,6 @@
 */
 
 // get user's name:
-// W3Schools- Window prompt() theory:
-let user = prompt("Please enter your name:");
-document.body.onload = function () {
-if (typeof user === 'string' && user.length > 0) {
-    console.log(user); // prints user's name
-}
-}
-
 
 // create variables used to rep elements in our document, used to access them in the DOM:
 const restartBtn = document.getElementById("restart");
@@ -361,8 +353,8 @@ function previous() {
         if (mostFrequent(genreArray) === 'A') {
             questionText.innerHTML = 'Non-Fiction'; // gives Non-fiction
         } else if (mostFrequent(genreArray) === 'B') {
-            questionText.innerHTML = `Hi ${user} ! We recommend the following books...`;
-            horrorImg.classList.remove('hide');
+            questionText.innerHTML = `Hi! We recommend the following books...`;
+          //  horrorImg.classList.remove('hide');
         } else if (mostFrequent(genreArray) === 'C') {
             questionText.innerHTML = 'Classics';
         } else if (mostFrequent(genreArray) === 'D') {

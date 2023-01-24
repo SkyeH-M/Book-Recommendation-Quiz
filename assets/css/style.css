@@ -114,6 +114,19 @@ h1 {
     /* Needs to be higher up the page */
 }
 
+.form {
+    font-size: 0.9rem;
+}
+
+#username {
+    color: black;
+    font-size: 0.7rem;
+}
+
+#usernameSubmit {
+    color: black;
+}
+
 footer {
     background-color: #4a4a3f;
 }
