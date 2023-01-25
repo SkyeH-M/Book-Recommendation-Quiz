@@ -9,7 +9,6 @@
 */
 
 // get user's name:
-// W3Schools Window sessionStorage page:
 function storeUsername() {
     let input = document.getElementById('username').value;
     sessionStorage.setItem("username", input);
@@ -20,13 +19,13 @@ const restartBtn = document.getElementById("restart");
 const previousBtn = document.getElementById("previous");
 const nextBtn = document.getElementById("next");
 const submitBtn = document.getElementById("submit");
-const optionBtns = document.getElementsByClassName("option");
 const A = document.getElementById('A');
 const B = document.getElementById('B');
 const C = document.getElementById('C');
 const D = document.getElementById('D');
-const questionText = document.getElementById("question-text");
 const formSection = document.getElementById('usernameForm');
+const questionText = document.getElementById("question-text");
+const horrorImg = document.getElementsByClassName("horror");
 
 /* Genres:
 A- Non-Fiction
@@ -35,26 +34,6 @@ C- Classics
 D- Modern Fiction
 */
 
-// can't actually access the images
-const GENRE_MAP = {
-    A: {
-        name: 'Non-Fiction',
-        imgFile: ['./assets/images/Non-fiction.png'],
-    },
-    B: {
-        name: 'Horror',
-        imgSrc: ['./assets/images/horror.png']
-    },
-    C: {
-        name: 'Classics',
-        imgSrc: ['./assets/images/classics.png']
-    },
-    D: {
-        name: 'Horror',
-        imgSrc: ['./assets/images/modern-fiction.png']
-    },
-};
-
 let currentQuestionIndex = 0;
 let genreArray = [];
 
@@ -62,107 +41,102 @@ let questions = [
     {
         question: "Which genre do you read most frequently?",
         answers: [
-            {option: "Non-Fiction", correspondingGenre: 'A'},
-            {option: "Horror", correspondingGenre: 'B'},
-            {option: "Classics", correspondingGenre: 'C'},
-            {option: "Modern Fiction", correspondingGenre: 'D'}
+            {option: "Non-Fiction", correspondingGenre:'A'},
+            {option: "Horror", correspondingGenre:'B'},
+            {option: "Classics", correspondingGenre:'C'},
+            {option: "Modern Fiction", correspondingGenre:'D'}
 
         ]
     },
     {
         question: "Which of the following appeals most to you?",
         answers: [
-            {option: "I want to learn something", correspondingGenre: 'A'},
-            {option: "I want to be intrigued", correspondingGenre: 'B'},
-            {option: "I want to be transported to another time", correspondingGenre: 'C'},
-            {option: "I want something that relates to my life", correspondingGenre: 'D'}
+            {option: "I want to learn something", correspondingGenre:'A'},
+            {option: "I want to be intrigued", correspondingGenre:'B'},
+            {option: "I want to be transported to another time", correspondingGenre:'C'},
+            {option: "I want something that relates to my life", correspondingGenre:'D'}
         ]
     },
     {
         question: "Which of the following would be a good day out?",
         answers: [
-            {option: "Visiting a museum or gallery", correspondingGenre: 'A'},
-            {option: "Exploring a haunted house", correspondingGenre: 'B'},
-            {option: "Visiting a National Trust site", correspondingGenre: 'C'},
-            {option: "Watching something new at the cinema", correspondingGenre: 'D'}
+            {option: "Visiting a museum or gallery", correspondingGenre:'A'},
+            {option: "Exploring a haunted house", correspondingGenre:'B'},
+            {option: "Visiting a National Trust site", correspondingGenre:'C'},
+            {option: "Watching something new at the cinema", correspondingGenre:'D'}
         ]
     },
     {
         question: "Pick a quote you like...",
         answers: [
-            {option: '"Deviant men have been constructed as criminal, while deviant women have been constructed as insane."', correspondingGenre: 'A'},
-            {option: '"What is worse: being locked outside of your own mind, or being locked inside of if?"', correspondingGenre: 'B'},
-            {option: '"I do not think, therefore I am a moustache"', correspondingGenre: 'C'},
-            {option: '"Wasn\’t friendship its own miracle, the finding of another person who made the entire lonely world seem somehow less lonely?"', correspondingGenre: 'D'}
+            {option: '"Deviant men have been constructed as criminal, while deviant women have been constructed as insane."', correspondingGenre:'A'},
+            {option: '"What is worse: being locked outside of your own mind, or being locked inside of if?"', correspondingGenre:'B'},
+            {option: '"I do not think, therefore I am a moustache"', correspondingGenre:'C'},
+            {option: '"Wasn\’t friendship its own miracle, the finding of another person who made the entire lonely world seem somehow less lonely?"', correspondingGenre:'D'}
         ]
     },
     {
         question: "You're buying a book for a friend, what do you choose?",
         answers: [
-            {option: "A book that explores an interest of theirs", correspondingGenre: 'A'},
-            {option: "A great mystery to unravel", correspondingGenre: 'B'},
-            {option: "A classic, they're classics for a reason!", correspondingGenre: 'C'},
-            {option: "A book that inspired their favourite new TV show/film", correspondingGenre: 'D'}
+            {option: "A book that explores an interest of theirs", correspondingGenre:'A'},
+            {option: "A great mystery to unravel", correspondingGenre:'B'},
+            {option: "A classic, they're classics for a reason!", correspondingGenre:'C'},
+            {option: "A book that inspired their favourite new TV show/film", correspondingGenre:'D'}
         ]
     },
     {
         question: "Which of these authors do you prefer?",
         answers: [
-            {option: "Gabor Maté", correspondingGenre: 'A'},
-            {option: "Stephen King", correspondingGenre: 'B'},
-            {option: "Virginia Woolf", correspondingGenre: 'C'},
-            {option: "Sally Rooney", correspondingGenre: 'D'}
+            {option: "Gabor Maté", correspondingGenre:'A'},
+            {option: "Stephen King", correspondingGenre:'B'},
+            {option: "Virginia Woolf", correspondingGenre:'C'},
+            {option: "Sally Rooney", correspondingGenre:'D'}
         ]
     },
     {
         question: "Pick a drink",
         answers: [
-            {option: "Water", correspondingGenre: 'A'},
-            {option: "Whiskey", correspondingGenre: 'B'},
-            {option: "Tea", correspondingGenre: 'C'},
-            {option: "Cocktail", correspondingGenre: 'D'}
+            {option: "Water", correspondingGenre:'A'},
+            {option: "Whiskey", correspondingGenre:'B'},
+            {option: "Tea", correspondingGenre:'C'},
+            {option: "Cocktail", correspondingGenre:'D'}
         ]
     },
     {
         question: "Imagine you're on holiday, what activity would you do?",
         answers: [
-            {option: "Check our local heritage sites", correspondingGenre: 'A'},
-            {option: "Do an extreme sport or activity", correspondingGenre: 'B'},
-            {option: "Visit somewhere that everyone recommends", correspondingGenre: 'C'},
-            {option: "Chill on the beach or by the pool", correspondingGenre: 'D'}
+            {option: "Check our local heritage sites", correspondingGenre:'A'},
+            {option: "Do an extreme sport or activity", correspondingGenre:'B'},
+            {option: "Visit somewhere that everyone recommends", correspondingGenre:'C'},
+            {option: "Chill on the beach or by the pool", correspondingGenre:'D'}
         ]
     },
     {
         question: "Choose a book you've loved in the past",
         answers: [
-            {option: "Women, Race & Class- Angela Davis", correspondingGenre: 'A'},
-            {option: "We Need to Talk About Kevin- Lionel Shriver", correspondingGenre: 'B'},
-            {option: "The Metamorphosis- Franz Kafka", correspondingGenre: 'C'},
-            {option: "Normal People- Sally Rooney", correspondingGenre: 'D'}
+            {option: "Women, Race & Class- Angela Davis", correspondingGenre:'A'},
+            {option: "We Need to Talk About Kevin- Lionel Shriver", correspondingGenre:'B'},
+            {option: "The Metamorphosis- Franz Kafka", correspondingGenre:'C'},
+            {option: "Normal People- Sally Rooney", correspondingGenre:'D'}
         ]
     },
     {
         question: "Pick a film",
         answers: [
-            {option: "13th", correspondingGenre: 'A'},
-            {option: "The Descent", correspondingGenre: 'B'},
-            {option: "12 Angry Men", correspondingGenre: 'C'},
-            {option: "Everything Everywhere All at Once", correspondingGenre: 'D'}
+            {option: "13th", correspondingGenre:'A'},
+            {option: "The Descent", correspondingGenre:'B'},
+            {option: "12 Angry Men", correspondingGenre:'C'},
+            {option: "Everything Everywhere All at Once", correspondingGenre:'D'}
         ]
     }
 ]
 
-function initEventListeners() {
 // add event listeners to buttons to call functions when clicked:
-restartBtn.addEventListener('click', onRestartClick);
-previousBtn.addEventListener('click', onPreviousClick);
-nextBtn.addEventListener('click', onNextClick);
-submitBtn.addEventListener('click', onSubmit);
-// for each option button initialise an event listener, when clicked run onOptionClick()
-optionBtns.for(eachOption => {
-    eachOption.addEventListener('click', onOptionClick);
-});
-};
+restartBtn.addEventListener('click', restart);
+previousBtn.addEventListener('click', previous);
+nextBtn.addEventListener('click', next);
+submitBtn.addEventListener('click', submit);
+
 
 // hide form input area:
 
@@ -177,73 +151,55 @@ optionBtns.for(eachOption => {
 // }
 // }
 
-function onOptionClick(event) {
-    // get the corresponding genre of that option and push it to genreArray
-    const correspondingGenre = event.target.element.getAttribute("data-genre");
-    // instead of pushing replace value of that index in genreArray, slice/splice
-    genreArray.push(correspondingGenre);
-    // display next question
-    currentQuestionIndex ++;
-    showQuestion();
-}
-
-function showQuestion() {
-    questionText.innerHTML = questions[currentQuestionIndex].question;
-    optionBtns.forEach((eachOption, index) => {
-        eachOption.innerHTML = questions[currentQuestionIndex].answers[index].option;
-        eachOption.setAttribute("data-genre", questions[currentQuestionIndex].answers[index].correspondingGenre);
-    });
-    previousBtn.classList.add('hide');
-}
-
 // create a func that'll be executed when the page loads and script is executed
+
 function startQuiz() {
     currentQuestionIndex = 0;
     // hide form input area:
-    questionText.innerHTML = questions[currentQuestion].question;
+    questionText.innerHTML = questions[currentQuestionIndex].question;
     // First button:
-    A.innerHTML = questions[currentQuestion].answers[0].option;
+    A.innerHTML = questions[currentQuestionIndex].answers[0].option;
     A.onclick = () => {
-        if (questions[currentQuestion].answers[0].answer) {
+        if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
             console.log('A'); // when A is clicked, the console displays A
            genreArray.push('A'); // when A is clicked, 'A' is added to genreArray (this adds as many 'A's as the num of times the button is clicked)
         }
-        if (currentQuestion < 9) {
+        if (currentQuestionIndex < 9) {
             next();
         }
     }
     // Second button:
-    B.innerHTML = questions[currentQuestion].answers[1].option;
+    B.innerHTML = questions[currentQuestionIndex].answers[1].option;
     B.onclick = () => {
-        if (questions[currentQuestion].answers[1].answer) {
+        if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
             console.log('B'); 
            genreArray.push('B'); 
         }
-        if (currentQuestion < 9) {
+        if (currentQuestionIndex < 9) {
         next();
     }
     }
     
     // Third button:
-    C.innerHTML = questions[currentQuestion].answers[2].option;
+    C.innerHTML = questions[currentQuestionIndex].answers[2].option;
     C.onclick = () => {
-        if (questions[currentQuestion].answers[2].answer) {
+        if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
             console.log('C'); 
            genreArray.push('C'); 
         }
-        if (currentQuestion < 9) {
+        if (currentQuestionIndex < 9) {
         next();
     }
     }
     
     // Fourth button:
-    D.innerHTML = questions[currentQuestion].answers[3].option;
+    D.innerHTML = questions[currentQuestionIndex].answers[3].option;
     D.onclick = () => {
-        if (questions[currentQuestion].answers[3].answer) {
+        if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
             console.log('D'); 
            genreArray.push('D'); 
         }
-        if (currentQuestion < 9) {
+        if (currentQuestionIndex < 9) {
         next();
     }
     }
@@ -253,7 +209,7 @@ startQuiz();
 
 // create function to reset current question index, remove hide class from elements, call startQuiz()
 function restart() {
-    currentQuestion = 0;
+    currentQuestionIndex = 0;
     genreArray = [];
     previousBtn.classList.remove('hide');
     nextBtn.classList.remove('hide');
@@ -271,51 +227,51 @@ function restart() {
 // based on option the user selects, the genreArray will be added to
 
 function next() {
-    currentQuestion++; // maybe delete this?
-    if (currentQuestion >= 9) {
+    currentQuestionIndex++; // maybe delete this?
+    if (currentQuestionIndex >= 9) {
         nextBtn.classList.add('hide');
         previousBtn.classList.remove('hide');
     }
-    questionText.innerHTML = questions[currentQuestion].question;
-    A.innerHTML = questions[currentQuestion].answers[0].option;
+    questionText.innerHTML = questions[currentQuestionIndex].question;
+    A.innerHTML = questions[currentQuestionIndex].answers[0].option;
     A.onclick = () => {
-        if (questions[currentQuestion].answers[0].answer) {
+        if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
             console.log('A'); 
            genreArray.push('A'); 
         }
-        if (currentQuestion < 9) {
+        if (currentQuestionIndex < 9) {
         next();
     }
     }
     
-    B.innerHTML = questions[currentQuestion].answers[1].option;
+    B.innerHTML = questions[currentQuestionIndex].answers[1].option;
     B.onclick = () => {
-        if (questions[currentQuestion].answers[1].answer) {
+        if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
             console.log('B'); 
            genreArray.push('B'); 
         }
-        if (currentQuestion < 9) {
+        if (currentQuestionIndex < 9) {
         next();
     }
     }
-    C.innerHTML = questions[currentQuestion].answers[2].option;
+    C.innerHTML = questions[currentQuestionIndex].answers[2].option;
     C.onclick = () => {
-        if (questions[currentQuestion].answers[2].answer) {
+        if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
             console.log('C'); 
            genreArray.push('C'); 
         }
-        if (currentQuestion < 9) {
+        if (currentQuestionIndex < 9) {
         next();
     }
     }
     
-    D.innerHTML = questions[currentQuestion].answers[3].option;
+    D.innerHTML = questions[currentQuestionIndex].answers[3].option;
     D.onclick = () => {
-        if (questions[currentQuestion].answers[3].answer) {
+        if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
             console.log('D'); 
            genreArray.push('D'); 
         }
-        if (currentQuestion < 9) {
+        if (currentQuestionIndex < 9) {
         next();
     }
     }
@@ -326,54 +282,54 @@ function next() {
 
 
 function previous() {
-    currentQuestion--;
-    if (currentQuestion <= 0) {
+    currentQuestionIndex--;
+    if (currentQuestionIndex <= 0) {
         previousBtn.classList.add('hide');
         nextBtn.classList.remove('hide')
     }
-    questionText.innerHTML = questions[currentQuestion].question;
+    questionText.innerHTML = questions[currentQuestionIndex].question;
     // button 1
-    A.innerHTML = questions[currentQuestion].answers[0].option;
+    A.innerHTML = questions[currentQuestionIndex].answers[0].option;
     A.onclick = () => {
-        if (questions[currentQuestion].answers[0].answer) {
+        if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
             console.log('A'); 
             genreArray.push('A'); 
          }
-         if (currentQuestion < 9) {
+         if (currentQuestionIndex < 9) {
          next();
      }
      }
      
      // button 2
-     B.innerHTML = questions[currentQuestion].answers[1].option;
+     B.innerHTML = questions[currentQuestionIndex].answers[1].option;
      B.onclick = () => {
-        if (questions[currentQuestion].answers[1].answer) {
+        if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
             console.log('B'); 
             genreArray.push('B'); 
          }
-         if (currentQuestion < 9) {
+         if (currentQuestionIndex < 9) {
          next();
      }
      }
      
-     C.innerHTML = questions[currentQuestion].answers[2].option;
+     C.innerHTML = questions[currentQuestionIndex].answers[2].option;
      C.onclick = () => {
-        if (questions[currentQuestion].answers[2].answer) {
+        if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
             console.log('C'); 
             genreArray.push('C'); 
          }
-         if (currentQuestion < 9) {
+         if (currentQuestionIndex < 9) {
          next();
      }
      }
      
-     D.innerHTML = questions[currentQuestion].answers[3].option;
+     D.innerHTML = questions[currentQuestionIndex].answers[3].option;
      D.onclick = () => {
-        if (questions[currentQuestion].answers[3].answer) {
+        if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
             console.log('D'); 
             genreArray.push('D'); 
          }
-         if (currentQuestion < 9) {
+         if (currentQuestionIndex < 9) {
          next();
      }
      }
@@ -428,6 +384,7 @@ function previous() {
             questionText.innerHTML = 'Modern Fiction';
         }
         }
+
     
 
        
