@@ -20,13 +20,13 @@ const restartBtn = document.getElementById("restart");
 const previousBtn = document.getElementById("previous");
 const nextBtn = document.getElementById("next");
 const submitBtn = document.getElementById("submit");
+const optionBtns = document.getElementsByClassName("option");
 const A = document.getElementById('A');
 const B = document.getElementById('B');
 const C = document.getElementById('C');
 const D = document.getElementById('D');
-const formSection = document.getElementById('usernameForm');
 const questionText = document.getElementById("question-text");
-const horrorImg = document.getElementsByClassName("horror");
+const formSection = document.getElementById('usernameForm');
 
 /* Genres:
 A- Non-Fiction
@@ -35,109 +35,134 @@ C- Classics
 D- Modern Fiction
 */
 
-let currentQuestion = 0;
+// can't actually access the images
+const GENRE_MAP = {
+    A: {
+        name: 'Non-Fiction',
+        imgFile: ['./assets/images/Non-fiction.png'],
+    },
+    B: {
+        name: 'Horror',
+        imgSrc: ['./assets/images/horror.png']
+    },
+    C: {
+        name: 'Classics',
+        imgSrc: ['./assets/images/classics.png']
+    },
+    D: {
+        name: 'Horror',
+        imgSrc: ['./assets/images/modern-fiction.png']
+    },
+};
+
+let currentQuestionIndex = 0;
 let genreArray = [];
 
 let questions = [
     {
         question: "Which genre do you read most frequently?",
         answers: [
-            {option: "Non-Fiction", answer:A},
-            {option: "Horror", answer:B},
-            {option: "Classics", answer:C},
-            {option: "Modern Fiction", answer:D}
+            {option: "Non-Fiction", correspondingGenre: 'A'},
+            {option: "Horror", correspondingGenre: 'B'},
+            {option: "Classics", correspondingGenre: 'C'},
+            {option: "Modern Fiction", correspondingGenre: 'D'}
 
         ]
     },
     {
         question: "Which of the following appeals most to you?",
         answers: [
-            {option: "I want to learn something", answer:A},
-            {option: "I want to be intrigued", answer:B},
-            {option: "I want to be transported to another time", answer:C},
-            {option: "I want something that relates to my life", answer:D}
+            {option: "I want to learn something", correspondingGenre: 'A'},
+            {option: "I want to be intrigued", correspondingGenre: 'B'},
+            {option: "I want to be transported to another time", correspondingGenre: 'C'},
+            {option: "I want something that relates to my life", correspondingGenre: 'D'}
         ]
     },
     {
         question: "Which of the following would be a good day out?",
         answers: [
-            {option: "Visiting a museum or gallery", answer:A},
-            {option: "Exploring a haunted house", answer:B},
-            {option: "Visiting a National Trust site", answer:C},
-            {option: "Watching something new at the cinema", answer:D}
+            {option: "Visiting a museum or gallery", correspondingGenre: 'A'},
+            {option: "Exploring a haunted house", correspondingGenre: 'B'},
+            {option: "Visiting a National Trust site", correspondingGenre: 'C'},
+            {option: "Watching something new at the cinema", correspondingGenre: 'D'}
         ]
     },
     {
         question: "Pick a quote you like...",
         answers: [
-            {option: '"Deviant men have been constructed as criminal, while deviant women have been constructed as insane."', answer:A},
-            {option: '"What is worse: being locked outside of your own mind, or being locked inside of if?"', answer:B},
-            {option: '"I do not think, therefore I am a moustache"', answer:C},
-            {option: '"Wasn\’t friendship its own miracle, the finding of another person who made the entire lonely world seem somehow less lonely?"', answer:D}
+            {option: '"Deviant men have been constructed as criminal, while deviant women have been constructed as insane."', correspondingGenre: 'A'},
+            {option: '"What is worse: being locked outside of your own mind, or being locked inside of if?"', correspondingGenre: 'B'},
+            {option: '"I do not think, therefore I am a moustache"', correspondingGenre: 'C'},
+            {option: '"Wasn\’t friendship its own miracle, the finding of another person who made the entire lonely world seem somehow less lonely?"', correspondingGenre: 'D'}
         ]
     },
     {
         question: "You're buying a book for a friend, what do you choose?",
         answers: [
-            {option: "A book that explores an interest of theirs", answer:A},
-            {option: "A great mystery to unravel", answer:B},
-            {option: "A classic, they're classics for a reason!", answer:C},
-            {option: "A book that inspired their favourite new TV show/film", answer:D}
+            {option: "A book that explores an interest of theirs", correspondingGenre: 'A'},
+            {option: "A great mystery to unravel", correspondingGenre: 'B'},
+            {option: "A classic, they're classics for a reason!", correspondingGenre: 'C'},
+            {option: "A book that inspired their favourite new TV show/film", correspondingGenre: 'D'}
         ]
     },
     {
         question: "Which of these authors do you prefer?",
         answers: [
-            {option: "Gabor Maté", answer:A},
-            {option: "Stephen King", answer:B},
-            {option: "Virginia Woolf", answer:C},
-            {option: "Sally Rooney", answer:D}
+            {option: "Gabor Maté", correspondingGenre: 'A'},
+            {option: "Stephen King", correspondingGenre: 'B'},
+            {option: "Virginia Woolf", correspondingGenre: 'C'},
+            {option: "Sally Rooney", correspondingGenre: 'D'}
         ]
     },
     {
         question: "Pick a drink",
         answers: [
-            {option: "Water", answer:A},
-            {option: "Whiskey", answer:B},
-            {option: "Tea", answer:C},
-            {option: "Cocktail", answer:D}
+            {option: "Water", correspondingGenre: 'A'},
+            {option: "Whiskey", correspondingGenre: 'B'},
+            {option: "Tea", correspondingGenre: 'C'},
+            {option: "Cocktail", correspondingGenre: 'D'}
         ]
     },
     {
         question: "Imagine you're on holiday, what activity would you do?",
         answers: [
-            {option: "Check our local heritage sites", answer:A},
-            {option: "Do an extreme sport or activity", answer:B},
-            {option: "Visit somewhere that everyone recommends", answer:C},
-            {option: "Chill on the beach or by the pool", answer:D}
+            {option: "Check our local heritage sites", correspondingGenre: 'A'},
+            {option: "Do an extreme sport or activity", correspondingGenre: 'B'},
+            {option: "Visit somewhere that everyone recommends", correspondingGenre: 'C'},
+            {option: "Chill on the beach or by the pool", correspondingGenre: 'D'}
         ]
     },
     {
         question: "Choose a book you've loved in the past",
         answers: [
-            {option: "Women, Race & Class- Angela Davis", answer:A},
-            {option: "We Need to Talk About Kevin- Lionel Shriver", answer:B},
-            {option: "The Metamorphosis- Franz Kafka", answer:C},
-            {option: "Normal People- Sally Rooney", answer:D}
+            {option: "Women, Race & Class- Angela Davis", correspondingGenre: 'A'},
+            {option: "We Need to Talk About Kevin- Lionel Shriver", correspondingGenre: 'B'},
+            {option: "The Metamorphosis- Franz Kafka", correspondingGenre: 'C'},
+            {option: "Normal People- Sally Rooney", correspondingGenre: 'D'}
         ]
     },
     {
         question: "Pick a film",
         answers: [
-            {option: "13th", answer:A},
-            {option: "The Descent", answer:B},
-            {option: "12 Angry Men", answer:C},
-            {option: "Everything Everywhere All at Once", answer:D}
+            {option: "13th", correspondingGenre: 'A'},
+            {option: "The Descent", correspondingGenre: 'B'},
+            {option: "12 Angry Men", correspondingGenre: 'C'},
+            {option: "Everything Everywhere All at Once", correspondingGenre: 'D'}
         ]
     }
 ]
 
+function initEventListeners() {
 // add event listeners to buttons to call functions when clicked:
-restartBtn.addEventListener('click', restart);
-previousBtn.addEventListener('click', previous);
-nextBtn.addEventListener('click', next);
-submitBtn.addEventListener('click', submit);
-
+restartBtn.addEventListener('click', onRestartClick);
+previousBtn.addEventListener('click', onPreviousClick);
+nextBtn.addEventListener('click', onNextClick);
+submitBtn.addEventListener('click', onSubmit);
+// for each option button initialise an event listener, when clicked run onOptionClick()
+optionBtns.for(eachOption => {
+    eachOption.addEventListener('click', onOptionClick);
+});
+};
 
 // hide form input area:
 
@@ -152,10 +177,28 @@ submitBtn.addEventListener('click', submit);
 // }
 // }
 
-// create a func that'll be executed when the page loads and script is executed
+function onOptionClick(event) {
+    // get the corresponding genre of that option and push it to genreArray
+    const correspondingGenre = event.target.element.getAttribute("data-genre");
+    // instead of pushing replace value of that index in genreArray, slice/splice
+    genreArray.push(correspondingGenre);
+    // display next question
+    currentQuestionIndex ++;
+    showQuestion();
+}
 
+function showQuestion() {
+    questionText.innerHTML = questions[currentQuestionIndex].question;
+    optionBtns.forEach((eachOption, index) => {
+        eachOption.innerHTML = questions[currentQuestionIndex].answers[index].option;
+        eachOption.setAttribute("data-genre", questions[currentQuestionIndex].answers[index].correspondingGenre);
+    });
+    previousBtn.classList.add('hide');
+}
+
+// create a func that'll be executed when the page loads and script is executed
 function startQuiz() {
-    currentQuestion = 0;
+    currentQuestionIndex = 0;
     // hide form input area:
     questionText.innerHTML = questions[currentQuestion].question;
     // First button:
