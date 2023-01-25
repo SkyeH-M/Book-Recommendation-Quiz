@@ -9,6 +9,11 @@
 */
 
 // get user's name:
+// W3Schools Window sessionStorage page:
+function storeUsername() {
+    let input = document.getElementById('username').value;
+    sessionStorage.setItem("username", input);
+}
 
 // create variables used to rep elements in our document, used to access them in the DOM:
 const restartBtn = document.getElementById("restart");
@@ -19,6 +24,7 @@ const A = document.getElementById('A');
 const B = document.getElementById('B');
 const C = document.getElementById('C');
 const D = document.getElementById('D');
+const formSection = document.getElementById('usernameForm');
 const questionText = document.getElementById("question-text");
 const horrorImg = document.getElementsByClassName("horror");
 
@@ -132,10 +138,25 @@ previousBtn.addEventListener('click', previous);
 nextBtn.addEventListener('click', next);
 submitBtn.addEventListener('click', submit);
 
+
+// hide form input area:
+
+// let formSubmitBtn = document.getElementById('usernameSubmit');
+// function hideForm() {
+//     formSection.style.display = 'none';
+// }
+// formSubmitBtn.addEventListener("click", hideForm);
+// function hideForm() {
+// if (currentQuestion >= 1) {
+//     formSection.classList.add('hide');
+// }
+// }
+
 // create a func that'll be executed when the page loads and script is executed
 
 function startQuiz() {
     currentQuestion = 0;
+    // hide form input area:
     questionText.innerHTML = questions[currentQuestion].question;
     // First button:
     A.innerHTML = questions[currentQuestion].answers[0].option;
@@ -349,11 +370,14 @@ function previous() {
         }
        // mostFrequent(genreArray); // printed C (most frequent) when simulated on browser
 
+       // retrieve username value:
+       let storedUsername = sessionStorage.getItem('username');
+
        function displayGenre() {
         if (mostFrequent(genreArray) === 'A') {
             questionText.innerHTML = 'Non-Fiction'; // gives Non-fiction
         } else if (mostFrequent(genreArray) === 'B') {
-            questionText.innerHTML = `Hi! We recommend the following books...`;
+            questionText.innerHTML = `Hi ${storedUsername} ! We recommend the following books...`;
           //  horrorImg.classList.remove('hide');
         } else if (mostFrequent(genreArray) === 'C') {
             questionText.innerHTML = 'Classics';
