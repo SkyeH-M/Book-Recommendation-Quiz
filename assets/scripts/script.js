@@ -34,6 +34,26 @@ C- Classics
 D- Modern Fiction
 */
 
+// can't actually access the images
+const GENRE_MAP = {
+    A: {
+        name: 'Non-Fiction',
+        imgSrc: '../images/Non-fiction.png',
+    },
+    B: {
+        name: 'Horror',
+        imgSrc: ['./assets/images/horror.png']
+    },
+    C: {
+        name: 'Classics',
+        imgSrc: ['./assets/images/classics.png']
+    },
+    D: {
+        name: 'Horror',
+        imgSrc: ['./assets/images/modern-fiction.png']
+    },
+};
+
 let currentQuestionIndex = 0;
 let genreArray = [];
 
@@ -204,6 +224,7 @@ function startQuiz() {
     }
     }
     previousBtn.classList.add('hide');
+    // submitBtn.classList.add('hide');
  }
 startQuiz();
 
@@ -276,6 +297,7 @@ function next() {
     }
     }
     previousBtn.classList.remove('hide');
+    // showSubmitBtn();
 }
 
 // create previous() jump to prev Q, currentQuestion will be --, hidden class removed from next button
@@ -336,6 +358,7 @@ function previous() {
      nextBtn.classList.remove('hide');
         }
 
+/** Upon submitting option buttons and control buttons are hidden, chosen genre is displayed */
         function submit() {
             if (genreArray.length === 10) {
             previousBtn.classList.add('hide');
@@ -350,6 +373,14 @@ function previous() {
             }
         }
 
+        // hide submit button until quiz has been fully answered:
+    //     function showSubmitBtn() {
+    //     if (genreArray.length > 9) {
+    //         submitBtn.classList.remove('hide');
+    //     }
+    // }
+
+/** Calculates which genre is selected by the user most frequently, returns that letter */
         function mostFrequent(genreArray) {
         let maxCount = 0;
         let mostCommon;
@@ -367,22 +398,17 @@ function previous() {
         }
         return mostCommon;
         }
-       // mostFrequent(genreArray); // printed C (most frequent) when simulated on browser
 
        // retrieve username value:
        let storedUsername = sessionStorage.getItem('username');
 
+/** Tells user (by name) which genre they selected most frequently, and shows book recommendations */
        function displayGenre() {
-        if (mostFrequent(genreArray) === 'A') {
-            questionText.innerHTML = 'Non-Fiction'; // gives Non-fiction
-        } else if (mostFrequent(genreArray) === 'B') {
-            questionText.innerHTML = `Hi ${storedUsername} ! We recommend the following books...`;
-          //  horrorImg.classList.remove('hide');
-        } else if (mostFrequent(genreArray) === 'C') {
-            questionText.innerHTML = 'Classics';
-        } else if (mostFrequent(genreArray) === 'D') {
-            questionText.innerHTML = 'Modern Fiction';
-        }
+        const selectedGenre = mostFrequent(genreArray);
+        questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
+        // display image of recommended books:
+        const imagesToDisplay = GENRE_MAP.selectedGenre.imgSrc;
+        document.getElementById('body').appendChild(imagesToDisplay);
         }
 
     
