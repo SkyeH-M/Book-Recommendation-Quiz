@@ -127,6 +127,12 @@ h1 {
     color: black;
 }
 
+#nfImg img{
+    height: 124px;
+    width: 247px;
+    object-fit: contain;
+}
+
 footer {
     background-color: #4a4a3f;
 }

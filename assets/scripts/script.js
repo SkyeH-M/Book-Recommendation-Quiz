@@ -34,27 +34,26 @@ C- Classics
 D- Modern Fiction
 */
 
-// let nfImg = document.createElement("img");
-// nfImg.src = "../assets/images/Non-fiction.png";
-// document.getElementById('body').appendChild(nfImg.src);
-// console.log(nfImg.src);
-
+// let nfImg = document.createElement("img"); // empty img tag
+// nfImg.src = "../assets/images/Non-fiction.png"; // img shows in sources Dev Tools 
+// let nfImgSource = document.getElementById('nfImg');
+// nfImgSource.appendChild(nfImg);
 
 // can't actually access the images
 const GENRE_MAP = {
-    'A': {
+    A: {
         name: 'Non-Fiction',
-        imgSrc: "../assets/images/Non-fiction.png",
+        imgSrc: '../assets/images/Non-fiction.png',
     },
-    'B': {
+    B: {
         name: 'Horror',
         imgSrc: '../assets/images/horror.png',
     },
-    'C': {
+    C: {
         name: 'Classics',
         imgSrc: '../assets/images/classics.png',
     },
-    'D': {
+    D: {
         name: 'Horror',
         imgSrc: '../assets/images/modern-fiction.png'
     },
@@ -245,6 +244,7 @@ function restart() {
     B.classList.remove('hide');
     C.classList.remove('hide');
     D.classList.remove('hide');
+    nfImg.classList.add('hide');
     startQuiz();
 }
 
@@ -413,9 +413,23 @@ function previous() {
         const selectedGenre = mostFrequent(genreArray);
         questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
         // display image of recommended books:
-        const imagesToDisplay = GENRE_MAP[selectedGenre].imgSrc;
-        document.getElementById('body').appendChild(imagesToDisplay);
-        console.log(imagesToDisplay);
+        // const imagesToDisplay = GENRE_MAP[selectedGenre].imgSrc; // imagesToDisplay saying not defined
+        // const imagesList = [];
+        // imagesToDisplay.forEach((eachImg, index) => {
+        //     let img = document.createElement('img');
+        //     img.src = imagesToDisplay[index];
+        //     imagesList.push(img);
+        // });
+        // document.getElementById('body').appendChild(imagesList);
+        // console.log(imagesToDisplay);
+        
+        if (selectedGenre === 'A') {
+        let nfImg = document.createElement("img"); // empty img tag
+        nfImg.src = "../assets/images/Non-fiction.png"; // img shows in sources Dev Tools 
+        let nfImgSource = document.getElementById('nfImg');
+        nfImgSource.appendChild(nfImg);
+        nfImg.classList.renove('hide');
+        }
         }
 
     
