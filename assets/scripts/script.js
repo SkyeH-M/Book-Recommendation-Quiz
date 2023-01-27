@@ -34,23 +34,29 @@ C- Classics
 D- Modern Fiction
 */
 
+// let nfImg = document.createElement("img");
+// nfImg.src = "../assets/images/Non-fiction.png";
+// document.getElementById('body').appendChild(nfImg.src);
+// console.log(nfImg.src);
+
+
 // can't actually access the images
 const GENRE_MAP = {
-    A: {
+    'A': {
         name: 'Non-Fiction',
-        imgSrc: '../images/Non-fiction.png',
+        imgSrc: "../assets/images/Non-fiction.png",
     },
-    B: {
+    'B': {
         name: 'Horror',
-        imgSrc: ['./assets/images/horror.png']
+        imgSrc: '../assets/images/horror.png',
     },
-    C: {
+    'C': {
         name: 'Classics',
-        imgSrc: ['./assets/images/classics.png']
+        imgSrc: '../assets/images/classics.png',
     },
-    D: {
+    'D': {
         name: 'Horror',
-        imgSrc: ['./assets/images/modern-fiction.png']
+        imgSrc: '../assets/images/modern-fiction.png'
     },
 };
 
@@ -407,8 +413,9 @@ function previous() {
         const selectedGenre = mostFrequent(genreArray);
         questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
         // display image of recommended books:
-        const imagesToDisplay = GENRE_MAP.selectedGenre.imgSrc;
+        const imagesToDisplay = GENRE_MAP[selectedGenre].imgSrc;
         document.getElementById('body').appendChild(imagesToDisplay);
+        console.log(imagesToDisplay);
         }
 
     
