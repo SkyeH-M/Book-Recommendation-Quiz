@@ -164,13 +164,13 @@ submitBtn.addEventListener('click', submit);
 
 // hide form input area:
 
-// let formSubmitBtn = document.getElementById('usernameSubmit');
+let formSubmitBtn = document.getElementById('usernameSubmit');
 // function hideForm() {
 //     formSection.style.display = 'none';
 // }
 // formSubmitBtn.addEventListener("click", hideForm);
 // function hideForm() {
-// if (currentQuestion >= 1) {
+// if (currentQuestionIndex >= 1) {
 //     formSection.classList.add('hide');
 // }
 // }
@@ -231,6 +231,7 @@ function startQuiz() {
     // submitBtn.classList.add('hide');
  }
 startQuiz();
+
 
 // create function to reset current question index, remove hide class from elements, call startQuiz()
 function restart() {
