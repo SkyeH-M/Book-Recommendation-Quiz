@@ -25,7 +25,6 @@ const C = document.getElementById('C');
 const D = document.getElementById('D');
 const formSection = document.getElementById('usernameForm');
 const questionText = document.getElementById("question-text");
-const horrorImg = document.getElementsByClassName("horror");
 
 /* Genres:
 A- Non-Fiction
@@ -245,6 +244,9 @@ function restart() {
     C.classList.remove('hide');
     D.classList.remove('hide');
     nfImg.classList.add('hide');
+    horrorImg.classList.add('hide');
+    classicsImg.classList.add('hide');
+    mfImg.classList.add('hide');
     // nfImgSource.removeChild(nfImg);
     startQuiz();
 }
@@ -423,14 +425,37 @@ function previous() {
         // });
         // document.getElementById('body').appendChild(imagesList);
         // console.log(imagesToDisplay);
-        
-        if (selectedGenre === 'A' && genreArray.length === 10) {
+
+        // LinuxHint How to Add Image in HTML via JavaScript:
+        // If user selects A
+        if (selectedGenre === 'A') {
         let nfImg = document.createElement("img"); // empty img tag
         nfImg.src = "../assets/images/Non-fiction.png"; // img shows in sources Dev Tools 
         let nfImgSource = document.getElementById('nfImg');
         nfImgSource.appendChild(nfImg);
-        // nfImg.classList.remove('hide');
-        }
+        nfImg.classList.remove('hide');
+        // If user selects B
+        } else if (selectedGenre === 'B') {
+            let horrorImg = document.createElement("img"); // empty img tag
+            horrorImg.src = "../assets/images/horror.png"; // img shows in sources Dev Tools 
+            let horrorImgSource = document.getElementById('horrorImg');
+            horrorImgSource.appendChild(horrorImg);
+            horrorImg.classList.remove('hide');
+            // If user selects C
+            } else if (selectedGenre === 'C') {
+            let classicsImg = document.createElement("img"); // empty img tag
+            classicsImg.src = "../assets/images/classics.png"; // img shows in sources Dev Tools 
+            let classicsImgSource = document.getElementById('classicsImg');
+            classicsImgSource.appendChild(classicsImg);
+            classicsImg.classList.remove('hide');
+            // If user selects D
+            } else if (selectedGenre === 'D') {
+            let mfImg = document.createElement("img"); // empty img tag
+            mfImg.src = "../assets/images/modern-fiction.png"; // img shows in sources Dev Tools 
+            let mfImgSource = document.getElementById('mfImg');
+            mfImgSource.appendChild(mfImg);
+            mfImg.classList.remove('hide');
+            }
         }
 
     

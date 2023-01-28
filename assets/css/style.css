@@ -127,10 +127,32 @@ h1 {
     color: black;
 }
 
+img {
+    margin-top: 30px;
+}
+
 #nfImg img{
     height: 124px;
     width: 247px;
     object-fit: contain;
+}
+
+#horrorImg img {
+    object-fit: contain;
+    height: 180px;
+    width: 270px;
+}
+
+#classicsImg img {
+    object-fit: contain;
+    height: 132px;
+    width: 263px;
+}
+
+#mfImg img {
+    object-fit: contain;
+    height: 143px;
+    width: 276px;
 }
 
 footer {
