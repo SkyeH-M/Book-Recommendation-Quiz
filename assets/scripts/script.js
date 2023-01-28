@@ -245,6 +245,7 @@ function restart() {
     C.classList.remove('hide');
     D.classList.remove('hide');
     nfImg.classList.add('hide');
+    // nfImgSource.removeChild(nfImg);
     startQuiz();
 }
 
@@ -423,12 +424,12 @@ function previous() {
         // document.getElementById('body').appendChild(imagesList);
         // console.log(imagesToDisplay);
         
-        if (selectedGenre === 'A') {
+        if (selectedGenre === 'A' && genreArray.length === 10) {
         let nfImg = document.createElement("img"); // empty img tag
         nfImg.src = "../assets/images/Non-fiction.png"; // img shows in sources Dev Tools 
         let nfImgSource = document.getElementById('nfImg');
         nfImgSource.appendChild(nfImg);
-        nfImg.classList.renove('hide');
+        // nfImg.classList.remove('hide');
         }
         }
 
