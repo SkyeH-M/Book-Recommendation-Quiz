@@ -85,7 +85,8 @@ h1 {
 }
 
 .btn:hover {
-    padding: 15px;
+    /* opacity: 0.7;  */
+    background-color: #aab5a6;
 }
 
 .options {
@@ -162,25 +163,6 @@ footer {
    /* background-color: #4a4a3f; */
 }
 
-/* The footer css below moves the footer content into the main body, I don't think we want this
-footer {
-    display: flex;
-    width: 100%;
-    text-align: center;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    bottom: 0;
-    position: absolute;
-}
-*/
-/*
-footer ul {
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-}
-*/
 .social-media {
     margin-bottom: 0;
     text-align: center;
@@ -196,6 +178,10 @@ footer ul {
     font-size: 2rem;
     color: white;
     padding: 20px;
+}
+
+.social-media i:hover {
+    color: rgba(205, 185, 185, 0.895);
 }
 
 .social-media a {

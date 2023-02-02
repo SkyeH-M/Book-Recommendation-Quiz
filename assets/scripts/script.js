@@ -6,6 +6,8 @@
 4i) prev function removes last option selected so user can't select A, click previous, and click B- this currently would result in genreArray = ['A', 'B']
 5) DONE?- ensure that submit can only be pressed once user has answered all questions, hide submit until genreArray === 10?
 6) DONE- user cannot be accessed in the displayGenre function (was declared in func)
+7) Once user goes through the quiz, gets a result, and clicks restart, their next result will not display an img unless page is refreshed
+8) img displays on laptop but appears with a question mark for mobile
 */
 
 // get user's name:
@@ -16,8 +18,8 @@ function storeUsername() {
 
 // create variables used to rep elements in our document, used to access them in the DOM:
 const restartBtn = document.getElementById("restart");
-const previousBtn = document.getElementById("previous");
-const nextBtn = document.getElementById("next");
+// const previousBtn = document.getElementById("previous");
+// const nextBtn = document.getElementById("next");
 const submitBtn = document.getElementById("submit");
 const A = document.getElementById('A');
 const B = document.getElementById('B');
@@ -157,14 +159,19 @@ let questions = [
 
 // add event listeners to buttons to call functions when clicked:
 restartBtn.addEventListener('click', restart);
-previousBtn.addEventListener('click', previous);
-nextBtn.addEventListener('click', next);
+// previousBtn.addEventListener('click', previous);
+// nextBtn.addEventListener('click', next);
 submitBtn.addEventListener('click', submit);
 
 
 // hide form input area:
 
-let formSubmitBtn = document.getElementById('usernameSubmit');
+// let formSubmitBtn = document.getElementById('usernameSubmit');
+// jQuery hide() 
+// $('#usernameSubmit').click(function() {
+//     $(this).hide();
+// })
+
 // function hideForm() {
 //     formSection.style.display = 'none';
 // }
@@ -227,7 +234,7 @@ function startQuiz() {
         next();
     }
     }
-    previousBtn.classList.add('hide');
+    // previousBtn.classList.add('hide');
     // submitBtn.classList.add('hide');
  }
 startQuiz();
@@ -237,8 +244,8 @@ startQuiz();
 function restart() {
     currentQuestionIndex = 0;
     genreArray = [];
-    previousBtn.classList.remove('hide');
-    nextBtn.classList.remove('hide');
+    // previousBtn.classList.remove('hide');
+    // nextBtn.classList.remove('hide');
     submitBtn.classList.remove('hide');
     A.classList.remove('hide');
     B.classList.remove('hide');
@@ -260,8 +267,8 @@ function restart() {
 function next() {
     currentQuestionIndex++; // maybe delete this?
     if (currentQuestionIndex >= 9) {
-        nextBtn.classList.add('hide');
-        previousBtn.classList.remove('hide');
+        // nextBtn.classList.add('hide');
+        // previousBtn.classList.remove('hide');
     }
     questionText.innerHTML = questions[currentQuestionIndex].question;
     A.innerHTML = questions[currentQuestionIndex].answers[0].option;
@@ -306,7 +313,7 @@ function next() {
         next();
     }
     }
-    previousBtn.classList.remove('hide');
+    // previousBtn.classList.remove('hide');
     // showSubmitBtn();
 }
 
@@ -316,8 +323,8 @@ function next() {
 function previous() {
     currentQuestionIndex--;
     if (currentQuestionIndex <= 0) {
-        previousBtn.classList.add('hide');
-        nextBtn.classList.remove('hide')
+        // previousBtn.classList.add('hide');
+        // nextBtn.classList.remove('hide')
     }
     questionText.innerHTML = questions[currentQuestionIndex].question;
     // button 1
@@ -371,8 +378,8 @@ function previous() {
 /** Upon submitting option buttons and control buttons are hidden, chosen genre is displayed */
         function submit() {
             if (genreArray.length === 10) {
-            previousBtn.classList.add('hide');
-            nextBtn.classList.add('hide');
+            // previousBtn.classList.add('hide');
+            // nextBtn.classList.add('hide');
             submitBtn.classList.add('hide');
             A.classList.add('hide');
             B.classList.add('hide');
