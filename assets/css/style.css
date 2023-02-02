@@ -12,9 +12,17 @@
 
 }
 
-.background {
+/* .background {
     background: url(../images/page-background.jpg) no-repeat center center;
     background-size: cover;
+    height: 100%;
+} */
+
+body {
+    background: url(../images/page-background.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    /* overflow: hidden; makes body stational, immobile */
 }
 
 .all {
@@ -58,14 +66,6 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
 }
-/* 
-.all {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-*/
 
 .modern {
     height: 151px;
@@ -128,6 +128,12 @@ h1 {
 
 #usernameSubmit {
     color: black;
+    background-color: white;
+}
+
+#usernameForm {
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 img {
@@ -161,6 +167,9 @@ img {
 footer {
     background-color: #5d6859;
    /* background-color: #4a4a3f; */
+   position: fixed;
+   bottom: 0;
+   width: 100%;
 }
 
 .social-media {
@@ -186,4 +195,61 @@ footer {
 
 .social-media a {
     text-decoration: none;
+}
+
+@media (min-width: 576px) {
+
+    .title h1 {
+        font-size: 1.4rem;
+    }
+
+    #username {
+        font-size: 0.9rem;
+    }
+
+    #usernameSubmit {
+        font-size: 1rem;
+    }
+
+    #question-text {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+
+    .btn-option {
+        width: 350px;
+    }
+
+    #nfImg img{
+        height: 180px;
+        width: 360px;
+        object-fit: contain;
+    }
+    
+    #horrorImg img {
+        object-fit: contain;
+        /* height: 252px;
+        width: 378px; */
+        height: 180px;
+        width: 360px;
+    }
+    
+    #classicsImg img {
+        object-fit: contain;
+        height: 180px;
+        width: 360px;
+    }
+    
+    #mfImg img {
+        object-fit: contain;
+        height: 180px;
+        width: 360px;
+    }
+
+    .social-media i {
+        font-size: 2.2rem;
+    }
 }
