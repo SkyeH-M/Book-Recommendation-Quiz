@@ -44,7 +44,7 @@ D- Modern Fiction
 const GENRE_MAP = {
     A: {
         name: 'Non-Fiction',
-        imgSrc: '../assets/images/Non-fiction.png',
+        imgSrc: '../assets/images/non-fiction.png',
     },
     B: {
         name: 'Horror',
@@ -438,7 +438,7 @@ function previous() {
         // If user selects A
         if (selectedGenre === 'A') {
         let nfImg = document.createElement("img"); // empty img tag
-        nfImg.src = "../assets/images/Non-fiction.png"; // img shows in sources Dev Tools 
+        nfImg.src = "../assets/images/non-fiction.png"; // img shows in sources Dev Tools 
         let nfImgSource = document.getElementById('nfImg');
         nfImgSource.appendChild(nfImg);
         nfImg.classList.remove('hide');
