@@ -21,7 +21,7 @@
     <div class="container">
         <div id="usernameForm">
             <form name="form">
-                <label for="name">First name:</label>
+                <label id='nameLabel'for="name">First name:</label>
                 <!-- W3Schools HTML <input> pattern Attribute: -->
                 <input type="text" id="username" name="username" placeholder="Please only enter letters" pattern="[a-zA-Z]+" required>
                 <input type="submit" id="usernameSubmit" value="Submit" onclick=storeUsername()>
@@ -36,10 +36,12 @@
                 <img src="./assets/images/modern-fiction.png" class= "modern hide">
                  </div>
                  -->
-                 <div id="nfImg" class="recommend-img"></div>
-                 <div id="horrorImg" class="recommend-img"></div>
-                 <div id="classicsImg" class="recommend-img"></div>
-                 <div id="mfImg" class="recommend-img"></div>
+                 <div class="recommendationImages">
+                 <div id="nfImg"></div>
+                 <div id="horrorImg"></div>
+                 <div id="classicsImg"></div>
+                 <div id="mfImg"></div>
+                </div>
             <div class="options">
                 <button class="btn btn-option option" id="A" data-genre="A"></button>
                 <button class="btn btn-option option" id="B" data-genre="B"></button>
