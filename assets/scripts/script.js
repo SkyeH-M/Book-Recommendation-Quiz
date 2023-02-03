@@ -438,7 +438,8 @@ function previous() {
         // If user selects A
         if (selectedGenre === 'A') {
         let nfImg = document.createElement("img"); // empty img tag
-        nfImg.src = "../assets/images/non-fiction.png"; // img shows in sources Dev Tools 
+        nfImg.src = 'assets/images/non-fiction.png';
+        // nfImg.src = "../assets/images/non-fiction.png"; // img shows in sources Dev Tools 
         let nfImgSource = document.getElementById('nfImg');
         nfImgSource.appendChild(nfImg);
         nfImg.classList.remove('hide');
