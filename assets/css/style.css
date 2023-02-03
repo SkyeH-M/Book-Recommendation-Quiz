@@ -1,6 +1,7 @@
 /* Tasks 
 1) DONE- quiz area should be higher up on mobile page
 2) background image is too zoomed in for desktop/larger screens
+3) media queries for wide but short screen sizes (inc. split screen on my laptop)
 
 */
 
@@ -12,20 +13,13 @@
 
 }
 
-/* .background {
+html {
     background: url(../images/page-background.jpg) no-repeat center center;
     background-size: cover;
-    height: 100%;
-} */
-
-body {
-    background: url(../images/page-background.jpg) no-repeat center center;
-    background-size: cover;
-    height: 100%;
-    /* overflow: hidden; makes body stational, immobile */
+    min-height: 100%;
 }
 
-.all {
+.body {
    /* height: 100vh; */
     width: 100vw;
     display: flex;
@@ -33,6 +27,19 @@ body {
     justify-content: center;
     overflow: hidden;
 }
+
+/* Get Down! How to Keep Footers at the Bottom of the Page- Matthew James Taylor */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.background {
+    min-height: 100%;
+    position: relative;
+}
+
 
 h1 {
     color: white;
@@ -164,12 +171,20 @@ img {
     width: 276px;
 }
 
-footer {
-    background-color: #5d6859;
-   /* background-color: #4a4a3f; */
-   position: fixed;
+/* Delete below after checking it's not needed */
+/* footer {
    bottom: 0;
    width: 100%;
+   margin-bottom: 0;
+   margin-top: auto;
+} */
+
+/* Get Down! How to Keep Footers at the Bottom of the Page- Matthew James Taylor */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #5d6859;
 }
 
 .social-media {
@@ -272,7 +287,7 @@ footer {
     }
 
     #usernameSubmit {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     #question-text {
@@ -319,3 +334,9 @@ footer {
 @media (min-width: 992px) {
     
 }
+
+
+
+
+
+
