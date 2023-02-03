@@ -7,7 +7,7 @@
 5) DONE?- ensure that submit can only be pressed once user has answered all questions, hide submit until genreArray === 10?
 6) DONE- user cannot be accessed in the displayGenre function (was declared in func)
 7) Once user goes through the quiz, gets a result, and clicks restart, their next result will not display an img unless page is refreshed
-8) img displays on laptop but appears with a question mark for mobile
+8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
 */
 
 // get user's name:
@@ -44,19 +44,20 @@ D- Modern Fiction
 const GENRE_MAP = {
     A: {
         name: 'Non-Fiction',
-        imgSrc: '../assets/images/non-fiction.png',
+        imgSrc: 'assets/images/non-fiction.png'
+        // imgSrc: '../assets/images/non-fiction.png',
     },
     B: {
         name: 'Horror',
-        imgSrc: '../assets/images/horror.png',
+        imgSrc: 'assets/images/horror.png',
     },
     C: {
         name: 'Classics',
-        imgSrc: '../assets/images/classics.png',
+        imgSrc: 'assets/images/classics.png',
     },
     D: {
         name: 'Horror',
-        imgSrc: '../assets/images/modern-fiction.png'
+        imgSrc: 'assets/images/modern-fiction.png'
     },
 };
 
@@ -165,12 +166,10 @@ submitBtn.addEventListener('click', submit);
 
 
 // hide form input area:
-
-// let formSubmitBtn = document.getElementById('usernameSubmit');
-// jQuery hide() 
-// $('#usernameSubmit').click(function() {
-//     $(this).hide();
-// })
+// below doesn't work
+$('#usernameSubmit').click(function() {
+    $('#usernameForm').hide();
+})
 
 // function hideForm() {
 //     formSection.style.display = 'none';
@@ -197,7 +196,7 @@ function startQuiz() {
         }
         if (currentQuestionIndex < 9) {
             next();
-        }
+        } 
     }
     // Second button:
     B.innerHTML = questions[currentQuestionIndex].answers[1].option;
@@ -424,6 +423,7 @@ function previous() {
         const selectedGenre = mostFrequent(genreArray);
         questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
         // display image of recommended books:
+        // document.getElementById('body').appendChild(imagesToDisplay); // const imagesToDisplay = GENRE_MAP[selectedGenre].imgSrc; // imagesToDisplay saying not defined
         // const imagesToDisplay = GENRE_MAP[selectedGenre].imgSrc; // imagesToDisplay saying not defined
         // const imagesList = [];
         // imagesToDisplay.forEach((eachImg, index) => {
@@ -434,33 +434,39 @@ function previous() {
         // document.getElementById('body').appendChild(imagesList);
         // console.log(imagesToDisplay);
 
+        // logs relevant file path 
+        // let img = document.createElement('img');
+        // img.src = GENRE_MAP[selectedGenre].imgSrc;
+        // let imgSource = document.getElementsByClassName('recommendationImages');
+        // imgSource.appendChild(img);
+
+        // The code below works !!!
         // LinuxHint How to Add Image in HTML via JavaScript:
-        // If user selects A
+       // If user selects A
         if (selectedGenre === 'A') {
         let nfImg = document.createElement("img"); // empty img tag
         nfImg.src = 'assets/images/non-fiction.png';
-        // nfImg.src = "../assets/images/non-fiction.png"; // img shows in sources Dev Tools 
         let nfImgSource = document.getElementById('nfImg');
         nfImgSource.appendChild(nfImg);
         nfImg.classList.remove('hide');
         // If user selects B
         } else if (selectedGenre === 'B') {
             let horrorImg = document.createElement("img"); // empty img tag
-            horrorImg.src = "../assets/images/horror.png"; // img shows in sources Dev Tools 
+            horrorImg.src = "assets/images/horror.png"; // img shows in sources Dev Tools 
             let horrorImgSource = document.getElementById('horrorImg');
             horrorImgSource.appendChild(horrorImg);
             horrorImg.classList.remove('hide');
             // If user selects C
             } else if (selectedGenre === 'C') {
             let classicsImg = document.createElement("img"); // empty img tag
-            classicsImg.src = "../assets/images/classics.png"; // img shows in sources Dev Tools 
+            classicsImg.src = "assets/images/classics.png"; // img shows in sources Dev Tools 
             let classicsImgSource = document.getElementById('classicsImg');
             classicsImgSource.appendChild(classicsImg);
             classicsImg.classList.remove('hide');
             // If user selects D
             } else if (selectedGenre === 'D') {
             let mfImg = document.createElement("img"); // empty img tag
-            mfImg.src = "../assets/images/modern-fiction.png"; // img shows in sources Dev Tools 
+            mfImg.src = "assets/images/modern-fiction.png"; // img shows in sources Dev Tools 
             let mfImgSource = document.getElementById('mfImg');
             mfImgSource.appendChild(mfImg);
             mfImg.classList.remove('hide');
