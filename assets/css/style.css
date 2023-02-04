@@ -273,37 +273,50 @@ img {
 
 @media (min-width: 768px) {
     .title h1 {
-        font-size: 1.6rem;
-        margin-bottom: 30px;
-        margin-top: 30px;
+        /* font-size: 1.6rem; */
+        font-size: 1.2rem;
+        /* margin-bottom: 30px;
+        margin-top: 30px; */
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    .container {
+        margin-top: 0 !important;
     }
 
     #nameLabel {
-        font-size: 1.3rem;
+        /* font-size: 1.3rem; */
+        font-size: 0.9rem;
     }
 
     #username {
-        font-size: 1.2rem;
+        /* font-size: 1.2rem; */
+        font-size: 0.9rem;
     }
 
     #usernameSubmit {
-        font-size: 1.1rem;
+        /* font-size: 1.1rem; */
+        font-size: 0.9rem;
     }
 
     #question-text {
-        font-size: 1.5rem;
+        /* font-size: 1.5rem; */
+        font-size: 1rem;
+        margin-top: -15px;
     }
 
     .btn {
-        font-size: 1.3rem;
+        /* font-size: 1.3rem; */
+        font-size: 0.9rem;
     }
 
     .btn-option {
-        width: 450px;
+        width: 500px;
     }
 
     .social-media i {
-        font-size: 3.3rem;
+        font-size: 2rem;
     }
 
    #nfImg img {
