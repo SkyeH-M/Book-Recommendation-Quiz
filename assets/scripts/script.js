@@ -8,6 +8,7 @@
 6) DONE- user cannot be accessed in the displayGenre function (was declared in func)
 7) Once user goes through the quiz, gets a result, and clicks restart, their next result will not display an img unless page is refreshed
 8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
+9) Form submit won't hide after submission if you press enter, not click button
 */
 
 // get user's name:
