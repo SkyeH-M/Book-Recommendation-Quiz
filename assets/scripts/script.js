@@ -12,7 +12,8 @@
 
 // get user's name:
 function storeUsername() {
-    let input = document.getElementById('username').value;
+    let input = document.getElementById("username").value;
+    document.getElementById('usernameForm').style.display = 'none';
     sessionStorage.setItem("username", input);
 }
 
@@ -25,8 +26,9 @@ const A = document.getElementById('A');
 const B = document.getElementById('B');
 const C = document.getElementById('C');
 const D = document.getElementById('D');
-const formSection = document.getElementById('usernameForm');
+const formSection = document.getElementById('overlay');
 const questionText = document.getElementById("question-text");
+const usernameSubmit = document.getElementById('usernameSubmit');
 
 /* Genres:
 A- Non-Fiction
@@ -164,23 +166,6 @@ restartBtn.addEventListener('click', restart);
 // nextBtn.addEventListener('click', next);
 submitBtn.addEventListener('click', submit);
 
-
-// hide form input area:
-// below doesn't work
-$('#usernameSubmit').click(function() {
-    $('#usernameForm').hide();
-})
-
-// function hideForm() {
-//     formSection.style.display = 'none';
-// }
-// formSubmitBtn.addEventListener("click", hideForm);
-// function hideForm() {
-// if (currentQuestionIndex >= 1) {
-//     formSection.classList.add('hide');
-// }
-// }
-
 // create a func that'll be executed when the page loads and script is executed
 
 function startQuiz() {
@@ -235,6 +220,12 @@ function startQuiz() {
     }
     // previousBtn.classList.add('hide');
     // submitBtn.classList.add('hide');
+
+    // below makes it so that on restart the rec img doesn't disappear
+    // nfImg.classList.remove('hide');
+    // horrorImg.classList.remove('hide');
+    // classicsImg.classList.remove('hide');
+    // mfImg.classList.remove('hide');
  }
 startQuiz();
 
@@ -250,11 +241,11 @@ function restart() {
     B.classList.remove('hide');
     C.classList.remove('hide');
     D.classList.remove('hide');
+    // below hides recommendation img result after restarting quiz
     nfImg.classList.add('hide');
     horrorImg.classList.add('hide');
     classicsImg.classList.add('hide');
     mfImg.classList.add('hide');
-    // nfImgSource.removeChild(nfImg);
     startQuiz();
 }
 
@@ -319,60 +310,60 @@ function next() {
 // create previous() jump to prev Q, currentQuestion will be --, hidden class removed from next button
 
 
-function previous() {
-    currentQuestionIndex--;
-    if (currentQuestionIndex <= 0) {
-        // previousBtn.classList.add('hide');
-        // nextBtn.classList.remove('hide')
-    }
-    questionText.innerHTML = questions[currentQuestionIndex].question;
-    // button 1
-    A.innerHTML = questions[currentQuestionIndex].answers[0].option;
-    A.onclick = () => {
-        if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
-            console.log('A'); 
-            genreArray.push('A'); 
-         }
-         if (currentQuestionIndex < 9) {
-         next();
-     }
-     }
+// function previous() {
+//     currentQuestionIndex--;
+//     if (currentQuestionIndex <= 0) {
+//         // previousBtn.classList.add('hide');
+//         // nextBtn.classList.remove('hide')
+//     }
+//     questionText.innerHTML = questions[currentQuestionIndex].question;
+//     // button 1
+//     A.innerHTML = questions[currentQuestionIndex].answers[0].option;
+//     A.onclick = () => {
+//         if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
+//             console.log('A'); 
+//             genreArray.push('A'); 
+//          }
+//          if (currentQuestionIndex < 9) {
+//          next();
+//      }
+//      }
      
-     // button 2
-     B.innerHTML = questions[currentQuestionIndex].answers[1].option;
-     B.onclick = () => {
-        if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
-            console.log('B'); 
-            genreArray.push('B'); 
-         }
-         if (currentQuestionIndex < 9) {
-         next();
-     }
-     }
+//      // button 2
+//      B.innerHTML = questions[currentQuestionIndex].answers[1].option;
+//      B.onclick = () => {
+//         if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
+//             console.log('B'); 
+//             genreArray.push('B'); 
+//          }
+//          if (currentQuestionIndex < 9) {
+//          next();
+//      }
+//      }
      
-     C.innerHTML = questions[currentQuestionIndex].answers[2].option;
-     C.onclick = () => {
-        if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
-            console.log('C'); 
-            genreArray.push('C'); 
-         }
-         if (currentQuestionIndex < 9) {
-         next();
-     }
-     }
+//      C.innerHTML = questions[currentQuestionIndex].answers[2].option;
+//      C.onclick = () => {
+//         if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
+//             console.log('C'); 
+//             genreArray.push('C'); 
+//          }
+//          if (currentQuestionIndex < 9) {
+//          next();
+//      }
+//      }
      
-     D.innerHTML = questions[currentQuestionIndex].answers[3].option;
-     D.onclick = () => {
-        if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
-            console.log('D'); 
-            genreArray.push('D'); 
-         }
-         if (currentQuestionIndex < 9) {
-         next();
-     }
-     }
-     nextBtn.classList.remove('hide');
-        }
+//      D.innerHTML = questions[currentQuestionIndex].answers[3].option;
+//      D.onclick = () => {
+//         if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
+//             console.log('D'); 
+//             genreArray.push('D'); 
+//          }
+//          if (currentQuestionIndex < 9) {
+//          next();
+//      }
+//      }
+//      nextBtn.classList.remove('hide');
+//         }
 
 /** Upon submitting option buttons and control buttons are hidden, chosen genre is displayed */
         function submit() {
@@ -416,7 +407,7 @@ function previous() {
         }
 
        // retrieve username value:
-       let storedUsername = sessionStorage.getItem('username');
+       let storedUsername = sessionStorage.getItem("username");
 
 /** Tells user (by name) which genre they selected most frequently, and shows book recommendations */
        function displayGenre() {
