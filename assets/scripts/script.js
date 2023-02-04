@@ -132,7 +132,7 @@ let questions = [
     {
         question: "Imagine you're on holiday, what activity would you do?",
         answers: [
-            {option: "Check our local heritage sites", correspondingGenre:'A'},
+            {option: "Check out local heritage sites", correspondingGenre:'A'},
             {option: "Do an extreme sport or activity", correspondingGenre:'B'},
             {option: "Visit somewhere that everyone recommends", correspondingGenre:'C'},
             {option: "Chill on the beach or by the pool", correspondingGenre:'D'}

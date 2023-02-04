@@ -1,7 +1,7 @@
 /* Tasks 
 1) DONE- quiz area should be higher up on mobile page
 2) background image is too zoomed in for desktop/larger screens
-3) media queries for wide but short screen sizes (inc. split screen on my laptop)
+3) PARTIALLY DONE- media queries for wide but short screen sizes (inc. split screen on my laptop)
 
 */
 
@@ -335,8 +335,55 @@ img {
     
 }
 
+@media (max-height: 1000px) {
+    .container {
+        height: 65vh;
+        margin-top: 20px;
+    }
+}
 
+ 
+/* Styling specific to Nest Hub */
+@media (width: 1024px), (height: 600px) {
+    .container {
+        height: 70vh;
+        margin-top: 0;
+    }
 
+    .social-media i {
+        font-size: 2rem;
+    }
 
+    h1 {
+        margin-bottom: 10px !important;
+        margin-top: 10px !important; 
+    }
 
+    #question-text {
+        font-size: 1.3rem;
+    }
 
+    .btn {
+        font-size: 1rem;
+    }
+
+    .btn-option {
+        width: 600px;
+    }
+} 
+
+/* Styling specific to very small mobile screen, e.g Galaxy Fold */
+@media (height: 653px), (width: 280px) {
+
+    .btn-option {
+        width: 200px;
+    }
+
+    h1 {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        height: 70vh; /* Content will fit appropriately when form section is hidden */
+    }
+}
