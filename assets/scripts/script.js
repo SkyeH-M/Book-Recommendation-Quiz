@@ -12,6 +12,8 @@
 10) Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
 */
 
+// should the username, and explanation of the quiz be a modal?
+
 // get user's name:
 function storeUsername() {
     let input = document.getElementById("username").value;
@@ -60,7 +62,7 @@ const GENRE_MAP = {
         imgSrc: "assets/images/classics.png"
     },
     D: {
-        name: "Horror",
+        name: "Modern Fiction",
         imgSrc: "assets/images/modern-fiction.png"
     },
 };
@@ -248,10 +250,10 @@ function restart() {
     horrorImg.classList.add("hide");
     classicsImg.classList.add("hide");
     mfImg.classList.add("hide");
-    sessionStorage.clear();
+    // get username form to reappear
     document.getElementById("usernameForm").style.display = "block";
+    sessionStorage.clear();
     startQuiz();
-    
 }
 
 // atm options are tied to buttons so will always have to be in order ABCD. If I write A in the answer option for the 3rd option will it print A to the genreArray?

@@ -122,6 +122,7 @@ h1 {
 #question-text {
     font-size: 0.8rem;
     /* Needs to be higher up the page */
+    padding: 10px;
 }
 
 .form {
@@ -136,6 +137,10 @@ h1 {
 #usernameSubmit {
     color: black;
     background-color: white;
+}
+
+#usernameSubmit:hover {
+    background-color: #aab5a6;
 }
 
 #usernameForm {
@@ -399,4 +404,31 @@ img {
     .container {
         height: 70vh; /* Content will fit appropriately when form section is hidden */
     }
+
+    #nfImg img{
+        height: 144px;
+        width: 200px;
+        object-fit: contain;
+    }
+    
+    #horrorImg img {
+        object-fit: contain;
+        /* height: 252px;
+        width: 378px; */
+        height: 144px;
+        width: 200px;
+    }
+    
+    #classicsImg img {
+        object-fit: contain;
+        height: 144px;
+        width: 200px;
+    }
+    
+    #mfImg img {
+        object-fit: contain;
+        height: 144px;
+        width: 200px;
+    }
+
 }
