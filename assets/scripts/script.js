@@ -9,13 +9,14 @@
 7) Once user goes through the quiz, gets a result, and clicks restart, their next result will not display an img unless page is refreshed
 8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
 9) Form submit won't hide after submission if you press enter, not click button
+10) Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
 */
 
 // get user's name:
 function storeUsername() {
     let input = document.getElementById("username").value;
-    document.getElementById('usernameForm').style.display = 'none';
     sessionStorage.setItem("username", input);
+    document.getElementById("usernameForm").style.display = "none";
 }
 
 // create variables used to rep elements in our document, used to access them in the DOM:
@@ -23,13 +24,13 @@ const restartBtn = document.getElementById("restart");
 // const previousBtn = document.getElementById("previous");
 // const nextBtn = document.getElementById("next");
 const submitBtn = document.getElementById("submit");
-const A = document.getElementById('A');
-const B = document.getElementById('B');
-const C = document.getElementById('C');
-const D = document.getElementById('D');
-const formSection = document.getElementById('overlay');
+const A = document.getElementById("A");
+const B = document.getElementById("B");
+const C = document.getElementById("C");
+const D = document.getElementById("D");
+// const formSection = document.getElementById('overlay');
 const questionText = document.getElementById("question-text");
-const usernameSubmit = document.getElementById('usernameSubmit');
+const usernameSubmit = document.getElementById("usernameSubmit");
 
 /* Genres:
 A- Non-Fiction
@@ -46,21 +47,21 @@ D- Modern Fiction
 // can't actually access the images
 const GENRE_MAP = {
     A: {
-        name: 'Non-Fiction',
-        imgSrc: 'assets/images/non-fiction.png'
+        name: "Non-Fiction",
+        imgSrc: "assets/images/non-fiction.png"
         // imgSrc: '../assets/images/non-fiction.png',
     },
     B: {
-        name: 'Horror',
-        imgSrc: 'assets/images/horror.png',
+        name: "Horror",
+        imgSrc: "assets/images/horror.png"
     },
     C: {
-        name: 'Classics',
-        imgSrc: 'assets/images/classics.png',
+        name: "Classics",
+        imgSrc: "assets/images/classics.png"
     },
     D: {
-        name: 'Horror',
-        imgSrc: 'assets/images/modern-fiction.png'
+        name: "Horror",
+        imgSrc: "assets/images/modern-fiction.png"
     },
 };
 
@@ -71,101 +72,101 @@ let questions = [
     {
         question: "Which genre do you read most frequently?",
         answers: [
-            {option: "Non-Fiction", correspondingGenre:'A'},
-            {option: "Horror", correspondingGenre:'B'},
-            {option: "Classics", correspondingGenre:'C'},
-            {option: "Modern Fiction", correspondingGenre:'D'}
+            {option: "Non-Fiction", correspondingGenre:"A"},
+            {option: "Horror", correspondingGenre:"B"},
+            {option: "Classics", correspondingGenre:"C"},
+            {option: "Modern Fiction", correspondingGenre:"D"}
 
         ]
     },
     {
         question: "Which of the following appeals most to you?",
         answers: [
-            {option: "I want to learn something", correspondingGenre:'A'},
-            {option: "I want to be intrigued", correspondingGenre:'B'},
-            {option: "I want to be transported to another time", correspondingGenre:'C'},
-            {option: "I want something that relates to my life", correspondingGenre:'D'}
+            {option: "I want to learn something", correspondingGenre:"A"},
+            {option: "I want to be intrigued", correspondingGenre:"B"},
+            {option: "I want to be transported to another time", correspondingGenre:"C"},
+            {option: "I want something that relates to my life", correspondingGenre:"D"}
         ]
     },
     {
         question: "Which of the following would be a good day out?",
         answers: [
-            {option: "Visiting a museum or gallery", correspondingGenre:'A'},
-            {option: "Exploring a haunted house", correspondingGenre:'B'},
-            {option: "Visiting a National Trust site", correspondingGenre:'C'},
-            {option: "Watching something new at the cinema", correspondingGenre:'D'}
+            {option: "Visiting a museum or gallery", correspondingGenre:"A"},
+            {option: "Exploring a haunted house", correspondingGenre:"B"},
+            {option: "Visiting a National Trust site", correspondingGenre:"C"},
+            {option: "Watching something new at the cinema", correspondingGenre:"D"}
         ]
     },
     {
         question: "Pick a quote you like...",
         answers: [
-            {option: '"Deviant men have been constructed as criminal, while deviant women have been constructed as insane."', correspondingGenre:'A'},
-            {option: '"What is worse: being locked outside of your own mind, or being locked inside of if?"', correspondingGenre:'B'},
-            {option: '"I do not think, therefore I am a moustache"', correspondingGenre:'C'},
-            {option: '"Wasn\’t friendship its own miracle, the finding of another person who made the entire lonely world seem somehow less lonely?"', correspondingGenre:'D'}
+            {option: '"Deviant men have been constructed as criminal, while deviant women have been constructed as insane."', correspondingGenre:"A"},
+            {option: '"What is worse: being locked outside of your own mind, or being locked inside of if?"', correspondingGenre:"B"},
+            {option: '"I do not think, therefore I am a moustache"', correspondingGenre:"C"},
+            {option: '"Wasn\’t friendship its own miracle, the finding of another person who made the entire lonely world seem somehow less lonely?"', correspondingGenre:"D"}
         ]
     },
     {
         question: "You're buying a book for a friend, what do you choose?",
         answers: [
-            {option: "A book that explores an interest of theirs", correspondingGenre:'A'},
-            {option: "A great mystery to unravel", correspondingGenre:'B'},
-            {option: "A classic, they're classics for a reason!", correspondingGenre:'C'},
-            {option: "A book that inspired their favourite new TV show/film", correspondingGenre:'D'}
+            {option: "A book that explores an interest of theirs", correspondingGenre:"A"},
+            {option: "A great mystery to unravel", correspondingGenre:"B"},
+            {option: "A classic, they're classics for a reason!", correspondingGenre:"C"},
+            {option: "A book that inspired their favourite new TV show/film", correspondingGenre:"D"}
         ]
     },
     {
         question: "Which of these authors do you prefer?",
         answers: [
-            {option: "Gabor Maté", correspondingGenre:'A'},
-            {option: "Stephen King", correspondingGenre:'B'},
-            {option: "Virginia Woolf", correspondingGenre:'C'},
-            {option: "Sally Rooney", correspondingGenre:'D'}
+            {option: "Gabor Maté", correspondingGenre:"A"},
+            {option: "Stephen King", correspondingGenre:"B"},
+            {option: "Virginia Woolf", correspondingGenre:"C"},
+            {option: "Sally Rooney", correspondingGenre:"D"}
         ]
     },
     {
         question: "Pick a drink",
         answers: [
-            {option: "Water", correspondingGenre:'A'},
-            {option: "Whiskey", correspondingGenre:'B'},
-            {option: "Tea", correspondingGenre:'C'},
-            {option: "Cocktail", correspondingGenre:'D'}
+            {option: "Water", correspondingGenre:"A"},
+            {option: "Whiskey", correspondingGenre:"B"},
+            {option: "Tea", correspondingGenre:"C"},
+            {option: "Cocktail", correspondingGenre:"D"}
         ]
     },
     {
         question: "Imagine you're on holiday, what activity would you do?",
         answers: [
-            {option: "Check out local heritage sites", correspondingGenre:'A'},
-            {option: "Do an extreme sport or activity", correspondingGenre:'B'},
-            {option: "Visit somewhere that everyone recommends", correspondingGenre:'C'},
-            {option: "Chill on the beach or by the pool", correspondingGenre:'D'}
+            {option: "Check out local heritage sites", correspondingGenre:"A"},
+            {option: "Do an extreme sport or activity", correspondingGenre:"B"},
+            {option: "Visit somewhere that everyone recommends", correspondingGenre:"C"},
+            {option: "Chill on the beach or by the pool", correspondingGenre:"D"}
         ]
     },
     {
         question: "Choose a book you've loved in the past",
         answers: [
-            {option: "Women, Race & Class- Angela Davis", correspondingGenre:'A'},
-            {option: "We Need to Talk About Kevin- Lionel Shriver", correspondingGenre:'B'},
-            {option: "The Metamorphosis- Franz Kafka", correspondingGenre:'C'},
-            {option: "Normal People- Sally Rooney", correspondingGenre:'D'}
+            {option: "Women, Race & Class- Angela Davis", correspondingGenre:"A"},
+            {option: "We Need to Talk About Kevin- Lionel Shriver", correspondingGenre:"B"},
+            {option: "The Metamorphosis- Franz Kafka", correspondingGenre:"C"},
+            {option: "Normal People- Sally Rooney", correspondingGenre:"D"}
         ]
     },
     {
         question: "Pick a film",
         answers: [
-            {option: "13th", correspondingGenre:'A'},
-            {option: "The Descent", correspondingGenre:'B'},
-            {option: "12 Angry Men", correspondingGenre:'C'},
-            {option: "Everything Everywhere All at Once", correspondingGenre:'D'}
+            {option: "13th", correspondingGenre:"A"},
+            {option: "The Descent", correspondingGenre:"B"},
+            {option: "12 Angry Men", correspondingGenre:"C"},
+            {option: "Everything Everywhere All at Once", correspondingGenre:"D"}
         ]
     }
 ]
 
 // add event listeners to buttons to call functions when clicked:
-restartBtn.addEventListener('click', restart);
+restartBtn.addEventListener("click", restart);
 // previousBtn.addEventListener('click', previous);
 // nextBtn.addEventListener('click', next);
-submitBtn.addEventListener('click', submit);
+submitBtn.addEventListener("click", submit);
 
 // create a func that'll be executed when the page loads and script is executed
 
@@ -177,8 +178,8 @@ function startQuiz() {
     A.innerHTML = questions[currentQuestionIndex].answers[0].option;
     A.onclick = () => {
         if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
-            console.log('A'); // when A is clicked, the console displays A
-           genreArray.push('A'); // when A is clicked, 'A' is added to genreArray (this adds as many 'A's as the num of times the button is clicked)
+            console.log("A"); // when A is clicked, the console displays A
+           genreArray.push("A"); // when A is clicked, 'A' is added to genreArray (this adds as many 'A's as the num of times the button is clicked)
         }
         if (currentQuestionIndex < 9) {
             next();
@@ -188,8 +189,8 @@ function startQuiz() {
     B.innerHTML = questions[currentQuestionIndex].answers[1].option;
     B.onclick = () => {
         if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
-            console.log('B'); 
-           genreArray.push('B'); 
+            console.log("B"); 
+           genreArray.push("B"); 
         }
         if (currentQuestionIndex < 9) {
         next();
@@ -200,8 +201,8 @@ function startQuiz() {
     C.innerHTML = questions[currentQuestionIndex].answers[2].option;
     C.onclick = () => {
         if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
-            console.log('C'); 
-           genreArray.push('C'); 
+            console.log("C"); 
+           genreArray.push("C"); 
         }
         if (currentQuestionIndex < 9) {
         next();
@@ -212,8 +213,8 @@ function startQuiz() {
     D.innerHTML = questions[currentQuestionIndex].answers[3].option;
     D.onclick = () => {
         if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
-            console.log('D'); 
-           genreArray.push('D'); 
+            console.log("D"); 
+           genreArray.push("D"); 
         }
         if (currentQuestionIndex < 9) {
         next();
@@ -237,17 +238,20 @@ function restart() {
     genreArray = [];
     // previousBtn.classList.remove('hide');
     // nextBtn.classList.remove('hide');
-    submitBtn.classList.remove('hide');
-    A.classList.remove('hide');
-    B.classList.remove('hide');
-    C.classList.remove('hide');
-    D.classList.remove('hide');
+    submitBtn.classList.remove("hide");
+    A.classList.remove("hide");
+    B.classList.remove("hide");
+    C.classList.remove("hide");
+    D.classList.remove("hide");
     // below hides recommendation img result after restarting quiz
-    nfImg.classList.add('hide');
-    horrorImg.classList.add('hide');
-    classicsImg.classList.add('hide');
-    mfImg.classList.add('hide');
+    nfImg.classList.add("hide");
+    horrorImg.classList.add("hide");
+    classicsImg.classList.add("hide");
+    mfImg.classList.add("hide");
+    sessionStorage.clear();
+    document.getElementById("usernameForm").style.display = "block";
     startQuiz();
+    
 }
 
 // atm options are tied to buttons so will always have to be in order ABCD. If I write A in the answer option for the 3rd option will it print A to the genreArray?
@@ -265,8 +269,8 @@ function next() {
     A.innerHTML = questions[currentQuestionIndex].answers[0].option;
     A.onclick = () => {
         if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
-            console.log('A'); 
-           genreArray.push('A'); 
+            console.log("A"); 
+           genreArray.push("A"); 
         }
         if (currentQuestionIndex < 9) {
         next();
@@ -276,8 +280,8 @@ function next() {
     B.innerHTML = questions[currentQuestionIndex].answers[1].option;
     B.onclick = () => {
         if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
-            console.log('B'); 
-           genreArray.push('B'); 
+            console.log("B"); 
+           genreArray.push("B"); 
         }
         if (currentQuestionIndex < 9) {
         next();
@@ -286,8 +290,8 @@ function next() {
     C.innerHTML = questions[currentQuestionIndex].answers[2].option;
     C.onclick = () => {
         if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
-            console.log('C'); 
-           genreArray.push('C'); 
+            console.log("C"); 
+           genreArray.push("C"); 
         }
         if (currentQuestionIndex < 9) {
         next();
@@ -297,8 +301,8 @@ function next() {
     D.innerHTML = questions[currentQuestionIndex].answers[3].option;
     D.onclick = () => {
         if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
-            console.log('D'); 
-           genreArray.push('D'); 
+            console.log("D"); 
+           genreArray.push("D"); 
         }
         if (currentQuestionIndex < 9) {
         next();
@@ -368,17 +372,17 @@ function next() {
 
 /** Upon submitting option buttons and control buttons are hidden, chosen genre is displayed */
         function submit() {
-            if (genreArray.length === 10) {
+            // if (genreArray.length === 10) {
             // previousBtn.classList.add('hide');
             // nextBtn.classList.add('hide');
-            submitBtn.classList.add('hide');
-            A.classList.add('hide');
-            B.classList.add('hide');
-            C.classList.add('hide');
-            D.classList.add('hide');
+            submitBtn.classList.add("hide");
+            A.classList.add("hide");
+            B.classList.add("hide");
+            C.classList.add("hide");
+            D.classList.add("hide");
            // questionText.innerHTML = mostFrequent(genreArray); // chosenGenre displays undefined, mostFrequent(genreArray) shows correct letter on screen
            displayGenre(); 
-            }
+           // }
         }
 
         // hide submit button until quiz has been fully answered:
@@ -406,11 +410,11 @@ function next() {
         }
         return mostCommon;
         }
-
+        
        // retrieve username value:
        let storedUsername = sessionStorage.getItem("username");
 
-/** Tells user (by name) which genre they selected most frequently, and shows book recommendations */
+/** Tells user (by name) which genre they selected most frequently, and shows book recommendation images */
        function displayGenre() {
         const selectedGenre = mostFrequent(genreArray);
         questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
@@ -432,36 +436,36 @@ function next() {
         // let imgSource = document.getElementsByClassName('recommendationImages');
         // imgSource.appendChild(img);
 
-        // The code below works !!!
+       
         // LinuxHint How to Add Image in HTML via JavaScript:
-       // If user selects A
-        if (selectedGenre === 'A') {
-        let nfImg = document.createElement("img"); // empty img tag
-        nfImg.src = 'assets/images/non-fiction.png';
-        let nfImgSource = document.getElementById('nfImg');
+        // If user selects A
+        if (selectedGenre === "A") {
+        let nfImg = document.createElement("img"); 
+        nfImg.src = "assets/images/non-fiction.png";
+        let nfImgSource = document.getElementById("nfImg");
         nfImgSource.appendChild(nfImg);
-        nfImg.classList.remove('hide');
+        nfImg.classList.remove("hide");
         // If user selects B
-        } else if (selectedGenre === 'B') {
-            let horrorImg = document.createElement("img"); // empty img tag
-            horrorImg.src = "assets/images/horror.png"; // img shows in sources Dev Tools 
-            let horrorImgSource = document.getElementById('horrorImg');
+        } else if (selectedGenre === "B") {
+            let horrorImg = document.createElement("img"); 
+            horrorImg.src = "assets/images/horror.png";  
+            let horrorImgSource = document.getElementById("horrorImg");
             horrorImgSource.appendChild(horrorImg);
-            horrorImg.classList.remove('hide');
+            horrorImg.classList.remove("hide");
             // If user selects C
-            } else if (selectedGenre === 'C') {
-            let classicsImg = document.createElement("img"); // empty img tag
-            classicsImg.src = "assets/images/classics.png"; // img shows in sources Dev Tools 
-            let classicsImgSource = document.getElementById('classicsImg');
+            } else if (selectedGenre === "C") {
+            let classicsImg = document.createElement("img"); 
+            classicsImg.src = "assets/images/classics.png"; 
+            let classicsImgSource = document.getElementById("classicsImg");
             classicsImgSource.appendChild(classicsImg);
-            classicsImg.classList.remove('hide');
+            classicsImg.classList.remove("hide");
             // If user selects D
-            } else if (selectedGenre === 'D') {
-            let mfImg = document.createElement("img"); // empty img tag
-            mfImg.src = "assets/images/modern-fiction.png"; // img shows in sources Dev Tools 
-            let mfImgSource = document.getElementById('mfImg');
+            } else if (selectedGenre === "D") {
+            let mfImg = document.createElement("img"); 
+            mfImg.src = "assets/images/modern-fiction.png"; 
+            let mfImgSource = document.getElementById("mfImg");
             mfImgSource.appendChild(mfImg);
-            mfImg.classList.remove('hide');
+            mfImg.classList.remove("hide");
             }
         }
 
