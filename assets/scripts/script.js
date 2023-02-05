@@ -374,7 +374,7 @@ function next() {
 
 /** Upon submitting option buttons and control buttons are hidden, chosen genre is displayed */
         function submit() {
-            // if (genreArray.length === 10) {
+            if (genreArray.length === 10) {
             // previousBtn.classList.add('hide');
             // nextBtn.classList.add('hide');
             submitBtn.classList.add("hide");
@@ -384,7 +384,7 @@ function next() {
             D.classList.add("hide");
            // questionText.innerHTML = mostFrequent(genreArray); // chosenGenre displays undefined, mostFrequent(genreArray) shows correct letter on screen
            displayGenre(); 
-           // }
+           }
         }
 
         // hide submit button until quiz has been fully answered:

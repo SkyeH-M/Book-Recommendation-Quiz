@@ -64,7 +64,7 @@ h1 {
     width: 80vw;
     max-width: 80%;
     background-color: rgba(107, 95, 95, 0.895); /* Make completely opaque? */
-    height: 75vh; 
+    height: 70vh !important; 
     box-shadow: 0 0 5px 4px;
     display: flex;
     flex-direction: column;
@@ -72,11 +72,6 @@ h1 {
     align-items: center;
     text-align: center;
     margin-bottom: 20px;
-}
-
-.modern {
-    height: 151px;
-    width: 291px;
 }
 
 .btn {
@@ -134,9 +129,14 @@ h1 {
     font-size: 0.7rem;
 }
 
+#nameLabel {
+    font-size: 0.7rem;
+}
+
 #usernameSubmit {
     color: black;
     background-color: white;
+    font-size: 0.8rem;
 }
 
 #usernameSubmit:hover {
@@ -199,8 +199,7 @@ img {
 
 .social-media li {
     display: inline-block; 
-    text-align: center;
-   
+    text-align: center; 
 }
 
 .social-media i {
@@ -350,7 +349,47 @@ img {
 }
 
 @media (min-width: 992px) {
-    
+   .title h1 {
+        font-size: 2rem;
+    }
+    #question-text {
+        font-size: 2rem;
+    }
+    #nameLabel {
+        font-size: 1.5rem;
+    }
+    #username {
+        font-size: 1.5rem;
+    }
+    #usernameSubmit {
+        font-size: 1.2rem;
+    }
+    .btn-option {
+        font-size: 1.2rem;
+    }
+    .btn {
+        font-size: 1.2rem;
+    }
+    #nfImg img {
+    height: 327px;
+    width: 655px;
+    object-fit: contain;
+    }
+    #horrorImg img {
+    height: 327px;
+    width: 655px;
+    object-fit: contain;
+    }   
+    #classicsImg img {
+    height: 327px;
+    width: 655px;
+    object-fit: contain;  
+    }
+    #mfImg img {
+    height: 327px;
+    width: 655px;
+    object-fit: contain;
+    }
 }
 
 @media (max-height: 1000px) {
@@ -388,6 +427,29 @@ img {
     .btn-option {
         width: 600px;
     }
+    #nfImg img {
+        height: 234px;
+        width: 468px;
+        object-fit: contain;
+        }
+        
+        #horrorImg img {
+        height: 234px;
+        width: 468px;
+        object-fit: contain;
+        }
+    
+        #classicsImg img {
+        height: 234px;
+        width: 468px;
+        object-fit: contain;  
+        }
+    
+        #mfImg img {
+        height: 234px;
+        width: 468px;
+        object-fit: contain;
+        }
 } 
 
 /* Styling specific to very small mobile screen, e.g Galaxy Fold */
