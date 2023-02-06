@@ -471,19 +471,16 @@ function next() {
             }
         }
 
-    // Modal
-    var modal = document.getElementById('myModal');
-    var span = document.getElementsByClassName('close')[0];
-    span.onclick = function() {
-        modal.style.display = 'none';
-    }
+   /* Modal */
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
+let modal = document.getElementById('modalMain');
+let closeBtn = document.getElementById('closeBtn');
+closeBtn.addEventListener('click', closeModal);
 
+function closeModal() {
+    modal.style.display = 'none';
+}
+   
        
 
         
