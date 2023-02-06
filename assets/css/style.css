@@ -35,23 +35,37 @@ html, body {
     height: 100%;
 }
 
-/* .modal {
-    display: none;
+.modal {
+    display: block;
     position: fixed;
     z-index: 1;
     padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color: #aab5a6;
-} */
+}
 
 .modal-content {
     background-color: #aab5a6;
     margin: auto;
     padding: 20px;
     width: 80%;
+}
+
+.close {
+    color:rgba(205, 185, 185);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.close:hover {
+    color:rgba(107, 95, 95);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .background {
