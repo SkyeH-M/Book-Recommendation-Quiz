@@ -69,7 +69,7 @@ html, body {
 }
 
 #closeBtn {
-    margin-left: 70%;
+    margin-left: 80%;
     font-size: 2rem;
 }
 
@@ -98,7 +98,7 @@ h2 {
 
 p {
     font-size: 0.9rem;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .title {
@@ -269,6 +269,29 @@ img {
 
 /* Media Queries */
 
+@media (min-width: 320px) {
+    .title h2 {
+        margin-bottom: 0;
+    }
+    .container {
+        /* Check this doens't effect anything else */
+        margin-top: 0 !important;
+    }
+    .modal-content {
+        height: 60%;
+        margin: 25% auto;
+    }
+
+    #modalImg img {
+        margin: 10px;
+        height: 100px;
+        width: 165px;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+}
+
 @media (min-width: 576px) {
 
     .title h2 {
@@ -323,6 +346,14 @@ img {
 
     .social-media i {
         font-size: 2.2rem;
+    }
+
+    .modal-content {
+        height: 60%;
+        margin: 13% auto;
+    }
+    .container {
+        margin-top: 0 !important;
     }
 }
 
@@ -401,14 +432,27 @@ img {
     #modalImg img {
         margin-top: 20px;
     }
+    .modal-content {
+        margin: 10% auto;
+        padding: 0;
+        height: 70%;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+    #modalImg img {
+        width: 300px;
+        height: 180px;
+    }
 }
 
 @media (min-width: 992px) {
    .title h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        margin-bottom: 0 !important;
     }
     #question-text {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
     #nameLabel {
         font-size: 1.5rem;
@@ -420,10 +464,10 @@ img {
         font-size: 1.2rem;
     }
     .btn-option {
-        font-size: 1.2rem;
+        font-size: 1rem !important;
     }
     .btn {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     #nfImg img {
     height: 327px;
@@ -444,6 +488,60 @@ img {
     height: 327px;
     width: 655px;
     object-fit: contain;
+    }
+    .modal-content {
+        margin: 8% auto;
+        padding: 0;
+        height: 70%;
+    }
+    .container {
+        height: 70vh !important;
+    }
+    #closeBtn {
+        font-size: 3rem;
+    }
+    #nameLabel {
+        font-size: 1.1rem;
+    }
+    #username {
+        font-size: 1.1rem;
+    }
+    #usernameSubmit {
+        font-size: 1.1rem;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .modal-content {
+        margin: 8% auto;
+    }
+    .title h2 {
+        font-size: 1.8rem;
+    }
+    .btn-option {
+        font-size: 1.2rem;
+    }
+    .container {
+        /* Check this doesn't effect any other styling */
+        margin-top: 20px !important;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    #modalImg img {
+        width: 450px;
+        height: 275px;
+        margin: 0;
+    }
+    .social-media i {
+        font-size: 3rem;
     }
 }
 
@@ -505,13 +603,17 @@ img {
         width: 468px;
         object-fit: contain;
         }
+    p {
+        margin-bottom: 0;
+    }
 } 
 
 /* Styling specific to very small mobile screen, e.g Galaxy Fold */
  @media (width: 280px) { */
 
     .btn-option {
-        width: 200px;
+        /* Below style not taking effect, not sure why */
+        width: 200px !important;
     }
 
     h2 {
@@ -549,8 +651,11 @@ img {
     }
     .modal-content {
         margin: 25% auto;
-
     }
 
-
+    #modalImg img {
+        height: 130px;
+        width: 190px;
+        margin-top: 10px;
+    }
 }
