@@ -19,7 +19,20 @@
 <div id="modalMain" class="modal">
     <div class="modal-content">
         <span id="closeBtn" onclick=closeModal()>&times</span>
-        <p>Modal text</p>
+        <h1>Welcome to the Book Recommendation Quiz <i class="fa-solid fa-book" aria-label="Icon of a closed, white, book"></i></h1> <br>
+
+        <div id="usernameForm">
+            <form name="form">
+                <label id='nameLabel'for="name">First name:</label>
+                <!-- W3Schools HTML <input> pattern Attribute: -->
+                <input type="text" id="username" name="username" placeholder="Please enter your name" pattern="[a-zA-Z]+" autofocus>
+                <input type="button" id="usernameSubmit" value="Submit" onclick=storeUsername()>
+            </form>
+        </div>
+        <p>Please answer the following 10 questions and then click the submit button to find out which books we recommend for you</p>
+        <div id="modalImg">
+            <img src="assets/images/modal-img.jpg" alt="Image of an open book with a stack of books in the background">
+        </div>
     </div>
 </div>
 
@@ -29,18 +42,18 @@
 <body>
     <div class="background"> 
     <div class="title"> 
-        <h1>Which books should I read?</h1>
+        <h2>Which books should I read?</h2>
     </div>
     <div class="body">
     <div class="container">
-            <div id="usernameForm">
+            <!-- <div id="usernameForm">
                 <form name="form">
                     <label id='nameLabel'for="name">First name:</label>
-                    <!-- W3Schools HTML <input> pattern Attribute: -->
+                     W3Schools HTML <input> pattern Attribute:
                     <input type="text" id="username" name="username" placeholder="Please enter your name" pattern="[a-zA-Z]+" autofocus>
                     <input type="button" id="usernameSubmit" value="Submit" onclick=storeUsername()>
                 </form>
-            </div>
+            </div> -->
         <div class="content" id="question-area">
             <div id="question-text"></div>
                  <div class="recommendationImages">
