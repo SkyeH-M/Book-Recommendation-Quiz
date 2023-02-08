@@ -9,7 +9,7 @@
 7) Once user goes through the quiz, gets a result, and clicks restart, their next result will not display an img unless page is refreshed
 8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
 9) Form submit won't hide after submission if you press enter, not click button
-10) Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
+10) DONE- Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
 */
 
 // should the username, and explanation of the quiz be a modal?
@@ -23,17 +23,23 @@ const A = document.getElementById("A");
 const B = document.getElementById("B");
 const C = document.getElementById("C");
 const D = document.getElementById("D");
-// const formSection = document.getElementById('overlay');
 const questionText = document.getElementById("question-text");
 const usernameSubmit = document.getElementById("usernameSubmit");
+const textInput = document.getElementById("username");
 
+
+// Below code was suggested by Oisin from tutor support as a bug fix:
+let storedUsername;
 
 // get user's name:
 function storeUsername() {
     let input = document.getElementById("username").value;
     sessionStorage.setItem("username", input);
+    storedUsername = sessionStorage.getItem("username");
     document.getElementById("usernameForm").style.display = "none";
-}
+};
+
+
 
 /* Genres:
 A- Non-Fiction
@@ -42,17 +48,11 @@ C- Classics
 D- Modern Fiction
 */
 
-// let nfImg = document.createElement("img"); // empty img tag
-// nfImg.src = "../assets/images/Non-fiction.png"; // img shows in sources Dev Tools 
-// let nfImgSource = document.getElementById('nfImg');
-// nfImgSource.appendChild(nfImg);
-
 // can't actually access the images
 const GENRE_MAP = {
     A: {
         name: "Non-Fiction",
         imgSrc: "assets/images/non-fiction.png"
-        // imgSrc: '../assets/images/non-fiction.png',
     },
     B: {
         name: "Horror",
@@ -181,8 +181,8 @@ function startQuiz() {
     A.innerHTML = questions[currentQuestionIndex].answers[0].option;
     A.onclick = () => {
         if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
-            console.log("A"); // when A is clicked, the console displays A
-           genreArray.push("A"); // when A is clicked, 'A' is added to genreArray (this adds as many 'A's as the num of times the button is clicked)
+            console.log("A"); 
+           genreArray.push("A"); 
         }
         if (currentQuestionIndex < 9) {
             next();
@@ -251,14 +251,10 @@ function restart() {
     horrorImg.classList.add("hide");
     classicsImg.classList.add("hide");
     mfImg.classList.add("hide");
-    // get username form to reappear
-    document.getElementById("usernameForm").style.display = "block";
     sessionStorage.clear();
+    submitBtn.classList.add('hide');
     startQuiz();
 }
-
-// atm options are tied to buttons so will always have to be in order ABCD. If I write A in the answer option for the 3rd option will it print A to the genreArray?
-
 // create next() to move to next Q, currentQ will ++, hidden class will be removed from prev button
 // based on option the user selects, the genreArray will be added to
 
@@ -311,12 +307,10 @@ function next() {
         next();
     }
     }
-    // previousBtn.classList.remove('hide');
-    // showSubmitBtn();
+    showSubmitBtn();
 }
 
 // create previous() jump to prev Q, currentQuestion will be --, hidden class removed from next button
-
 
 // function previous() {
 //     currentQuestionIndex--;
@@ -383,17 +377,16 @@ function next() {
             B.classList.add("hide");
             C.classList.add("hide");
             D.classList.add("hide");
-           // questionText.innerHTML = mostFrequent(genreArray); // chosenGenre displays undefined, mostFrequent(genreArray) shows correct letter on screen
            displayGenre(); 
            }
         }
 
         // hide submit button until quiz has been fully answered:
-    //     function showSubmitBtn() {
-    //     if (genreArray.length > 9) {
-    //         submitBtn.classList.remove('hide');
-    //     }
-    // }
+        function showSubmitBtn() {
+        if (genreArray.length >= 9) {
+            submitBtn.classList.remove('hide');
+        }
+    }
 
 /** Calculates which genre is selected by the user most frequently, returns that letter */
         function mostFrequent(genreArray) {
@@ -414,9 +407,6 @@ function next() {
         return mostCommon;
         }
         
-       // retrieve username value:
-       let storedUsername = sessionStorage.getItem("username");
-
 /** Tells user (by name) which genre they selected most frequently, and shows book recommendation images */
        function displayGenre() {
         const selectedGenre = mostFrequent(genreArray);
