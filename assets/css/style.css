@@ -112,7 +112,7 @@ p {
     width: 80vw;
     max-width: 80%;
     background-color: rgba(107, 95, 95, 0.895); /* Make completely opaque? */
-    height: 70vh !important; 
+    height: 65vh !important; /* To test on actual mobile to see if footer is eclipsed by container, was previously 70vh*/
     box-shadow: 0 0 5px 4px;
     display: flex;
     flex-direction: column;
@@ -191,13 +191,13 @@ p {
     background-color: #aab5a6;
 }
 
-#usernameForm {
-    /* Below styles are from having form not on modal */
+/* #usernameForm {
+    Below styles are from having form not on modal */
     /* margin-top: -20px;
     margin-bottom: 20px; */
     /* border: solid;
-    padding: 10px; */
-}
+    padding: 10px;
+} */
 
 img {
     margin-top: 30px;
@@ -609,7 +609,7 @@ img {
 } 
 
 /* Styling specific to very small mobile screen, e.g Galaxy Fold */
- @media (width: 280px) { */
+ @media (max-width: 280px) { */
 
     .btn-option {
         /* Below style not taking effect, not sure why */
