@@ -14,15 +14,6 @@
 
 // should the username, and explanation of the quiz be a modal?
 
-// get user's name:
-function storeUsername() {
-    if (usernameSubmit) {
-    let input = document.getElementById("username").value;
-    sessionStorage.setItem("username", input);
-    document.getElementById("usernameForm").style.display = "none";
-    }
-}
-
 // create variables used to rep elements in our document, used to access them in the DOM:
 const restartBtn = document.getElementById("restart");
 // const previousBtn = document.getElementById("previous");
@@ -35,6 +26,14 @@ const D = document.getElementById("D");
 // const formSection = document.getElementById('overlay');
 const questionText = document.getElementById("question-text");
 const usernameSubmit = document.getElementById("usernameSubmit");
+
+
+// get user's name:
+function storeUsername() {
+    let input = document.getElementById("username").value;
+    sessionStorage.setItem("username", input);
+    document.getElementById("usernameForm").style.display = "none";
+}
 
 /* Genres:
 A- Non-Fiction
