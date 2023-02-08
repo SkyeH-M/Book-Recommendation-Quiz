@@ -16,9 +16,11 @@
 
 // get user's name:
 function storeUsername() {
+    if (usernameSubmit) {
     let input = document.getElementById("username").value;
     sessionStorage.setItem("username", input);
     document.getElementById("usernameForm").style.display = "none";
+    }
 }
 
 // create variables used to rep elements in our document, used to access them in the DOM:
