@@ -1,44 +1,16 @@
 /*
 1) DONE- return array of letters whose buttons have been clicked 
-2) DONE- when answer button is clicked move onto next question
+2) DONE- when answer button is clicked move onto displayNextQuestion question
 3) DONE- restart empties the genreArray arr
 4) DONE- prev function returns to previous page
 4i) prev function removes last option selected so user can't select A, click previous, and click B- this currently would result in genreArray = ['A', 'B']
 5) DONE?- ensure that submit can only be pressed once user has answered all questions, hide submit until genreArray === 10?
 6) DONE- user cannot be accessed in the displayGenre function (was declared in func)
-7) Once user goes through the quiz, gets a result, and clicks restart, their next result will not display an img unless page is refreshed
+7) Once user goes through the quiz, gets a result, and clicks restart, their displayNextQuestion result will not display an img unless page is refreshed
 8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
 9) Form submit won't hide after submission if you press enter, not click button
 10) DONE- Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
 */
-
-// should the username, and explanation of the quiz be a modal?
-
-// create variables used to rep elements in our document, used to access them in the DOM:
-const restartBtn = document.getElementById("restart");
-// const previousBtn = document.getElementById("previous");
-// const nextBtn = document.getElementById("next");
-const submitBtn = document.getElementById("submit");
-const A = document.getElementById("A");
-const B = document.getElementById("B");
-const C = document.getElementById("C");
-const D = document.getElementById("D");
-const questionText = document.getElementById("question-text");
-const usernameSubmit = document.getElementById("usernameSubmit");
-const textInput = document.getElementById("username");
-
-
-// Below code was suggested by Oisin from tutor support as a bug fix:
-let storedUsername;
-
-// get user's name:
-function storeUsername() {
-    let input = document.getElementById("username").value;
-    sessionStorage.setItem("username", input);
-    storedUsername = sessionStorage.getItem("username");
-    document.getElementById("usernameForm").style.display = "none";
-};
-
 
 
 /* Genres:
@@ -68,9 +40,6 @@ const GENRE_MAP = {
     },
 };
 
-let currentQuestionIndex = 0;
-let genreArray = [];
-
 let questions = [
     {
         question: "Which genre do you read most frequently?",
@@ -79,7 +48,7 @@ let questions = [
             {option: "Horror", correspondingGenre:"B"},
             {option: "Classics", correspondingGenre:"C"},
             {option: "Modern Fiction", correspondingGenre:"D"}
-
+            
         ]
     },
     {
@@ -163,306 +132,148 @@ let questions = [
             {option: "Everything Everywhere All at Once", correspondingGenre:"D"}
         ]
     }
-]
+];
 
-// add event listeners to buttons to call functions when clicked:
-restartBtn.addEventListener("click", restart);
-// previousBtn.addEventListener('click', previous);
-// nextBtn.addEventListener('click', next);
-submitBtn.addEventListener("click", submit);
 
-// create a func that'll be executed when the page loads and script is executed
+// should the username, and explanation of the quiz be a modal?
+
+// create variables used to rep elements in our document, used to access them in the DOM:
+const restartBtn = document.getElementById("restart");
+// const previousBtn = document.getElementById("previous");
+// const displayNextQuestionBtn = document.getElementById("displayNextQuestion");
+const submitBtn = document.getElementById("submit");
+const answerOptions = Array.from(document.getElementsByClassName("option"));
+const questionText = document.getElementById("question-text");
+const usernameSubmit = document.getElementById("usernameSubmit");
+const textInput = document.getElementById("username");
+
+
+// Below code was suggested by Oisin from tutor support as a bug fix:
+let storedUsername;
+
+// get user's name:
+function storeUsername() {
+    let input = document.getElementById("username").value;
+    sessionStorage.setItem("username", input);
+    storedUsername = sessionStorage.getItem("username");
+    document.getElementById("usernameForm").style.display = "none";
+};
+
+let currentQuestionIndex = 0;
+let genreArray = [];
+
+
+function displayQuestion() {
+    questionText.innerHTML = questions[currentQuestionIndex].question;
+    answerOptions.forEach((eachOption, index) => {
+        eachOption.style.background = 'white';
+        eachOption.innerHTML =  questions[currentQuestionIndex].answers[index].option;
+    });
+}
+
+
+function initEventListeners() {
+    restartBtn.addEventListener("click", restart);
+    submitBtn.addEventListener("click", submit);
+    answerOptions.forEach((eachOption, index) => {
+        eachOption.onclick =  () => {
+            genreArray.push(questions[currentQuestionIndex].answers[index].correspondingGenre);
+            if(currentQuestionIndex === 9) {
+                eachOption.style.background = '#5d6859';
+            }
+            displayNextQuestion();
+        }
+    });
+}
 
 function startQuiz() {
+    initEventListeners();
     currentQuestionIndex = 0;
-    // hide form input area:
-    questionText.innerHTML = questions[currentQuestionIndex].question;
-    // First button:
-    A.innerHTML = questions[currentQuestionIndex].answers[0].option;
-    A.onclick = () => {
-        if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
-            console.log("A"); 
-           genreArray.push("A"); 
-        }
-        if (currentQuestionIndex < 9) {
-            next();
-        } 
-    }
-    // Second button:
-    B.innerHTML = questions[currentQuestionIndex].answers[1].option;
-    B.onclick = () => {
-        if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
-            console.log("B"); 
-           genreArray.push("B"); 
-        }
-        if (currentQuestionIndex < 9) {
-        next();
-    }
-    }
-    
-    // Third button:
-    C.innerHTML = questions[currentQuestionIndex].answers[2].option;
-    C.onclick = () => {
-        if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
-            console.log("C"); 
-           genreArray.push("C"); 
-        }
-        if (currentQuestionIndex < 9) {
-        next();
-    }
-    }
-    
-    // Fourth button:
-    D.innerHTML = questions[currentQuestionIndex].answers[3].option;
-    D.onclick = () => {
-        if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
-            console.log("D"); 
-           genreArray.push("D"); 
-        }
-        if (currentQuestionIndex < 9) {
-        next();
-    }
-    }
-    // previousBtn.classList.add('hide');
-    // submitBtn.classList.add('hide');
+    displayQuestion();
+}
 
-    // below makes it so that on restart the rec img doesn't disappear
-    // nfImg.classList.remove('hide');
-    // horrorImg.classList.remove('hide');
-    // classicsImg.classList.remove('hide');
-    // mfImg.classList.remove('hide');
- }
-startQuiz();
+
 
 
 // create function to reset current question index, remove hide class from elements, call startQuiz()
 function restart() {
     currentQuestionIndex = 0;
     genreArray = [];
-    // previousBtn.classList.remove('hide');
-    // nextBtn.classList.remove('hide');
     submitBtn.classList.remove("hide");
-    A.classList.remove("hide");
-    B.classList.remove("hide");
-    C.classList.remove("hide");
-    D.classList.remove("hide");
+    answerOptions.forEach((eachOption, index) => {
+        eachOption.classList.remove("hide");
+    });
+    
     // below hides recommendation img result after restarting quiz
     nfImg.classList.add("hide");
-    horrorImg.classList.add("hide");
-    classicsImg.classList.add("hide");
-    mfImg.classList.add("hide");
     sessionStorage.clear();
-    submitBtn.classList.add('hide');
     startQuiz();
 }
-// create next() to move to next Q, currentQ will ++, hidden class will be removed from prev button
+// create displayNextQuestion() to move to displayNextQuestion Q, currentQ will ++, hidden class will be removed from prev button
 // based on option the user selects, the genreArray will be added to
 
-function next() {
+function displayNextQuestion() {
     currentQuestionIndex++; // maybe delete this?
-    if (currentQuestionIndex >= 9) {
-        // nextBtn.classList.add('hide');
-        // previousBtn.classList.remove('hide');
-    }
-    questionText.innerHTML = questions[currentQuestionIndex].question;
-    A.innerHTML = questions[currentQuestionIndex].answers[0].option;
-    A.onclick = () => {
-        if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
-            console.log("A"); 
-           genreArray.push("A"); 
-        }
-        if (currentQuestionIndex < 9) {
-        next();
-    }
+    if (currentQuestionIndex <= 9) {
+        displayQuestion();
     }
     
-    B.innerHTML = questions[currentQuestionIndex].answers[1].option;
-    B.onclick = () => {
-        if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
-            console.log("B"); 
-           genreArray.push("B"); 
-        }
-        if (currentQuestionIndex < 9) {
-        next();
+    if (currentQuestionIndex == 9) {
+        showSubmitBtn();
     }
-    }
-    C.innerHTML = questions[currentQuestionIndex].answers[2].option;
-    C.onclick = () => {
-        if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
-            console.log("C"); 
-           genreArray.push("C"); 
-        }
-        if (currentQuestionIndex < 9) {
-        next();
-    }
-    }
-    
-    D.innerHTML = questions[currentQuestionIndex].answers[3].option;
-    D.onclick = () => {
-        if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
-            console.log("D"); 
-           genreArray.push("D"); 
-        }
-        if (currentQuestionIndex < 9) {
-        next();
-    }
-    }
-    showSubmitBtn();
 }
 
-// create previous() jump to prev Q, currentQuestion will be --, hidden class removed from next button
-
-// function previous() {
-//     currentQuestionIndex--;
-//     if (currentQuestionIndex <= 0) {
-//         // previousBtn.classList.add('hide');
-//         // nextBtn.classList.remove('hide')
-//     }
-//     questionText.innerHTML = questions[currentQuestionIndex].question;
-//     // button 1
-//     A.innerHTML = questions[currentQuestionIndex].answers[0].option;
-//     A.onclick = () => {
-//         if (questions[currentQuestionIndex].answers[0].correspondingGenre) {
-//             console.log('A'); 
-//             genreArray.push('A'); 
-//          }
-//          if (currentQuestionIndex < 9) {
-//          next();
-//      }
-//      }
-     
-//      // button 2
-//      B.innerHTML = questions[currentQuestionIndex].answers[1].option;
-//      B.onclick = () => {
-//         if (questions[currentQuestionIndex].answers[1].correspondingGenre) {
-//             console.log('B'); 
-//             genreArray.push('B'); 
-//          }
-//          if (currentQuestionIndex < 9) {
-//          next();
-//      }
-//      }
-     
-//      C.innerHTML = questions[currentQuestionIndex].answers[2].option;
-//      C.onclick = () => {
-//         if (questions[currentQuestionIndex].answers[2].correspondingGenre) {
-//             console.log('C'); 
-//             genreArray.push('C'); 
-//          }
-//          if (currentQuestionIndex < 9) {
-//          next();
-//      }
-//      }
-     
-//      D.innerHTML = questions[currentQuestionIndex].answers[3].option;
-//      D.onclick = () => {
-//         if (questions[currentQuestionIndex].answers[3].correspondingGenre) {
-//             console.log('D'); 
-//             genreArray.push('D'); 
-//          }
-//          if (currentQuestionIndex < 9) {
-//          next();
-//      }
-//      }
-//      nextBtn.classList.remove('hide');
-//         }
 
 /** Upon submitting option buttons and control buttons are hidden, chosen genre is displayed */
-        function submit() {
-            if (genreArray.length === 10) {
-            // previousBtn.classList.add('hide');
-            // nextBtn.classList.add('hide');
-            submitBtn.classList.add("hide");
-            A.classList.add("hide");
-            B.classList.add("hide");
-            C.classList.add("hide");
-            D.classList.add("hide");
-           displayGenre(); 
-           }
-        }
-
-        // hide submit button until quiz has been fully answered:
-        function showSubmitBtn() {
-        if (genreArray.length >= 9) {
-            submitBtn.classList.remove('hide');
-        }
+function submit() {
+    if (genreArray.length === 10) {
+        submitBtn.classList.add("hide");
+        answerOptions.forEach((eachOption, index) => {
+            eachOption.classList.add("hide");
+        });
+        displayGenre(); 
     }
+}
+
+// hide submit button until quiz has been fully answered:
+function showSubmitBtn() {
+    if (genreArray.length >= 9) {
+        submitBtn.classList.remove('hide');
+    }
+}
 
 /** Calculates which genre is selected by the user most frequently, returns that letter */
-        function mostFrequent(genreArray) {
-        let maxCount = 0;
-        let mostCommon;
+function mostFrequent(genreArray) {
+    let maxCount = 0;
+    let mostCommon;
+    
+    for (let i = 0; i < genreArray.length; i++) {
+        let count = 0;
+        for (let j = 0; j < genreArray.length; j++) {
+            if (genreArray[i] === genreArray[j]) 
+            count++;
+        }
+        if (count > maxCount) {
+            maxCount = count;
+            mostCommon = genreArray[i];
+        }
+    }
+    return mostCommon;
+}
 
-        for (let i = 0; i < genreArray.length; i++) {
-            let count = 0;
-            for (let j = 0; j < genreArray.length; j++) {
-                if (genreArray[i] === genreArray[j]) 
-                count++;
-            }
-            if (count > maxCount) {
-                maxCount = count;
-                mostCommon = genreArray[i];
-            }
-        }
-        return mostCommon;
-        }
-        
 /** Tells user (by name) which genre they selected most frequently, and shows book recommendation images */
-       function displayGenre() {
-        const selectedGenre = mostFrequent(genreArray);
-        questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
-        // display image of recommended books:
-        // document.getElementById('body').appendChild(imagesToDisplay); // const imagesToDisplay = GENRE_MAP[selectedGenre].imgSrc; // imagesToDisplay saying not defined
-        // const imagesToDisplay = GENRE_MAP[selectedGenre].imgSrc; // imagesToDisplay saying not defined
-        // const imagesList = [];
-        // imagesToDisplay.forEach((eachImg, index) => {
-        //     let img = document.createElement('img');
-        //     img.src = imagesToDisplay[index];
-        //     imagesList.push(img);
-        // });
-        // document.getElementById('body').appendChild(imagesList);
-        // console.log(imagesToDisplay);
+function displayGenre() {
+    const selectedGenre = mostFrequent(genreArray);
+    questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
+    let img = document.createElement('img');
+    img.src = GENRE_MAP[selectedGenre].imgSrc;
+    let nfImgSource = document.getElementById("nfImg");
+    nfImgSource.innerHTML = "";
+    nfImgSource.appendChild(img);
+    nfImg.classList.remove("hide")
+}
 
-        // logs relevant file path 
-        // let img = document.createElement('img');
-        // img.src = GENRE_MAP[selectedGenre].imgSrc;
-        // let imgSource = document.getElementsByClassName('recommendationImages');
-        // imgSource.appendChild(img);
-
-       
-        // LinuxHint How to Add Image in HTML via JavaScript:
-        // If user selects A
-        if (selectedGenre === "A") {
-        let nfImg = document.createElement("img"); 
-        nfImg.src = "assets/images/non-fiction.png";
-        let nfImgSource = document.getElementById("nfImg");
-        nfImgSource.appendChild(nfImg);
-        nfImg.classList.remove("hide");
-        // If user selects B
-        } else if (selectedGenre === "B") {
-            let horrorImg = document.createElement("img"); 
-            horrorImg.src = "assets/images/horror.png";  
-            let horrorImgSource = document.getElementById("horrorImg");
-            horrorImgSource.appendChild(horrorImg);
-            horrorImg.classList.remove("hide");
-            // If user selects C
-            } else if (selectedGenre === "C") {
-            let classicsImg = document.createElement("img"); 
-            classicsImg.src = "assets/images/classics.png"; 
-            let classicsImgSource = document.getElementById("classicsImg");
-            classicsImgSource.appendChild(classicsImg);
-            classicsImg.classList.remove("hide");
-            // If user selects D
-            } else if (selectedGenre === "D") {
-            let mfImg = document.createElement("img"); 
-            mfImg.src = "assets/images/modern-fiction.png"; 
-            let mfImgSource = document.getElementById("mfImg");
-            mfImgSource.appendChild(mfImg);
-            mfImg.classList.remove("hide");
-            }
-        }
-
-   /* Modal */
+/* Modal */
 
 let modal = document.getElementById('modalMain');
 let closeBtn = document.getElementById('closeBtn');
@@ -471,3 +282,6 @@ closeBtn.addEventListener('click', closeModal);
 function closeModal() {
     modal.style.display = 'none';
 }
+
+
+startQuiz();
