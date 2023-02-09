@@ -166,11 +166,10 @@ let genreArray = [];
 function displayQuestion() {
     questionText.innerHTML = questions[currentQuestionIndex].question;
     answerOptions.forEach((eachOption, index) => {
-        eachOption.style.background = 'white';
+        eachOption.style.background = "white";
         eachOption.innerHTML =  questions[currentQuestionIndex].answers[index].option;
     });
 }
-
 
 function initEventListeners() {
     restartBtn.addEventListener("click", restart);
@@ -223,7 +222,6 @@ function displayNextQuestion() {
     }
 }
 
-
 /** Upon submitting option buttons and control buttons are hidden, chosen genre is displayed */
 function submit() {
     if (genreArray.length === 10) {
@@ -270,7 +268,7 @@ function displayGenre() {
     let nfImgSource = document.getElementById("nfImg");
     nfImgSource.innerHTML = "";
     nfImgSource.appendChild(img);
-    nfImg.classList.remove("hide")
+    nfImg.classList.remove("hide");
 }
 
 /* Modal */
@@ -282,6 +280,4 @@ closeBtn.addEventListener('click', closeModal);
 function closeModal() {
     modal.style.display = 'none';
 }
-
-
 startQuiz();
