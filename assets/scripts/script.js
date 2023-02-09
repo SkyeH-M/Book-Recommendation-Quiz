@@ -471,9 +471,3 @@ closeBtn.addEventListener('click', closeModal);
 function closeModal() {
     modal.style.display = 'none';
 }
-   
-       
-
-        
-        
-
