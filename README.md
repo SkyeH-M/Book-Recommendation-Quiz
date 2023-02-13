@@ -65,3 +65,45 @@ As a user I want to be able to...
 5. To be recommended books I might not be familiar with already, but are still likely to interest me
 
 ## Design
+### Colour Scheme
+
+![Image of my colour scheme](./docs/quiz-palette.png)
+
+The colour scheme of the book recommendation site is comprised mainly of white, green, and grey toned pink. 
+
+* White was chosen to focus the eye, and remove background distractions, particularly for the option boxes, so that text was easily readable. Similarly the colour of the social media icons are white to draw the user's eye to them, with the purpose of promoting the company who created the quiz and thus getting more traction online. 
+* Green was selected for the footer background, and background of the heading to add a pop of colour, and to compliment, yet provide a difference to the pinkish grey tone of the main container box. The green speaks to the theme of books in general by being evocative of greenery and trees.
+* The pinkish grey colour was selected to be a warming compliment to the green and white, and add a bit more diversity of colour. This shade in particular stands out from the light background and so draws the user's eye to the centre of the page where the questions and answers are displayed.
+
+### Typography
+
+[Google Fonts](https://fonts.google.com/) was used to link the fonts used on my site
+
+![Image of the header font](./docs/header-font.png)
+* Signika Negative is used for the first header element to create a distinction between the header and the main text of the site. This and the font used for the remainder of the text are complimentary fonts so provide a difference without seeming misplaced.
+
+![Image of main body font](./docs/body-font.png)
+* Libre Baskerville was selected as the core font of the site as it maintains clear readability while conveying a vintage, literature theme to the site as a whole, in keeping with its content and purpose.
+
+### Icons and Images
+
+* The Favicon for the site was created using the [Favicon](https://favicon.io/) website, and the icon files were downloade and saved to my Gitpod workspace. The book icon was chosen to keep in theme with the book recommendation site and to allow users to easily recognise the website tab amidst others in their browser.
+* The two book images on the site, the first being on the modal when the site loads, and the second being the main background image of the site, were sourced from [Unsplash](https://unsplash.com/). No rights are my own, and images will be credited later on in this document.
+* The image featured on the modal was chosen as books are the key theme of the site, and the unfocused aspect of the image ensures that the image quality won't suffer when translated to smaller, or larger screen sizes. The unfocused nature of the image also serves to give users a thematic representation of what the content of the site will be, without distracting them from the informative text on the modal.
+* The background image featuring a page from a book was chosen again for its thematic value, but also to provide an aesthetic element to improve the visual aspect of the site. In my opinion, the background image is not distracting to users, especially as the container for questions and answers has a solid, opaque background color to draw the eye, and allow users to focus on the text.
+* The recommendation images featured at the end of the quiz have been sourced from various publishers, or book retail sites that will be individually credited later in this document. 
+
+### Features
+The book recommendation quiz is comprised of three main sections,
+
+1. The modal appears on page load and prompts the user to enter their name, or a username, and gives users information about the quiz.
+ * The username field value is stored and then retrieved later on for the recommendation section, and can be submitted by either clicking the submit button, or hitting the enter key. This is to provide users greater choice in submitting a field, and to avoid a user hitting the enter key and being unsure as to why this hasn't submitted the form.
+ * The modal also informs users that they should answer each of the 10 questions posed, and then click the submit button in order to receive their recommendations. 
+ * The button that closes the modal is featured prominantely in the top right corner of the modal and upon hovering over it changes colour to black to inform users that the button is clickable.
+
+ 2. The question and answer area is comprised of 10 questions, each with 4 options to select from.
+ * Upon hovering over an option the option box changes from white to light green in colour to emphasise to the user which button they're selecting. Also on the advice of my mentor Akshat, the final option (once clicked) changes to a dark green to signify that the quiz has come to an end and that the submit button should now be clicked.
+ * Once an option has been clicked the quiz automatically moves on to the next question and it's related options. My original design included buttons which would move to the previous, or next question which I removed as I felt it'd be easier from a user experience standpoint for the quiz to move along automatically. This also reduced the risk of having 3 or 4 buttons along the button of the quiz area, which may clutter the screen.
+ * The Restart button sits at the bottom of the question area and can be clicked on at any point in the quiz to return the user to the first question. This button exists to allow the user to change the option they've selected for any question if they change their mind, or simply so they can replay the quiz to try to get a different recommendation.
+
+ 3. Finally, there is the recommendation area

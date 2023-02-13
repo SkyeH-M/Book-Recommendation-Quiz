@@ -57,7 +57,9 @@ html, body {
     padding: 20px;
     width: 70%;
     height: 70%;
-    background-color: rgba(139, 157, 132, 0.9);
+    /* background-color: rgba(139, 157, 132, 0.9); */
+    /* Should modal background be opaque? */
+    background-color: rgba(139, 157, 132);
     box-shadow: 0 0 5px 4px;
     text-align: center;
 }
@@ -86,6 +88,7 @@ h1 {
 
 h2 {
     color: white;
+    font-family: 'Signika Negative', sans-serif;
     text-align: center;
     top: 20px;
     background-color: #5d6859;
@@ -388,8 +391,8 @@ img {
 
     #question-text {
         /* font-size: 1.5rem; */
-        font-size: 1rem;
-        margin-top: -15px;
+        font-size: 0.9rem;
+        margin-top: -10px;
     }
 
     .btn {
@@ -510,7 +513,7 @@ img {
         font-size: 1.1rem;
     }
     h1 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -529,7 +532,7 @@ img {
         margin-top: 20px !important;
     }
     h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     p {
         font-size: 1.2rem;

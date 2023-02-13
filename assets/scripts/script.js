@@ -196,7 +196,7 @@ function restart() {
     currentQuestionIndex = 0;
     genreArray = [];
     submitBtn.classList.remove("hide");
-    answerOptions.forEach((eachOption, index) => {
+    answerOptions.forEach((eachOption) => { /* eachOption, index. is index not necessary? */
         eachOption.classList.remove("hide");
         submitBtn.classList.add("hide");
     });
@@ -224,7 +224,7 @@ function displayNextQuestion() {
 function submit() {
     if (genreArray.length === 10) {
         submitBtn.classList.add("hide");
-        answerOptions.forEach((eachOption, index) => {
+        answerOptions.forEach((eachOption) => { /* Is index after eachOption necessary? */
             eachOption.classList.add("hide");
         });
         displayGenre();
