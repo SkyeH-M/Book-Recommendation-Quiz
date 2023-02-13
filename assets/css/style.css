@@ -111,7 +111,7 @@ p {
 .container {
     width: 80vw;
     max-width: 80%;
-    background-color: rgba(107, 95, 95, 0.895); /* Make completely opaque? */
+    background-color: rgba(107, 95, 95); /* Make completely opaque? */
     height: 65vh !important; /* To test on actual mobile to see if footer is eclipsed by container, was previously 70vh*/
     box-shadow: 0 0 5px 4px;
     display: flex;
@@ -136,7 +136,7 @@ p {
 
 .btn:hover {
     /* opacity: 0.7;  */
-    background-color: #aab5a6;
+    background-color: #aab5a6 !important; /* Does this make final answer unclear? */
 }
 
 .options {

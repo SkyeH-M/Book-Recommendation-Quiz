@@ -3,10 +3,10 @@
 2) DONE- when answer button is clicked move onto displayNextQuestion question
 3) DONE- restart empties the genreArray arr
 4) DONE- prev function returns to previous page
-4i) prev function removes last option selected so user can't select A, click previous, and click B- this currently would result in genreArray = ['A', 'B']
+4i) POSTPONED- prev function removes last option selected so user can't select A, click previous, and click B- this currently would result in genreArray = ['A', 'B']
 5) DONE?- ensure that submit can only be pressed once user has answered all questions, hide submit until genreArray === 10?
 6) DONE- user cannot be accessed in the displayGenre function (was declared in func)
-7) Once user goes through the quiz, gets a result, and clicks restart, their displayNextQuestion result will not display an img unless page is refreshed
+7) DONE- Once user goes through the quiz, gets a result, and clicks restart, their displayNextQuestion result will not display an img unless page is refreshed
 8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
 9) Form submit won't hide after submission if you press enter, not click button
 10) DONE- Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
@@ -20,7 +20,6 @@ C- Classics
 D- Modern Fiction
 */
 
-// can't actually access the images
 const GENRE_MAP = {
     A: {
         name: "Non-Fiction",
@@ -135,12 +134,8 @@ let questions = [
 ];
 
 
-// should the username, and explanation of the quiz be a modal?
-
 // create variables used to rep elements in our document, used to access them in the DOM:
 const restartBtn = document.getElementById("restart");
-// const previousBtn = document.getElementById("previous");
-// const displayNextQuestionBtn = document.getElementById("displayNextQuestion");
 const submitBtn = document.getElementById("submit");
 const answerOptions = Array.from(document.getElementsByClassName("option"));
 const questionText = document.getElementById("question-text");
@@ -158,6 +153,15 @@ function storeUsername() {
     storedUsername = sessionStorage.getItem("username");
     document.getElementById("usernameForm").style.display = "none";
 };
+
+// W3Schools- How to Trigger Button Click on Enter:
+let inputField = document.getElementById("username");
+    inputField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            usernameSubmit.click();
+        }
+    });
 
 let currentQuestionIndex = 0;
 let genreArray = [];
@@ -201,6 +205,7 @@ function restart() {
     submitBtn.classList.remove("hide");
     answerOptions.forEach((eachOption, index) => {
         eachOption.classList.remove("hide");
+        submitBtn.classList.add('hide');
     });
     
     // below hides recommendation img result after restarting quiz
@@ -265,7 +270,8 @@ function displayGenre() {
     questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
     let img = document.createElement('img');
     img.src = GENRE_MAP[selectedGenre].imgSrc;
-    let nfImgSource = document.getElementById("nfImg");
+    // why is this nfImg?
+   let nfImgSource = document.getElementById("nfImg");
     nfImgSource.innerHTML = "";
     nfImgSource.appendChild(img);
     nfImg.classList.remove("hide");
