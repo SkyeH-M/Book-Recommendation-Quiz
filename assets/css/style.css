@@ -59,7 +59,8 @@ html, body {
     height: 70%;
     /* background-color: rgba(139, 157, 132, 0.9); */
     /* Should modal background be opaque? */
-    background-color: rgba(139, 157, 132);
+    /* background-color: rgba(139, 157, 132); */
+    background-color: #5d6859;
     box-shadow: 0 0 5px 4px;
     text-align: center;
 }
