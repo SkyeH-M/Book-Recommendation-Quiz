@@ -109,4 +109,12 @@ The book recommendation quiz is comprised of three main sections,
  * The Restart button sits at the bottom of the question area and can be clicked on at any point in the quiz to return the user to the first question. This button exists to allow the user to change the option they've selected for any question if they change their mind, or simply so they can replay the quiz to try to get a different recommendation.
 
  3. Finally, there is the recommendation area which acknowledges the user by name, and provides an image of three books that would be of interest to the user based on the options they selected.
- * 
+ * The user is first greeted by a message stating 'Hi (username), you got (genre)! We recommend the following books...'. This is dynamically generated in the following way, the username is held in sessionStorage once entered by the user, and then retrieved for use in this message. The name of the genre selected for the user is displayed by a function called mostFrequent which calculates which genre to select based on the options chosen by the user.
+ * The image of the 3 books that are recommended to the user is displayed using the displayGenre function which creates an empty image element and then inserts the image that corresponds to the relevant genre result.
+
+ * Future Implementations:
+   * In the future it'd be beneficial to extend the amount, and complexity of the questions asked and the options available. Rather than having each genre assigned to a button, for example the first button always representing the Non-Fiction genre, it'd be preferable to have the options appear in different orders so that it's not obvious to the user which genre each button/option corresponds to. 
+   * In addition, it'd be useful to have this book recommendation quiz be a part of something larger, most logically this would be associated with an online book shop. In that case there would be clear branding included in the site rather than it just being an anonymous quiz. This would also make the social media links more logical and relevant than as the project currently stands.
+
+
+### Accessibility
