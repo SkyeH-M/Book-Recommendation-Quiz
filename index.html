@@ -27,12 +27,12 @@
     <div id="modalMain" class="modal">
         <div class="modal-content">
             <span id="closeBtn" onclick=closeModal() aria-label="Click this button to close the modal and start the quiz">&times</span>
-            <h1>Welcome to the Book Recommendation Quiz <i class="fa-solid fa-book" aria-labelledby="Icon of a closed, white, book"></i></h1> <br>
+            <h1>Welcome to the Book Recommendation Quiz <i class="fa-solid fa-book" alt="Icon of a closed, white, book"></i></h1> <br>
             <div id="usernameForm">
                 <form name="form">
                     <label id='nameLabel'for="username">First name:</label>
                     <!-- W3Schools HTML <input> pattern Attribute: -->
-                    <input type="text" id="username" name="username" placeholder="Please enter your name" pattern="[a-zA-Z]+" autofocus aria-describedby="Please type your name here, then click submit or hit the enter key">
+                    <input type="text" id="username" name="username" placeholder="Please enter your name" pattern="[a-zA-Z]+" autofocus>
                     <input type="button" id="usernameSubmit" value="Submit" onclick=storeUsername() aria-label="button to submit username"> 
                 </form>
             </div>

@@ -118,3 +118,11 @@ The book recommendation quiz is comprised of three main sections,
 
 
 ### Accessibility
+
+Throughout the creation of this project I have considered facets and issues of accessibility. This, as mentioned above, formed part of my decision to not create a text based quiz with a timer, in order to be sensitive to the accessibility needs of users with dyslexia or others with differing needs. 
+
+[Lighthouse Accessibility Score](./docs/accessibility-score.png)
+My Lighthouse score for accessibility is 100% which I am very pleased with, this was achieved by the following methods and considerations.
+* I used dyslexia friendly fonts on my site and ensured that text always remained large enough to read no matter the screen size, this was done using a mobile first development approach, and the use of media queries for larger screens.
+* I included descriptive, yet brief, alt tags for all images and used aria labels wherever necessary, primarily for buttons to ensure a smooth experience for users who use screen readers.
+* I utilised the [Ally Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) to check for any colour contrast issues on my site. This 
