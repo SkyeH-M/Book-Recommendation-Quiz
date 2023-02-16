@@ -20,7 +20,6 @@ html {
 }
 
 .body {
-   /* height: 100vh; */
     width: 100vw;
     display: flex;
     align-items: center;
@@ -41,15 +40,8 @@ html, body {
     position: fixed;
     z-index: 1;
     margin: auto;
-    /* width: 60%;
-    height: 40%; */
     width: 100%;
     height: 100%;
-    /* overflow:auto; */
-    /* Stackoverflow answer by BalusC */
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
 }
 
 .modal-content {
@@ -57,9 +49,6 @@ html, body {
     padding: 20px;
     width: 70%;
     height: 70%;
-    /* background-color: rgba(139, 157, 132, 0.9); */
-    /* Should modal background be opaque? */
-    /* background-color: rgba(139, 157, 132); */
     background-color: #5d6859;
     box-shadow: 0 0 5px 4px;
     text-align: center;
@@ -68,7 +57,7 @@ html, body {
 #modalImg img {
     height: 153px;
     width: 250px;
-    /* margin: 25% auto; */
+    margin-top: 30px !important;
 }
 
 #closeBtn {
@@ -93,7 +82,6 @@ h2 {
     text-align: center;
     top: 20px;
     background-color: #5d6859;
-   /* background-color: rgb(106, 90, 90); */
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -115,8 +103,8 @@ p {
 .container {
     width: 80vw;
     max-width: 80%;
-    background-color: rgba(107, 95, 95); /* Make completely opaque? */
-    height: 65vh !important; /* To test on actual mobile to see if footer is eclipsed by container, was previously 70vh*/
+    background-color: rgba(107, 95, 95); 
+    height: 70vh !important; /* To test on actual mobile to see if footer is eclipsed by container, was previously 70vh*/
     box-shadow: 0 0 5px 4px;
     display: flex;
     flex-direction: column;
@@ -195,14 +183,6 @@ p {
     background-color: #aab5a6;
 }
 
-/* #usernameForm {
-    Below styles are from having form not on modal */
-    /* margin-top: -20px;
-    margin-bottom: 20px; */
-    /* border: solid;
-    padding: 10px;
-} */
-
 img {
     margin-top: 30px;
 }
@@ -230,14 +210,6 @@ img {
     height: 143px;
     width: 276px;
 }
-
-/* Delete below after checking it's not needed */
-/* footer {
-   bottom: 0;
-   width: 100%;
-   margin-bottom: 0;
-   margin-top: auto;
-} */
 
 /* Get Down! How to Keep Footers at the Bottom of the Page- Matthew James Taylor */
 .footer {
@@ -278,7 +250,6 @@ img {
         margin-bottom: 0;
     }
     .container {
-        /* Check this doens't effect anything else */
         margin-top: 0 !important;
     }
     .modal-content {
@@ -293,6 +264,12 @@ img {
     }
     p {
         font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 390px) {
+    .container {
+        margin-top: 20px !important;
     }
 }
 
@@ -364,41 +341,44 @@ img {
 @media (min-width: 768px) {
     .title h2 {
         /* font-size: 1.6rem; */
-        font-size: 1.2rem;
-        /* margin-bottom: 30px;
-        margin-top: 30px; */
-        margin-bottom: 15px;
-        margin-top: 15px;
+        font-size: 1.7rem;
+        margin-bottom: 30px;
+        margin-top: 30px;
+       /* margin-bottom: 15px;
+        margin-top: 15px; */
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 1.3rem;
     }
 
     .container {
-        margin-top: 0 !important;
+        /* margin-top: 0 !important; */
+        margin-top: 40px !important;
     }
 
     #nameLabel {
-        /* font-size: 1.3rem; */
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     #username {
-        /* font-size: 1.2rem; */
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     #usernameSubmit {
-        /* font-size: 1.1rem; */
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     #question-text {
         /* font-size: 1.5rem; */
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         margin-top: -10px;
     }
 
     .btn {
         /* font-size: 1.3rem; */
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .btn-option {
@@ -434,19 +414,28 @@ img {
     }
 
     #modalImg img {
-        margin-top: 20px;
+        margin-top: 100px;
     }
     .modal-content {
-        margin: 10% auto;
+        margin: 16% auto;
         padding: 0;
         height: 70%;
     }
+
+    #closeBtn {
+        font-size: 4rem;
+    }
+
     p {
-        margin-bottom: 20px;
+        margin: 50px 30px;
+        font-size: 1rem;
+        
     }
     #modalImg img {
-        width: 300px;
-        height: 180px;
+        /* width: 300px;
+        height: 180px; */
+        width: 360px;
+        height: 216px;
     }
 }
 
@@ -494,7 +483,7 @@ img {
     object-fit: contain;
     }
     .modal-content {
-        margin: 8% auto;
+        margin: 11% auto;
         padding: 0;
         height: 70%;
     }
@@ -561,7 +550,7 @@ img {
 @media (width: 1024px), (height: 600px) {
     .container {
         height: 70vh;
-        margin-top: 0;
+        margin-top: 0 !important;
     }
 
     .social-media i {
@@ -610,13 +599,21 @@ img {
     p {
         margin-bottom: 0;
     }
+
+    #modalImg img {
+        height: 130px;
+        width: 190px;
+    }
+
+    .modal-content {
+        margin: 8% auto;
+    }
 } 
 
 /* Styling specific to very small mobile screen, e.g Galaxy Fold */
- @media (max-width: 280px) { */
+ @media (max-width: 280px) { 
 
     .btn-option {
-        /* Below style not taking effect, not sure why */
         width: 200px !important;
     }
 
@@ -625,7 +622,7 @@ img {
     }
 
     .container {
-        height: 70vh; /* Content will fit appropriately when form section is hidden */
+        height: 70vh;
     }
 
     #nfImg img{
@@ -661,5 +658,13 @@ img {
         height: 130px;
         width: 190px;
         margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 0.8rem;
+    }
+
+    p {
+        font-size: 0.7rem;
     }
 }
