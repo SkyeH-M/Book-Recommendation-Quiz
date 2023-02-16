@@ -126,6 +126,7 @@ My Lighthouse score for accessibility is 100% which I am very pleased with, this
 * I used dyslexia friendly fonts on my site and ensured that text always remained large enough to read no matter the screen size, this was done using a mobile first development approach, and the use of media queries for larger screens.
 * I included semantic html throughout along with descriptive, yet brief, alt tags for all images and used aria labels wherever necessary, primarily for buttons to ensure a smooth experience for users who use screen readers.
 * I utilised the [Ally Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) to check for any colour contrast issues on my site. This returned a message of "Congratulations! No automated color contrast issues found on the webpage tested.". My site previously flagged a colour contrast issue based on my modal having a light green semi-transparent background colour. With this feedback in mind I altered my modal background to match the dark green of the footer and made the background colour opaque for better accessibility and visibility. 
+* I used the [WAVE](https://wave.webaim.org/) Web Accessibility tool to test my site for any accessibility errors or improvements that could be made. My result from this assessment stated that no errors were detected in code content, or in regards to colour contrast.
 
 ### Wireframes
 
@@ -171,4 +172,6 @@ The book recommendation quiz website is deployed using Github Pages, this was do
 2. Click the fork button in the top right of the screen, between the watch, and star buttons
 
 ## Testing
-### Automated Testing
+## Automated Testing
+
+### W3 Nu HTML Validator 
