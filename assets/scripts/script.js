@@ -138,7 +138,7 @@ const submitBtn = document.getElementById("submit");
 const answerOptions = Array.from(document.getElementsByClassName("option"));
 const questionText = document.getElementById("question-text");
 const usernameSubmit = document.getElementById("usernameSubmit");
-const textInput = document.getElementById("username");
+// const textInput = document.getElementById("username"); remove ?
 
 // Below code was suggested by Oisin from tutor support as a bug fix:
 let storedUsername;

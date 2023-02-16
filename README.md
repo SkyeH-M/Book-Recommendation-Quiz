@@ -124,5 +124,51 @@ Throughout the creation of this project I have considered facets and issues of a
 [Lighthouse Accessibility Score](./docs/accessibility-score.png)
 My Lighthouse score for accessibility is 100% which I am very pleased with, this was achieved by the following methods and considerations.
 * I used dyslexia friendly fonts on my site and ensured that text always remained large enough to read no matter the screen size, this was done using a mobile first development approach, and the use of media queries for larger screens.
-* I included descriptive, yet brief, alt tags for all images and used aria labels wherever necessary, primarily for buttons to ensure a smooth experience for users who use screen readers.
-* I utilised the [Ally Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) to check for any colour contrast issues on my site. This 
+* I included semantic html throughout along with descriptive, yet brief, alt tags for all images and used aria labels wherever necessary, primarily for buttons to ensure a smooth experience for users who use screen readers.
+* I utilised the [Ally Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) to check for any colour contrast issues on my site. This returned a message of "Congratulations! No automated color contrast issues found on the webpage tested.". My site previously flagged a colour contrast issue based on my modal having a light green semi-transparent background colour. With this feedback in mind I altered my modal background to match the dark green of the footer and made the background colour opaque for better accessibility and visibility. 
+
+### Wireframes
+
+### Languages Used
+* HTML, CSS and JavaScript were used to complete this project, I previously utilised jQuery to target and hide elements when necessary but reverted this to plain JavaScript for ease of understanding and conformity to the rest of my script.js file
+
+### Frameworks, Libraries, and Programs Used
+* [Adobe XD](https://helpx.adobe.com/uk/support/xd.html) was used to create the Wireframes seen above
+* [Favicon](https://favicon.io/) was utilised to create a Favicon for my site's browser tab
+* [Font Awesome version 6](https://fontawesome.com/) was used for the open book icon featured on my modal 
+* [Github](https://github.com/) was used to store the repository for this quiz project, with Github Pages hosting the site
+* [Gitpod](https://www.gitpod.io/) is the environment in which this project was created and worked on
+* Google Chrome Developer Tools was used as a debugging tool, and to help visualise the site in different screen sizes to ensure that user experience remained clean and efficient no matter the device utilised by the user
+* [Google Fonts](https://fonts.google.com/) provided the links for both fonts used on the site, and aided in selecting fonts that are complimentary to one another
+* [JSHint](https://jshint.com/) provided a testing platform to ascertain whether my script.js file met industry standards, and to ensure no errors were found in the use of JavaScript for my site
+* [Tech Sini](https://techsini.com/multi-mockup/index.php) aided in the creation of a multi-device mockup image so that I could test the appearance and functionality of the site on multiple device sizes, and provided the image seen at the beginning of this document
+* [WAVE](https://wave.webaim.org/) Web Accessibility Evaluation Tool was used to test my site against accessibility criteria, the results of which informed multiple changes to my site. This includes the modal background color change, and changes to the alt text used to describe images
+* [Web Formatter](https://webformatter.com/) was used to format my code, predominantly the JavaScript file, to make the file more readable and to adhere to industry standards of file layout
+
+### Deployment 
+
+The book recommendation quiz website is deployed using Github Pages, this was done by:
+
+1. Login to Github
+2. Navigate to the account SkyeH-M, and locate the Book-recommendation-quiz repository
+3. In this repository click on the Settings tab
+4. In the Code and Automation subheading in the sidebar click on Pages
+5. Under Build and Deployment find the Source section, set the source to deploy from a branch, and set this branch to main, and the folder option to /root 
+6. Click save, wait a few minutes and the book recommendation site is now deployed at the URL displayed
+
+## Local Deployment
+### How to Clone 
+
+1. Locate the main page of the Book-recommendation-quiz repository, click the Code button to the left of the green Gitpod button
+2. Copy the URL of the repository, you can click on headings for HTTPS, SSH, and Github CLI to find their individual links
+3. Open your own terminal in your editor and change the current working directory to the location of where you want the cloned directory to be
+4. In the terminal type git clone, and then paste the URL you copied from the Book-recommendation-quiz repository page
+5. Press enter to complete
+
+### How to Fork
+
+1. Locate the main page of the Book-recommendation-quiz repository
+2. Click the fork button in the top right of the screen, between the watch, and star buttons
+
+## Testing
+### Automated Testing
