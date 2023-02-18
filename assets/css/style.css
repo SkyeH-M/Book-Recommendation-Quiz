@@ -14,7 +14,7 @@
 }
 
 html {
-    background: url(../images/page-background.jpg) no-repeat center center;
+    background: url(../images/opaqueBgImg.png) no-repeat center center;
     background-size: cover;
     min-height: 100%;
 }
@@ -78,7 +78,7 @@ h1 {
 
 h2 {
     color: white;
-    font-family: 'Signika Negative', sans-serif;
+    font-family: 'Gloock', serif;
     text-align: center;
     top: 20px;
     background-color: #5d6859;

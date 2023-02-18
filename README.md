@@ -80,17 +80,17 @@ The colour scheme of the book recommendation site is comprised mainly of white, 
 [Google Fonts](https://fonts.google.com/) was used to link the fonts used on my site
 
 ![Image of the header font](./docs/header-font.png)
-* Signika Negative is used for the first header element to create a distinction between the header and the main text of the site. This and the font used for the remainder of the text are complimentary fonts so provide a difference without seeming misplaced.
+* Gloock is used for the first header element to create a distinction between the header and the main text of the site. This and the font used for the remainder of the text are complimentary fonts so provide a difference without seeming misplaced. 
 
 ![Image of main body font](./docs/body-font.png)
-* Libre Baskerville was selected as the core font of the site as it maintains clear readability while conveying a vintage, literature theme to the site as a whole, in keeping with its content and purpose.
+* Libre Baskerville was selected as the core font of the site as it maintains clear readability while conveying a vintage, literature theme to the site as a whole, in keeping with its content and purpose. Both fonts are serif fonts so sustains a thematic similarity so not to introduce a clash in aesthetic to the typography used.
 
 ### Icons and Images
 
 * The Favicon for the site was created using the [Favicon](https://favicon.io/) website, and the icon files were downloade and saved to my Gitpod workspace. The book icon was chosen to keep in theme with the book recommendation site and to allow users to easily recognise the website tab amidst others in their browser.
 * The two book images on the site, the first being on the modal when the site loads, and the second being the main background image of the site, were sourced from [Unsplash](https://unsplash.com/). No rights are my own, and images will be credited later on in this document.
 * The image featured on the modal was chosen as books are the key theme of the site, and the unfocused aspect of the image ensures that the image quality won't suffer when translated to smaller, or larger screen sizes. The unfocused nature of the image also serves to give users a thematic representation of what the content of the site will be, without distracting them from the informative text on the modal.
-* The background image featuring a page from a book was chosen again for its thematic value, but also to provide an aesthetic element to improve the visual aspect of the site. In my opinion, the background image is not distracting to users, especially as the container for questions and answers has a solid, opaque background color to draw the eye, and allow users to focus on the text.
+* The background image featuring a page from a book was chosen again for its thematic value, but also to provide an aesthetic element to improve the visual aspect of the site. In my opinion, the background image is not distracting to users, especially as the container for questions and answers has a solid, opaque background color to draw the eye, and allow users to focus on the text. After speaking to my College mentor Robert Mclaughlin I agreed that the text featured in the background image could be distracting to users, he suggested I make this image less opaque to ensure this doesn't become an issue. 
 * On the modal there is an icon of a white book, this was sourced from [Font Awesome](https://fontawesome.com/) and used to create a break in the amount of text featured on the modal. 
 * The recommendation images featured at the end of the quiz have been sourced from various publishers, or book retail sites that will be individually credited later in this document. 
 
