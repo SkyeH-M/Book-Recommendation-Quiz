@@ -95,26 +95,36 @@ The colour scheme of the book recommendation site is comprised mainly of white, 
 * The recommendation images featured at the end of the quiz have been sourced from various publishers, or book retail sites that will be individually credited later in this document. 
 
 ### Features
-The book recommendation quiz is comprised of three main sections,
+The book recommendation quiz is comprised of three main sections, the modal screen, the question and answer area, and the recommendation area.
 
 1. The modal appears on page load and prompts the user to enter their name, or a username, and gives users information about the quiz.
- * The background colour of the modal was originally a semi-transparent light green, this was later altered to match the dark green on the footer. This was due to an issue of insufficient colour constrast being raised by the Lighthouse program, in order to maintain good readability of text the colour was changed and this issue was resolved. 
- * The username field value is stored and then retrieved later on for the recommendation section, and can be submitted by either clicking the submit button, or hitting the enter key. This is to provide users greater choice in submitting a field, and to avoid a user hitting the enter key and being unsure as to why this hasn't submitted the form.
- * The modal also informs users that they should answer each of the 10 questions posed, and then click the submit button in order to receive their recommendations. 
- * The button that closes the modal is featured prominantely in the top right corner of the modal and upon hovering over it changes colour to black to inform users that the button is clickable.
+   * The background colour of the modal was originally a semi-transparent light green, this was later altered to match the dark green on the footer. This was due to an issue of insufficient colour constrast being raised by the Lighthouse program, in order to maintain good readability of text the colour was changed and this issue was resolved. 
+   ![Modal image](./docs/modal-Image.png)
+   * The username field value is stored and then retrieved later on for the recommendation section, and can be submitted by either clicking the submit button, or hitting the enter key. This is to provide users greater choice in submitting a field, and to avoid a user hitting the enter key and being unsure as to why this hasn't submitted the form.
+   ![Username field image](./docs/username-field.png)
+   * The modal also informs users that they should answer each of the 10 questions posed, and then click the submit button in order to receive their recommendations. 
+   * The button that closes the modal is featured prominantely in the top right corner of the modal and upon hovering over it changes colour to black to inform users that the button is clickable.
+   ![Close modal button gif](./docs/closeModalGif.gif)
 
- 2. The question and answer area is comprised of 10 questions, each with 4 options to select from.
- * Upon hovering over an option the option box changes from white to light green in colour to emphasise to the user which button they're selecting. Also on the advice of my mentor Akshat, the final option (once clicked) changes to a dark green to signify that the quiz has come to an end and that the submit button should now be clicked.
- * Once an option has been clicked the quiz automatically moves on to the next question and it's related options. My original design included buttons which would move to the previous, or next question which I removed as I felt it'd be easier from a user experience standpoint for the quiz to move along automatically. This also reduced the risk of having 3 or 4 buttons along the button of the quiz area, which may clutter the screen.
- * The Restart button sits at the bottom of the question area and can be clicked on at any point in the quiz to return the user to the first question. This button exists to allow the user to change the option they've selected for any question if they change their mind, or simply so they can replay the quiz to try to get a different recommendation.
+2. The question and answer area is comprised of 10 questions, each with 4 options to select from.
+   * Upon hovering over an option the option box changes from white to light green in colour to emphasise to the user which button they're selecting. Also on the advice of my mentor Akshat, the final option (once clicked) changes to a dark green to signify that the quiz has come to an end and that the submit button should now be clicked.
+   ![Option button hover effect gif](./docs/optionBtnHover.gif)
+   * Once an option has been clicked the quiz automatically moves on to the next question and it's related options. My original design included buttons which would move to the previous, or next question which I removed as I felt it'd be easier from a user experience standpoint for the quiz to move along automatically. This also reduced the risk of having 3 or 4 buttons along the button of the quiz area, which may clutter the screen.
+   ![Gif to show question move on automatically](./docs/nextQuestionAuto.gif)
+   * The Restart button sits at the bottom of the question area and can be clicked on at any point in the quiz to return the user to the first question. This button exists to allow the user to change the option they've selected for any question if they change their mind, or simply so they can replay the quiz to try to get a different recommendation.
 
- 3. Finally, there is the recommendation area which acknowledges the user by name, and provides an image of three books that would be of interest to the user based on the options they selected.
- * The user is first greeted by a message stating 'Hi (username), you got (genre)! We recommend the following books...'. This is dynamically generated in the following way, the username is held in sessionStorage once entered by the user, and then retrieved for use in this message. The name of the genre selected for the user is displayed by a function called mostFrequent which calculates which genre to select based on the options chosen by the user.
- * The image of the 3 books that are recommended to the user is displayed using the displayGenre function which creates an empty image element and then inserts the image that corresponds to the relevant genre result.
+3. Finally, there is the recommendation area which acknowledges the user by name, and provides an image of three books that would be of interest to the user based on the options they selected.
+   * The user is first greeted by a message stating 'Hi (username), you got (genre)! We recommend the following books...'. This is dynamically generated in the following way, the username is held in sessionStorage once entered by the user, and then retrieved for use in this message. The name of the genre selected for the user is displayed by a function called mostFrequent which calculates which genre to select based on the options chosen by the user.
+   ![Recommendation message image](./docs/recommendationMessage.png)
+   * The image of the 3 books that are recommended to the user is displayed using the displayGenre function which creates an empty image element and then inserts the image that corresponds to the relevant genre result.
+   ![Recommendation image](./docs/recommendationImage.png)
+   * The submit button for the quiz only appears when the user has reached question 10 of the quiz. This is so that users don't click submit too early, and to suggest that the submit button should be clicked when it appears.
+   ![Submit button delay gif](./docs/restartBtnDelay.gif)
 
  * Future Implementations:
    * In the future it'd be beneficial to extend the amount, and complexity of the questions asked and the options available. Rather than having each genre assigned to a button, for example the first button always representing the Non-Fiction genre, it'd be preferable to have the options appear in different orders so that it's not obvious to the user which genre each button/option corresponds to. 
    * In addition, it'd be useful to have this book recommendation quiz be a part of something larger, most logically this would be associated with an online book shop. In that case there would be clear branding included in the site rather than it just being an anonymous quiz. This would also make the social media links more logical and relevant than as the project currently stands.
+   * In terms of accessibility, there are multiple things that I'd like to add to my site to ensure that everyone can use the site regardless of their individual abilities. For example, I'd like to implement light mode/dark mode functionality for those who may struggle with reading text against certain colours, or those with sensitive eyes. I'd also like to have some inbuilt reading function where a program could read out quiz questions and answers to users so those who are visually impaired aren't excluded.
 
 
 ### Accessibility
@@ -137,6 +147,7 @@ My Lighthouse score for accessibility is 100% which I am very pleased with, this
 * [Adobe XD](https://helpx.adobe.com/uk/support/xd.html) was used to create the Wireframes seen above
 * [Favicon](https://favicon.io/) was utilised to create a Favicon for my site's browser tab
 * [Font Awesome version 6](https://fontawesome.com/) was used for the open book icon featured on my modal 
+* [Gifox](https://gifox.app/) was used to create a video/gif to demonstrate the hover effect for my modal close button for the purposes of this readme file
 * [Github](https://github.com/) was used to store the repository for this quiz project, with Github Pages hosting the site
 * [Gitpod](https://www.gitpod.io/) is the environment in which this project was created and worked on
 * Google Chrome Developer Tools was used as a debugging tool, and to help visualise the site in different screen sizes to ensure that user experience remained clean and efficient no matter the device utilised by the user
@@ -175,3 +186,19 @@ The book recommendation quiz website is deployed using Github Pages, this was do
 ## Automated Testing
 
 ### W3 Nu HTML Validator 
+
+The Nu HTML Validator was used throughout the development and testing of this site to ensure there was no faulty, or below standard, HTML used. Below is a screenshot to demonstrate that no warnings or errors were raised for the use of HTML on my site.
+* [HTML Validator Report](./docs/HTMLValidator.png)
+
+### W3C CSS Validation Service
+
+The W3C CSS Validation Service was used to check the validity of the CSS used throughout my site, as with HTML this validator returned no errors or warnings.
+* [CSS Validator Report](./docs/CSSValidator.png)
+
+### Wave Testing
+
+My site was assessed by the Web Accessibility Evaluation Tool (WAVE) whereby any warnings raised were addressed and resolved
+* [WAVE Report](./docs/WAVEReport.png)
+* The WAVE report stated that there were no errors on my site, there were however two alerts given.
+1. Suspicious alternative text for my modal image where the alt text states "Image of an open book", I don't feel as though this alt text is either insufficient or extraneous and so I have left this as it is.
+2. Device dependent event handler for my modal close button, WAVE explains that this isn't accessible to both mouse and keyboard users. My quiz in it's entirety does rely on a user having a mouse and using a smartphone in order to select option buttons and to submit the quiz. Therefore, the device dependent event handler is something that I will address in the future but currently don't feel that it impacts user experience.
