@@ -85,7 +85,7 @@ h2 {
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 p {
@@ -103,7 +103,8 @@ p {
 .container {
     width: 80vw;
     max-width: 80%;
-    background-color: rgba(107, 95, 95); 
+    /* background-color: rgba(107, 95, 95);  */
+    background-color: #353D32; /* Color should be dark green or brown*/
     height: 70vh !important; /* To test on actual mobile to see if footer is eclipsed by container, was previously 70vh*/
     box-shadow: 0 0 5px 4px;
     display: flex;
@@ -248,6 +249,7 @@ img {
 @media (min-width: 320px) {
     .title h2 {
         margin-bottom: 0;
+        font-size: 1.3rem;
     }
     .container {
         margin-top: 0 !important;
@@ -276,7 +278,8 @@ img {
 @media (min-width: 576px) {
 
     .title h2 {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
+        letter-spacing: 1.5px;
     }
 
     #username {
@@ -340,11 +343,12 @@ img {
 
 @media (min-width: 768px) {
     .title h2 {
-        font-size: 1.5rem;
+        font-size: 2.1rem;
         /* margin-bottom: 30px;
         margin-top: 30px; */
        margin-bottom: 15px;
         margin-top: 15px;
+        letter-spacing: 2px;
     }
 
     h1 {
@@ -440,8 +444,9 @@ img {
 
 @media (min-width: 992px) {
    .title h2 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         margin-bottom: 0 !important;
+        letter-spacing: 2px;
     }
     #question-text {
         font-size: 1.7rem;
@@ -511,13 +516,17 @@ img {
         margin: 8% auto;
     }
     .title h2 {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
+        /* letter spacing attribute doesn't work here */
+        margin-bottom: 10px !important;
     }
     .btn-option {
         font-size: 1.2rem;
     }
     .container {
-        margin-top: 20px !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px;
+        height: 65vh !important;
     }
     h1 {
         font-size: 1.5rem;
@@ -526,15 +535,41 @@ img {
         font-size: 1.2rem;
         margin-bottom: 10px;
     }
+
+    #questionText {
+        font-size: 1.5rem;
+    }
+
     #modalImg img {
-        /* width: 450px;
-        height: 275px; */
         width: 360px;
         height: 216px;
         margin: 0;
     }
     .social-media i {
-        font-size: 2.7rem;
+        font-size: 2.5rem;
+    }
+    #nfImg img {
+    height: 280px;
+    width: 561px;
+    object-fit: contain;
+    }
+        
+    #horrorImg img {
+    height: 280px;
+    width: 561px;
+    object-fit: contain;
+    }
+    
+    #classicsImg img {
+    height: 280px;
+    width: 561px;
+    object-fit: contain;  
+    }
+    
+    #mfImg img {
+    height: 280px;
+    width: 561px;
+    object-fit: contain;
     }
 }
 
@@ -564,9 +599,9 @@ img {
         font-size: 2rem;
     }
 
-    h2 {
-        margin-bottom: 10px !important;
-        margin-top: 10px !important; 
+    .title h2 {
+        margin-bottom: 10px;
+        margin-top: 10px; 
     }
 
     #question-text {
@@ -624,8 +659,8 @@ img {
         width: 200px !important;
     }
 
-    h2 {
-        font-size: 0.9rem;
+   .title h2 {
+        font-size: 1rem;
     }
 
     .container {
