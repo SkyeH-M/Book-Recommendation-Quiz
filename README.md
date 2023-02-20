@@ -2,6 +2,7 @@
 
 This book recommendation quiz has been created to allow users to answer questions about their preferences, and receive three personalised book recommendations based on the answers they select. This quiz is designed so that it can be taken on any device, regardless of size or model, and still have a positive and clear user experience. 
 
+![Image of my responsive website](./docs/tech-sini.png)
 [Link to the book recommendation quiz](https://skyeh-m.github.io/Book-recommendation-quiz/)
 
 ## Contents 
@@ -124,6 +125,7 @@ The book recommendation quiz is comprised of three main sections, the modal scre
  * Future Implementations:
    * In the future it'd be beneficial to extend the amount, and complexity of the questions asked and the options available. Rather than having each genre assigned to a button, for example the first button always representing the Non-Fiction genre, it'd be preferable to have the options appear in different orders so that it's not obvious to the user which genre each button/option corresponds to. 
    * In addition, it'd be useful to have this book recommendation quiz be a part of something larger, most logically this would be associated with an online book shop. In that case there would be clear branding included in the site rather than it just being an anonymous quiz. This would also make the social media links more logical and relevant than as the project currently stands.
+   * In the future the site could be expanded to have the book recommendation image seperated into 3 individual images showcasing each book. This could be used to allow users to click a book image and be directed to where they can purchase this book. Alternatively, clicking an individual book image could bring up a modal which provides some information about the book chosen such as the blurb or a review. 
    * In terms of accessibility, there are multiple things that I'd like to add to my site to ensure that everyone can use the site regardless of their individual abilities. For example, I'd like to implement light mode/dark mode functionality for those who may struggle with reading text against certain colours, or those with sensitive eyes. I'd also like to have some inbuilt reading function where a program could read out quiz questions and answers to users so those who are visually impaired aren't excluded.
 
 
@@ -202,3 +204,7 @@ My site was assessed by the Web Accessibility Evaluation Tool (WAVE) whereby any
 * The WAVE report stated that there were no errors on my site, there were however two alerts given.
 1. Suspicious alternative text for my modal image where the alt text states "Image of an open book", I don't feel as though this alt text is either insufficient or extraneous and so I have left this as it is.
 2. Device dependent event handler for my modal close button, WAVE explains that this isn't accessible to both mouse and keyboard users. My quiz in it's entirety does rely on a user having a mouse and using a smartphone in order to select option buttons and to submit the quiz. Therefore, the device dependent event handler is something that I will address in the future but currently don't feel that it impacts user experience.
+
+### Lighthouse Testing
+## Desktop 
+* []
