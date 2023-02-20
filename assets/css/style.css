@@ -14,7 +14,7 @@
 }
 
 html {
-    background: url(../images/opaqueBgImg.png) no-repeat center center;
+    background: url(../images/backgroundImg.webp) no-repeat center center;
     background-size: cover;
     min-height: 100%;
 }

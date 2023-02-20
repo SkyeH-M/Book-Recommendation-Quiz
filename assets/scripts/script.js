@@ -23,19 +23,19 @@ D- Modern Fiction
 const GENRE_MAP = {
     A: {
         name: "Non-Fiction",
-        imgSrc: "assets/images/non-fiction.png",
+        imgSrc: "assets/images/non-fiction.webp",
     },
     B: {
         name: "Horror",
-        imgSrc: "assets/images/horror.png",
+        imgSrc: "assets/images/horror.webp",
     },
     C: {
         name: "Classics",
-        imgSrc: "assets/images/classics.png",
+        imgSrc: "assets/images/classics.webp",
     },
     D: {
         name: "Modern Fiction",
-        imgSrc: "assets/images/modern-fiction.png",
+        imgSrc: "assets/images/modern-fiction.webp",
     },
 };
 
