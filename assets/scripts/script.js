@@ -8,7 +8,7 @@
 6) DONE- user cannot be accessed in the displayGenre function (was declared in func)
 7) DONE- Once user goes through the quiz, gets a result, and clicks restart, their displayNextQuestion result will not display an img unless page is refreshed
 8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
-9) Form submit won't hide after submission if you press enter, not click button
+9) DONE- Form submit won't hide after submission if you press enter, not click button
 10) DONE- Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
 */
 
@@ -138,7 +138,6 @@ const submitBtn = document.getElementById("submit");
 const answerOptions = Array.from(document.getElementsByClassName("option"));
 const questionText = document.getElementById("question-text");
 const usernameSubmit = document.getElementById("usernameSubmit");
-// const textInput = document.getElementById("username"); remove ?
 
 // Below code was suggested by Oisin from tutor support as a bug fix:
 let storedUsername;
