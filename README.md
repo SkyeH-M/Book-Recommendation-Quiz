@@ -207,4 +207,8 @@ My site was assessed by the Web Accessibility Evaluation Tool (WAVE) whereby any
 
 ### Lighthouse Testing
 ## Desktop 
-* []
+* [Lighthouse Report](./docs/desktop-lighthouse.png)
+* The lowest score my site received for the Lighthouse desktop review was 92% for Best Practises. This is explained only as having an image displayed with incorrect aspect ratio, the ideal ratio is stated to be 1.50 where my ratio is 1.67 for the modal book image. I do not feel as though this discrepancy provides a negative user experience, nor do I feel as though the image appears stretched or incorrectly displayed
+
+## Mobile
+* [Lighthouse Report](./docs/mobile-lighthouse.png)

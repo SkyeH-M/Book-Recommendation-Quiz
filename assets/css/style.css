@@ -56,7 +56,7 @@ html, body {
 
 #modalImg img {
     height: 153px;
-    width: 250px;
+    /* width: 250px; */ /* CHECK THIS */
     margin-top: 30px !important;
 }
 
