@@ -33,7 +33,7 @@ This book recommendation quiz has been created to allow users to answer question
     * [W3C CSS Validation Service](#w3c-css-validation-service)
     * [Wave](#wave-testing)
     * [Lighthouse](#lighthouse-testing)
-    * [JS Lint](#js-lint)
+    * [JS Hint](#js-hint)
   * [Manual Testing](#manual-testing)
   * [Bugs](#bugs)
 
@@ -208,7 +208,24 @@ My site was assessed by the Web Accessibility Evaluation Tool (WAVE) whereby any
 ### Lighthouse Testing
 ## Desktop 
 * [Lighthouse Report](./docs/desktop-lighthouse.png)
-* The lowest score my site received for the Lighthouse desktop review was 92% for Best Practises. This is explained only as having an image displayed with incorrect aspect ratio, the ideal ratio is stated to be 1.50 where my ratio is 1.67 for the modal book image. I do not feel as though this discrepancy provides a negative user experience, nor do I feel as though the image appears stretched or incorrectly displayed
+* The lowest score my site received for the Lighthouse desktop review was 92% for Best Practises. This is explained only as having an image displayed with incorrect aspect ratio, the ideal ratio is stated to be 1.50 where my ratio is 1.67 for the modal book image. I do not feel as though this discrepancy provides a negative user experience, nor do I feel as though the image appears stretched or incorrectly displayed. 
 
 ## Mobile
 * [Lighthouse Report](./docs/mobile-lighthouse.png)
+* My Mobile Lighthouse report stated that my Accessibility and SEO scores were 100, with Performance and Best Practises scoring 92. I feel these scores are acceptable, yet something that I endeavour to improve in the future. The Performance score was lower as advised me to 'eliminate render-blocking resources' for my Google Fonts. I have read on StackOverflow that I can place these Google Font links just before the end of my body tag in HTML, yet have been warned that this may mean that fonts appear broken as the page is loading. In order to maximise user experience I've decided to leave the Google Font link in the head of my HTML as the page load score is sufficient. For Best Practises I've again received a warning about displaying images with incorrect aspect ratio. As mentioned above I don't think the image appears stretched or abnormal in any way so have decided to leave the image sizing as is. 
+
+* In regards to scoring 100 on Accessibility and SEO for both mobile and desktop versions of my Lighthouse report this is due to the following efforts. For Accessibility I prioritised using semantic HTML throughout the development of the site, along with aria-labels and alt text wherever necessary. For SEO I included meta tags in the head of my HTML file, including a meta description of the site.
+
+## Improvements Made
+
+* In order to raise my Lighthouse scores slightly I converted all site images to webp format to improve loading times
+* Main script files were placed just before the end of the body tag in the HTML file so that basic CSS and HTML is loaded before any JavaScript to promote good user experience and quicker load times
+
+### JS Hint
+* [JS Hint Report](./docs/JSHint.png)
+* After copying and pasting the entire contents of my JavaScript file into the JS Hint program I originally received 29 warnings. These warnings were predominately due to the use of 'let' and 'const' throughout my file, along with the use of arrow functions. These warnings were removed by adding a comment which updated the JS Hint version to allow the use of let, const, and arrow function syntax. This comment was as follows /*jshint esversion: 6 */ which I found on Slack and was first raised (to my knowledge) by user yoni_emeritus in 2018. After adding this comment my warnings reduced to zero.
+* I do have comments mentioning that I have one defined variable and one unused variable in my script.js file
+
+## Manual Testing
+
+### Testing User Stories
