@@ -68,13 +68,13 @@ As a user I want to be able to...
 ## Design
 ### Colour Scheme
 
-![Image of my colour scheme](./docs/quiz-palette.png)
+![Image of my colour scheme](./docs/colourPalette.png)
 
-The colour scheme of the book recommendation site is comprised mainly of white, green, and grey toned pink. 
+The colour scheme of the book recommendation site is comprised mainly of white, different shades of green, and black. 
 
 * White was chosen to focus the eye, and remove background distractions, particularly for the option boxes, so that text was easily readable. Similarly the colour of the social media icons are white to draw the user's eye to them, with the purpose of promoting the company who created the quiz and thus getting more traction online. 
-* Green was selected for the footer background, and background of the heading to add a pop of colour, and to compliment, yet provide a difference to the pinkish grey tone of the main container box. The green speaks to the theme of books in general by being evocative of greenery and trees.
-* The pinkish grey colour was selected to be a warming compliment to the green and white, and add a bit more diversity of colour. This shade in particular stands out from the light background and so draws the user's eye to the centre of the page where the questions and answers are displayed.
+* Green was selected for the footer background, background of the heading, and the quiz container itself, to add a pop of colour, the different shades of green are both different to one another and are also complimentary, keeping to a clear theme. The green speaks to the theme of books in general by being evocative of greenery and trees.
+* Black was chosen to add contrast and make text clear and readable, especially against a white background. The text being black is also in keeping with text in books always being black against a white page. 
 
 ### Typography
 
@@ -127,6 +127,7 @@ The book recommendation quiz is comprised of three main sections, the modal scre
    * In addition, it'd be useful to have this book recommendation quiz be a part of something larger, most logically this would be associated with an online book shop. In that case there would be clear branding included in the site rather than it just being an anonymous quiz. This would also make the social media links more logical and relevant than as the project currently stands.
    * In the future the site could be expanded to have the book recommendation image seperated into 3 individual images showcasing each book. This could be used to allow users to click a book image and be directed to where they can purchase this book. Alternatively, clicking an individual book image could bring up a modal which provides some information about the book chosen such as the blurb or a review. 
    * In terms of accessibility, there are multiple things that I'd like to add to my site to ensure that everyone can use the site regardless of their individual abilities. For example, I'd like to implement light mode/dark mode functionality for those who may struggle with reading text against certain colours, or those with sensitive eyes. I'd also like to have some inbuilt reading function where a program could read out quiz questions and answers to users so those who are visually impaired aren't excluded.
+   * Although the alerts I've implemented to encourage users to enter a username before submitting the username field, and attempting to close the modal function well they aren't aesthetically pleasing. I'd like to look into a way to communicate these important aspects to the user in a way that improves user experience.
 
 
 ### Accessibility
@@ -245,6 +246,7 @@ The entirety of this site has been tested throughout development extensively, in
 * Modal area:
   * Username field is automatically focused on upon page load so users are implicitly told to enter their username immediately. This username can be submitted by either clicking the submit button, or by pressing the enter key, this works on all devices from computers and laptops with physical keyboards, and mobile devices. 
   * The modal cannot be closed until a username is entered, if a user tries to close the modal without entering a name an alert is displayed prompting the user to do so. This ensures the quiz results are personalised (by name) to the individual user, and to ensure the user reads the modal before continuing on with the quiz.
+  * Similarly the username input field cannot be submitted if the user hasn't entered their name, submitting an empty username field will result in an alert stating 'Please enter your username'.
 * Question and answer area:
   * Upon hovering over any question option button on desktop the button will become a light shade of green to indicate which button will be selected if clicked. On mobile or tablet devices hovering isn't possible so the button most recently clicked becomes green instead to indicate which button they just selected for the previous question. 
   * Once an option button is clicked the quiz will always move automatically to the next question, this has been tested on every device available on Chrome Dev Tools, along with an iPhone I own. I have never encountered any issues with this functionality and can confidently suggest that this functionality will always work. Upon answering question 10 the quiz will not move to the next question to indicate to the user that the quiz is over, and that they should press submit to reveal their recommendation. 
@@ -253,6 +255,9 @@ The entirety of this site has been tested throughout development extensively, in
   * The Hi Username message always returns the correct username that was entered into the username field. This field allows the user to enter numbers and characters to suit those who may want to enter an online username rather than their legal first name, so numbers and special characters are never blocked. 
   * I have tested each option button for each question to ensure they're pushing the correct letter into the genreArray array in order to give the correct recommendation. This includes testing what happens if a user selects option button 'A' 5 times, and option button 'B' 5 times. In this case, the quiz will recommend the genre that was first selected by the user, for example, if their first answer was for genre 'A' this will be the one displayed. 
   * No matter the device the quiz submit button only appears once the user reached the 10th question, this is so they don't prematurely submit the quiz without answering all the questions. If a user attempts to press the submit button on the 10th question page without having answered the final question the button will not work. The submit button will only take the user to their recommendation page once 10 option buttons have been selected, one for each of the 10 questions.
+* Site wide:
+  * The social media links in the footer of the page always open to a new tab when clicked on so that user's aren't permanently directed away from the quiz site.
+  * The social media links also turn a dark shade of green (the same as the container background colour) when hovered over on all devices that have a mouse or cursor. 
 
 ## Bugs
 
@@ -263,5 +268,50 @@ The entirety of this site has been tested throughout development extensively, in
 | 1. In early development the startQuiz() function set the currentQuestion variable to 0, set the question and answer text, and defined an onclick function for each button so that when clicked the answer would be pushed into the genreArray. The next function was included like so [Bug 1](./docs/bugs/Bug1.png), this meant that currentQuestion was immediately being set to 9 at the beginning of the quiz as the next function was calling itself and incrementing this variable when undesired | Yes |Kevin from tutor support advised that I place the currentQuestion if statement inside my onclick function so the next function was only called when an option button was clicked, e.g [Bug 1 fixed code](./docs/bugs/Bug1Solved.png) |
 | 2. When attempting to insert an image into the quiz I was unable to get the image to fit within the question-area div, leading to the following result [Bug 2](./docs/bugs/Bug2.png). This is due to my JavaScript code using document.body.appendChild with the file path of an image, meaning the image was being added to the body, next to the quiz container. The image [here](./docs/bugs/bug2a.png) shows the code previously used  | Yes | To solve this bug I instead used JavaScript to create an image element, set the file path of this image element to be that of the recommendation image chosen for the user. Then targetted a div in my index.html file with the id of nfImg to target the recommendation area as being where the image will appear, and added the image using the appendChild method. This placed the image exactly where it needed to be inside the container |
 | 3. Not a bug, but rather an improvement that needed to be made was suggested by my mentor Akshat, I was originally using a prompt to ascertain the user's name [like so](./docs/bugs/Bug3UX.png) which was explained to me to be poor user experience and design | Yes | The prompt was changed to a username label, field, and submit button within the modal on the page to be less obtrusive and offer a better user experience [e.g](./docs/username-field.png) |
-| 4. Before I created the modal to house the username field I put it above the first question and intended for this field to disappear once the username had been entered. I encountered a bug whereby after a user entered their name the field would remain on the page for each of the 10 questions, [e.g](./docs/bugs/bug4.png) | Yes | Firstly, I removed the username field from the question area and placed it instead in a modal to seperate the two areas. I then used the DOM display property to set the username field to 'none' once a username had been entered 
+| 4. Before I created the modal to house the username field I put it above the first question and intended for this field to disappear once the username had been entered. I encountered a bug whereby after a user entered their name the field would remain on the page for each of the 10 questions, [e.g](./docs/bugs/bug4.png) | Yes | Firstly, I removed the username field from the question area and placed it instead in a modal to seperate the two areas. I then used the DOM display property to set the username field to 'none' once a username had been entered and submitted. Upon entering a username and submitting the form the username field is hidden and the user can now click the 'X' to exit the modal and begin the quiz |
+| 5. The image of recommended books is displayed to the user after the quiz is submitted, however upon clicking the restart button the image either remains visible at the first question (sometimes in duplicate), or doesn't appear again once a new recommendation has been issued. [e.g](./docs/bugs/bug5.png) | Yes | As mentioned earlier this was fixed by changing the way I was inserted an image into the site. This was done by creating an image element and populating it with the file path for the relevant recommendation image, removing the hidden class when the recommendation is issued, and adding the hidden class once the restart button is clicked. |
+| 6. I had a bug where due to the short screen height my footer wouldn't occupy the bottom of the screen, and instead would rise up to meet the bottom of the content above it, [e.g](./docs/bugs/bug6.png) | Yes | This was rectified with the help of [Matthew James Taylor's article](https://matthewjamestaylor.com/bottom-footer). This article suggested to use CSS to set the to margin and padding of the html and body to 0, and set their height to 100%. In addition, to set the position of the footer to absolute, and its bottom value to 0, after doing so the footer sits at the bottom of the page on every device without being a 'sticky' footer. |
+| 7. Finally, when a user entered their name into the username field the username value would always be logged a step behind. For example, if you entered your username as 'A', and logged this value it'd return undefined. If you then refreshed the page and entered your username as 'B', the value of this would be 'A' | Yes | With the help of the tutor Oisin it was suggested that the storedUsername variable should be declared as a global variable outside of the storeUsername function so that it can be accessed. The storedUsername variable is then reassigned within the storeUsername function whenever the username is saved to session storage within this function. |
 
+## Credits 
+### Code Sections
+
+* Code sections were predominately found online either for inspiration or to solve an issue that was beyond my current understanding, these sections have been referenced in the code itself but will be fully credited here:
+* [The basis for my JavaScript code structure was derived from the following guide, this was considerably changed to fit my purposes](https://www.codingninjas.com/codestudio/library/how-to-create-a-javascript-quiz-code)
+* [Most frequent element in an array](https://www.geeksforgeeks.org/frequent-element-array/) to select a recommended genre for a user
+* [Window sessionStorage](https://www.w3schools.com/jsref/prop_win_sessionstorage.asp) to store and retrieve the username value
+* [How to add an image in HTML via JavaScript](https://linuxhint.com/add-image-in-html-via-javascript/) to insert my recommendation images into the html of the document
+* [Get Down! How to Keep Footers at the Bottom of the Page](https://matthewjamestaylor.com/bottom-footer)
+* [Create a Modal with HTML, CSS & JavaScript](https://www.youtube.com/watch?v=6ophW7Ask_0)
+* [Trigger a Button Click on Enter](https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp)
+
+### Media 
+
+1. [Favicon of Books by John Sorrentino](https://favicon.io/emoji-favicons/books)
+2. [Font Awesome book](https://fontawesome.com/icons/book?s=solid&f=classic)
+3. [Image on modal by Elisa Calvet B.](https://unsplash.com/photos/S3nUOqDmUvc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+4. [Background image by Annie Spratt](https://unsplash.com/photos/askpr0s66Rg)
+5. [Are Prisons Obsolete? published by Seven Stories Press](https://www.waterstones.com/book/are-prisons-obsolete/angela-davis/9781583225813)
+6. [Utopia for Realists published by Bloomsbury Publishing PLC](https://www.waterstones.com/book/utopia-for-realists/rutger-bregman/9781408893210)
+7. [Invisible Women published by Random House](https://www.penguin.co.uk/books/435554/invisible-women-by-caroline-criado-perez/9781784706289)
+8. [Her Body and Other Parties published by Profile Books Ltd](https://www.waterstones.com/book/her-body-and-other-parties/carmen-maria-machado/9781781259535)
+9. [We Have Always Lived in the Castle published by Penguin Classics](https://www.abebooks.co.uk/servlet/BookDetailsPL?bi=30987215073&searchurl=an%3Dshirley%2Bjackson%26pics%3Don%26sortby%3D17%26tn%3Dwe%2Bhave%2Balways%2Blived%2Bin%2Bthe%2Bcastle&cm_sp=snippet-_-srp1-_-title2)
+10. [Tell Me I'm Worthless published by Cipher Press](https://www.cipherpress.co.uk/tellmeimworthless)
+11. [Nausea published by Penguin Classics](https://www.amazon.co.uk/Nausea-Penguin-Modern-Classics-Jean-Paul/dp/014118549X/ref=asc_df_014118549X/?tag=googshopuk-21&linkCode=df0&hvadid=311043780415&hvpos=&hvnetw=g&hvrand=14705711220892661469&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9046357&hvtargid=pla-404289614630&psc=1&th=1&psc=1)
+12. [Frankenstein published by Penguin Classics](https://www.amazon.co.uk/Frankenstein-Modern-Prometheus-Penguin-Classics/dp/0141439475/ref=asc_df_0141439475/?tag=googshopuk-21&linkCode=df0&hvadid=310891116626&hvpos=&hvnetw=g&hvrand=4893185580108965700&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9046357&hvtargid=pla-494071215115&psc=1&th=1&psc=1)
+13. [The Bell Jar published by Harper Collins Publishers Inc](https://www.ebay.co.uk/itm/173289639244?chn=ps&mkevt=1&mkcid=28)
+14. [A Little Life published by Knopf DoubleDay Publishing Group](https://www.panmacmillan.com/authors/hanya-yanagihara/a-little-life/9781447294832)
+15. [Our Wives Under The Sea published by Picador](https://www.panmacmillan.com/authors/julia-armfield/our-wives-under-the-sea/9781529017250)
+16. [My Year of Rest and Relaxation published by Penguin Press](https://www.penguin.co.uk/books/436709/my-year-of-rest-and-relaxation-by-ottessa-moshfegh/9781784707422)
+
+### Text
+
+* All text was written myself, apart from a question concerning quotations which will be credited below in order:
+1. [Are Prisons Obsolete?- Angela Y. Davis](https://www.waterstones.com/book/are-prisons-obsolete/angela-davis/9781583225813)
+2. [Her Body and Other Parties- Carmen Maria Machado](https://www.waterstones.com/book/her-body-and-other-parties/carmen-maria-machado/9781781259535)
+3. [Nausea- Jean Paul Sartre](https://www.waterstones.com/book/nausea/jean-paul-sartre/james-wood/9780141185491)
+4. [A Little Life- Hanya Yanagihara](https://www.panmacmillan.com/authors/hanya-yanagihara/a-little-life/9781447294832)
+
+## Acknowledgements
+
+* 

@@ -1,25 +1,3 @@
-/*
-1) DONE- return array of letters whose buttons have been clicked 
-2) DONE- when answer button is clicked move onto displayNextQuestion question
-3) DONE- restart empties the genreArray arr
-4) DONE- prev function returns to previous page
-4i) POSTPONED- prev function removes last option selected so user can't select A, click previous, and click B- this currently would result in genreArray = ['A', 'B']
-5) DONE?- ensure that submit can only be pressed once user has answered all questions, hide submit until genreArray === 10?
-6) DONE- user cannot be accessed in the displayGenre function (was declared in func)
-7) DONE- Once user goes through the quiz, gets a result, and clicks restart, their displayNextQuestion result will not display an img unless page is refreshed
-8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
-9) DONE- Form submit won't hide after submission if you press enter, not click button
-10) DONE- Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
-11) DONE- Make it so that modal can't be closed if username field is empty
-*/
-
-
-/* Genres:
-A- Non-Fiction
-B- Horror
-C- Classics
-D- Modern Fiction
-*/
 
 const GENRE_MAP = {
     A: {
@@ -133,7 +111,6 @@ let questions = [
     },
 ];
 
-// create variables used to rep elements in our document, used to access them in the DOM:
 const restartBtn = document.getElementById("restart");
 const submitBtn = document.getElementById("submit");
 const answerOptions = Array.from(document.getElementsByClassName("option"));
@@ -143,12 +120,16 @@ const usernameSubmit = document.getElementById("usernameSubmit");
 // Below code was suggested by Oisin from tutor support as a bug fix:
 let storedUsername;
 
-// get user's name:
+/** get and store user's name, hide username field */ 
 function storeUsername() {
     let input = document.getElementById("username").value;
     sessionStorage.setItem("username", input);
     storedUsername = sessionStorage.getItem("username");
-    document.getElementById("usernameForm").style.display = "none";
+    if (storedUsername === '') {
+        alert('Please enter your username')
+    } else {
+        document.getElementById("usernameForm").style.display = "none";
+    }
 }
 
 // W3Schools- How to Trigger Button Click on Enter:
@@ -191,26 +172,26 @@ function startQuiz() {
     displayQuestion();
 }
 
-// create function to reset current question index, remove hide class from elements, call startQuiz()
+/** create function to reset current question index, remove hide class from elements, call startQuiz() */
 function restart() {
     currentQuestionIndex = 0;
     genreArray = [];
     submitBtn.classList.remove("hide");
-    answerOptions.forEach((eachOption) => { /* eachOption, index. is index not necessary? */
+    answerOptions.forEach((eachOption) => { 
         eachOption.classList.remove("hide");
         submitBtn.classList.add("hide");
     });
-
-    // below hides recommendation img result after restarting quiz
     nfImg.classList.add("hide");
     sessionStorage.clear();
     startQuiz();
 }
-// create displayNextQuestion() to move to displayNextQuestion Q, currentQ will ++, hidden class will be removed from prev button
-// based on option the user selects, the genreArray will be added to
+/** create displayNextQuestion(), currentQuestionIndex will be incremented
+ * if currentQuestionIndex is less than, or equal to 9, show the next question
+ * if currentQuestionIndex is 9 display submit button
+ */
 
 function displayNextQuestion() {
-    currentQuestionIndex++; // maybe delete this?
+    currentQuestionIndex++;
     if (currentQuestionIndex <= 9) {
         displayQuestion();
     }
@@ -224,21 +205,23 @@ function displayNextQuestion() {
 function submit() {
     if (genreArray.length === 10) {
         submitBtn.classList.add("hide");
-        answerOptions.forEach((eachOption) => { /* Is index after eachOption necessary? */
+        answerOptions.forEach((eachOption) => {
             eachOption.classList.add("hide");
         });
         displayGenre();
     }
 }
 
-// hide submit button until quiz has been fully answered:
+/** hide submit button until quiz has been fully answered */
 function showSubmitBtn() {
     if (genreArray.length >= 9) {
         submitBtn.classList.remove("hide");
     }
 }
 
-/** Calculates which genre is selected by the user most frequently, returns that letter */
+/** Calculates which genre is selected by the user most frequently, returns that letter
+ * Created with credit to Geeks for Geeks Most frequent element in an array
+ */
 function mostFrequent(genreArray) {
     let maxCount = 0;
     let mostCommon;
@@ -256,7 +239,7 @@ function mostFrequent(genreArray) {
     return mostCommon;
 }
 
-/** Tells user (by name) which genre they selected most frequently, and shows book recommendation images */
+/** Tells user (by name) which genre they selected most frequently, and shows book recommendation image */
 function displayGenre() {
     const selectedGenre = mostFrequent(genreArray);
     questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
@@ -274,11 +257,14 @@ let modal = document.getElementById("modalMain");
 let closeBtn = document.getElementById("closeBtn");
 closeBtn.addEventListener("click", closeModal);
 
+/** if username has been entered and submitted then hide username field
+ * otherwise alert with a message
+ */
 function closeModal() {
     if (storedUsername !== undefined) {
     modal.style.display = "none";
     } else {
-        alert('Please enter your name');
+        alert('Please enter your username');
     }
 }
 startQuiz();

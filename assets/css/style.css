@@ -56,7 +56,6 @@ html, body {
 
 #modalImg img {
     height: 153px;
-    /* width: 250px; */ /* CHECK THIS */
     margin-top: 30px !important;
 }
 
@@ -103,9 +102,8 @@ p {
 .container {
     width: 80vw;
     max-width: 80%;
-    /* background-color: rgba(107, 95, 95);  */
-    background-color: #353D32; /* Color should be dark green or brown*/
-    height: 70vh !important; /* To test on actual mobile to see if footer is eclipsed by container, was previously 70vh*/
+    background-color: #353D32; 
+    height: 70vh !important; 
     box-shadow: 0 0 5px 4px;
     display: flex;
     flex-direction: column;
@@ -141,8 +139,7 @@ p {
 }
 
 .btn-option {
-   /* display: block;  */
-    width: 250px; /* How can I make this dynamic ?, e.g 80% width */
+    width: 250px;
     padding: 10px;
     border-radius: 12px;
 }
@@ -157,7 +154,6 @@ p {
 
 #question-text {
     font-size: 0.8rem;
-    /* Needs to be higher up the page */
     padding: 10px;
 }
 
@@ -237,7 +233,7 @@ img {
 }
 
 .social-media i:hover {
-    color: rgba(205, 185, 185, 0.895);
+    color: #353D32;
 }
 
 .social-media a {
@@ -344,8 +340,6 @@ img {
 @media (min-width: 768px) {
     .title h2 {
         font-size: 2.1rem;
-        /* margin-bottom: 30px;
-        margin-top: 30px; */
        margin-bottom: 15px;
         margin-top: 15px;
         letter-spacing: 2px;
@@ -358,7 +352,6 @@ img {
 
     .container {
         margin-top: 0 !important;
-        /* margin-top: 40px !important; */
     }
 
     #nameLabel {
@@ -374,13 +367,11 @@ img {
     }
 
     #question-text {
-        /* font-size: 1.5rem; */
         font-size: 1.2rem;
         margin-top: -10px;
     }
 
     .btn {
-        /* font-size: 1.3rem; */
         font-size: 1rem;
     }
 
@@ -437,8 +428,6 @@ img {
     #modalImg img {
         width: 300px;
         height: 180px;
-        /* width: 360px;
-        height: 216px; */
     }
 }
 
@@ -517,7 +506,6 @@ img {
     }
     .title h2 {
         font-size: 2.5rem;
-        /* letter spacing attribute doesn't work here */
         margin-bottom: 10px !important;
     }
     .btn-option {
