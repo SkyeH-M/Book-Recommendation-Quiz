@@ -10,6 +10,7 @@
 8) DONE- img displays on laptop but appears with a question mark for mobile (fixed file path to relative)
 9) DONE- Form submit won't hide after submission if you press enter, not click button
 10) DONE- Username value is always one value behind, if you enter 1, it'll say null, then enter 2, it'll say 1, etc
+11) DONE- Make it so that modal can't be closed if username field is empty
 */
 
 
@@ -261,7 +262,6 @@ function displayGenre() {
     questionText.innerHTML = `Hi ${storedUsername}, you got ${GENRE_MAP[selectedGenre].name}! We recommend the following books...`;
     let img = document.createElement("img");
     img.src = GENRE_MAP[selectedGenre].imgSrc;
-    // why is this nfImg?
     let nfImgSource = document.getElementById("nfImg");
     nfImgSource.innerHTML = "";
     nfImgSource.appendChild(img);
@@ -275,6 +275,10 @@ let closeBtn = document.getElementById("closeBtn");
 closeBtn.addEventListener("click", closeModal);
 
 function closeModal() {
+    if (storedUsername !== undefined) {
     modal.style.display = "none";
+    } else {
+        alert('Please enter your name');
+    }
 }
 startQuiz();
