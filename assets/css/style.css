@@ -1,16 +1,9 @@
-/* Tasks 
-1) DONE- quiz area should be higher up on mobile page
-2) background image is too zoomed in for desktop/larger screens
-3) PARTIALLY DONE- media queries for wide but short screen sizes (inc. split screen on my laptop)
-
-*/
 
 * {
     margin: 0;
     padding: 0;
     font-family: 'Libre Baskerville', serif;
     color: white;
-
 }
 
 html {
@@ -126,8 +119,7 @@ p {
 }
 
 .btn:hover {
-    /* opacity: 0.7;  */
-    background-color: #aab5a6 !important; /* Does this make final answer unclear? */
+    background-color: #aab5a6 !important; 
 }
 
 .options {
@@ -306,8 +298,6 @@ img {
     
     #horrorImg img {
         object-fit: contain;
-        /* height: 252px;
-        width: 378px; */
         height: 180px;
         width: 360px;
     }
@@ -482,6 +472,7 @@ img {
     }
     .container {
         height: 70vh !important;
+        margin-top: 10px !important;
     }
     #closeBtn {
         font-size: 3rem;
@@ -663,8 +654,6 @@ img {
     
     #horrorImg img {
         object-fit: contain;
-        /* height: 252px;
-        width: 378px; */
         height: 144px;
         width: 200px;
     }
