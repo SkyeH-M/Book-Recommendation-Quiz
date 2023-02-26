@@ -143,6 +143,13 @@ My Lighthouse score for accessibility is 100% which I am very pleased with, this
 
 ### Wireframes
 
+* To begin the design of my project I created wireframes of the question and answer area of my quiz, and the recommendation area for desktop, tablet, and mobile screen sizes. The images of these will be provided below
+* [Question area wireframe](./docs/wireframe-QA.png)
+* [Recommendation area wireframe](./docs/wireframeRA.png)
+* Alterations: 
+* As you can see the wireframes differ slightly from the finished design of the quiz site. This is predominately to do with the removal of the 'next' and 'previous' buttons, along with the submit button being hidden until the user reaches question 10. The next and previous buttons were removed as the quiz progresses automatically to the next question once an answer is selected to I thought it best to simplify the design and remove unnecessary buttons. This particularly benefit the mobile screen size as it avoided a sense that the button area was cluttered. I thought the previous button to also be unnecessary given that the user could click restart at any point and be returned to the first question, if this quiz were longer than 10 questions I would reimplement a previous button to save a user from having to spend too much time re-answering questions 
+* The final key change to mention is the exclusion of the modal screen on my wireframes, the inclusion of the modal was only made towards the very end of development and so hadn't been planned for at the time in which the wireframes were created. 
+
 ### Languages Used
 * HTML, CSS and JavaScript were used to complete this project, I previously utilised jQuery to target and hide elements when necessary but reverted this to plain JavaScript for ease of understanding and conformity to the rest of my script.js file
 
