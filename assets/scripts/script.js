@@ -1,4 +1,3 @@
-
 const GENRE_MAP = {
     A: {
         name: "Non-Fiction",
@@ -120,13 +119,14 @@ const usernameSubmit = document.getElementById("usernameSubmit");
 // Below code was suggested by Oisin from tutor support as a bug fix:
 let storedUsername;
 
-/** get and store user's name, hide username field */ 
+/** get and store user's name, hide username field */
+
 function storeUsername() {
     let input = document.getElementById("username").value;
     sessionStorage.setItem("username", input);
     storedUsername = sessionStorage.getItem("username");
-    if (storedUsername === '') {
-        alert('Please enter your username')
+    if (storedUsername === "") {
+        alert("Please enter your username");
     } else {
         document.getElementById("usernameForm").style.display = "none";
     }
@@ -177,7 +177,7 @@ function restart() {
     currentQuestionIndex = 0;
     genreArray = [];
     submitBtn.classList.remove("hide");
-    answerOptions.forEach((eachOption) => { 
+    answerOptions.forEach((eachOption) => {
         eachOption.classList.remove("hide");
         submitBtn.classList.add("hide");
     });
@@ -262,9 +262,11 @@ closeBtn.addEventListener("click", closeModal);
  */
 function closeModal() {
     if (storedUsername !== undefined) {
-    modal.style.display = "none";
+        modal.style.display = "none";
     } else {
-        alert('Please enter your username');
+        alert("Please enter your username");
     }
 }
 startQuiz();
+
+

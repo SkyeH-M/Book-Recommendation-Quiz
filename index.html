@@ -1,99 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book recommendation quiz site that allows you to answer 10 questions, each with 4 options
-    that will allow you to receive a personalised recommendation of 3 books.">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
-<!-- internal CSS stylesheet -->
-<link rel="stylesheet" href="assets/css/style.css">
-<!--Favicon links -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Book recommendation quiz site that allows you to answer 10 questions, each with 4 options
+    that will allow you to receive a personalised recommendation of 3 books."
+        />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet" />
+        <!-- internal CSS stylesheet -->
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <!--Favicon links -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
 
-    <title>Book Recommendation</title>
-</head>
-<body>
-    <!-- The Modal -->
-    <div id="modalMain" class="modal">
-        <div class="modal-content">
-            <span id="closeBtn" onclick=closeModal() title="Click this button to close the modal and start the quiz">&times;</span>
-            <h1>Welcome to the Book Recommendation Quiz <span class="fa-solid fa-book" title="Icon of a closed, white, book"></span></h1> <br>
-            <div id="usernameForm">
-                <form name="form">
-                    <label id='nameLabel' for="username">First name:</label>
-                    <input type="text" id="username" name="username" placeholder="Please enter your name" autofocus>
-                    <input type="button" id="usernameSubmit" value="Submit" onclick=storeUsername() aria-label="button to submit username"> 
-                </form>
-            </div>
-            <p>Please answer the following 10 questions and then click the submit button to find out which books we recommend for you</p>
-            <div id="modalImg">
-                <img src="assets/images/modal-img.webp" alt="Image of an open book">
-            </div>
-        </div>
-    </div>
-
-    <div class="background"> 
-    <div class="title"> 
-        <h2>Which books should I read?</h2>
-    </div>
-    <div class="body">
-    <div class="container">
-        <div class="content" id="question-area">
-            <div id="question-text"></div>
-                 <div class="recommendationImages">
-                 <div id="nfImg"></div>
-                 <div id="horrorImg"></div>
-                 <div id="classicsImg"></div>
-                 <div id="mfImg"></div>
+        <title>Book Recommendation</title>
+    </head>
+    <body>
+        <!-- The Modal -->
+        <div id="modalMain" class="modal">
+            <div class="modal-content">
+                <span id="closeBtn" onclick="closeModal()" title="Click this button to close the modal and start the quiz">&times;</span>
+                <h1>Welcome to the Book Recommendation Quiz <span class="fa-solid fa-book" title="Icon of a closed, white, book"></span></h1>
+                <br />
+                <div id="usernameForm">
+                    <form name="form">
+                        <label id="nameLabel" for="username">First name:</label>
+                        <input type="text" id="username" name="username" placeholder="Please enter your name" autofocus />
+                        <input type="button" id="usernameSubmit" value="Submit" onclick="storeUsername()" aria-label="button to submit username" />
+                    </form>
                 </div>
-            <div class="options">
-                <button class="btn btn-option option" id="A" data-genre="A"></button>
-                <button class="btn btn-option option" id="B" data-genre="B"></button>
-                <button class="btn btn-option option" id="C" data-genre="C"></button>
-                <button class="btn btn-option option" id="D" data-genre="D"></button>
+                <p>Please answer the following 10 questions and then click the submit button to find out which books we recommend for you</p>
+                <div id="modalImg">
+                    <img src="assets/images/modal-img.webp" alt="Image of an open book" />
+                </div>
             </div>
         </div>
-        <div class="controls">
-            <button class="btn btn-restart" id="restart">Restart</button>
-            <button class="btn btn-submit hide" id="submit">Submit</button>
+
+        <div class="background">
+            <div class="title">
+                <h2>Which books should I read?</h2>
+            </div>
+            <div class="body">
+                <div class="container">
+                    <div class="content" id="question-area">
+                        <div id="question-text"></div>
+                        <div class="recommendationImages">
+                            <div id="nfImg"></div>
+                            <div id="horrorImg"></div>
+                            <div id="classicsImg"></div>
+                            <div id="mfImg"></div>
+                        </div>
+                        <div class="options">
+                            <button class="btn btn-option option" id="A" data-genre="A"></button>
+                            <button class="btn btn-option option" id="B" data-genre="B"></button>
+                            <button class="btn btn-option option" id="C" data-genre="C"></button>
+                            <button class="btn btn-option option" id="D" data-genre="D"></button>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-restart" id="restart">Restart</button>
+                        <button class="btn btn-submit hide" id="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <footer>
+                    <ul class="social-media">
+                        <li>
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook link">
+                                <i class="fa-brands fa-square-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com" target="_blank" aria-label="Twitter link">
+                                <i class="fa-brands fa-square-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com" target="_blank" aria-label="Instagram link">
+                                <i class="fa-brands fa-square-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </footer>
+            </div>
         </div>
-    </div>
-</div>
-<div class="footer">
-<footer>
-    <ul class="social-media">
-        <li>
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook link">
-                <i class="fa-brands fa-square-facebook"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter link">
-                <i class="fa-brands fa-square-twitter"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram link">
-                <i class="fa-brands fa-square-instagram"></i>
-            </a>
-        </li>
-    </ul>
-</footer>
-</div>
-</div>
-<!-- Font Awesome Kit -->
-<script src="https://kit.fontawesome.com/4a7a7a5f62.js" crossorigin="anonymous"></script>
-<!-- internal JS link -->
-<script src="./assets/scripts/script.js"></script>
-</body>
+        <!-- Font Awesome Kit -->
+        <script src="https://kit.fontawesome.com/4a7a7a5f62.js" crossorigin="anonymous"></script>
+        <!-- internal JS link -->
+        <script src="./assets/scripts/script.js"></script>
+    </body>
 </html>
 
 

@@ -253,7 +253,7 @@ The entirety of this site has been tested throughout development extensively, in
 * Recommendation area:
   * The Hi Username message always returns the correct username that was entered into the username field. This field allows the user to enter numbers and characters to suit those who may want to enter an online username rather than their legal first name, so numbers and special characters are never blocked. 
   * I have tested each option button for each question to ensure they're pushing the correct letter into the genreArray array in order to give the correct recommendation. This includes testing what happens if a user selects option button 'A' 5 times, and option button 'B' 5 times. In this case, the quiz will recommend the genre that was first selected by the user, for example, if their first answer was for genre 'A' this will be the one displayed. 
-  * No matter the device the quiz submit button only appears once the user reached the 10th question, this is so they don't prematurely submit the quiz without answering all the questions. If a user attempts to press the submit button on the 10th question page without having answered the final question the button will not work. The submit button will only take the user to their recommendation page once 10 option buttons have been selected, one for each of the 10 questions.
+  * No matter the device the quiz submit button only appears once the user reaches the 10th question, this is so they don't prematurely submit the quiz without answering all the questions. If a user attempts to press the submit button on the 10th question page without having answered the final question the button will not work. The submit button will only take the user to their recommendation page once 10 option buttons have been selected, one for each of the 10 questions.
 * Site wide:
   * The social media links in the footer of the page always open to a new tab when clicked on so that user's aren't permanently directed away from the quiz site.
   * The social media links also turn a dark shade of green (the same as the container background colour) when hovered over on all devices that have a mouse or cursor. 
@@ -313,4 +313,6 @@ The entirety of this site has been tested throughout development extensively, in
 
 ## Acknowledgements
 
-* 
+* I would like to thank those credited above for providing invaluable code sections to make the development of this site possible
+* I'd like to thank my college mentor Robert Mclaughlin, and my CI mentor Akshat Garg for their input and advice throughout the development of this project and throughout the course itself
+* Finally I'd like to thank my CI cohort for providing feedback and advice via Slack when I ran into issues with my work, or needed tips on how to accomplish specific goals. 

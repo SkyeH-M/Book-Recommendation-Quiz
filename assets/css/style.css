@@ -1,8 +1,7 @@
-
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Libre Baskerville', serif;
+    font-family: "Libre Baskerville", serif;
     color: white;
 }
 
@@ -21,7 +20,8 @@ html {
 }
 
 /* Get Down! How to Keep Footers at the Bottom of the Page- Matthew James Taylor */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -57,7 +57,8 @@ html, body {
     font-size: 2rem;
 }
 
-#closeBtn:hover,.closeBtn:focus {
+#closeBtn:hover,
+.closeBtn:focus {
     color: black;
     cursor: pointer;
     text-decoration: none;
@@ -70,7 +71,7 @@ h1 {
 
 h2 {
     color: white;
-    font-family: 'Gloock', serif;
+    font-family: "Gloock", serif;
     text-align: center;
     top: 20px;
     background-color: #5d6859;
@@ -95,8 +96,8 @@ p {
 .container {
     width: 80vw;
     max-width: 80%;
-    background-color: #353D32; 
-    height: 70vh !important; 
+    background-color: #353d32;
+    height: 70vh !important;
     box-shadow: 0 0 5px 4px;
     display: flex;
     flex-direction: column;
@@ -119,7 +120,7 @@ p {
 }
 
 .btn:hover {
-    background-color: #aab5a6 !important; 
+    background-color: #aab5a6 !important;
 }
 
 .options {
@@ -176,7 +177,7 @@ img {
     margin-top: 30px;
 }
 
-#nfImg img{
+#nfImg img {
     height: 124px;
     width: 247px;
     object-fit: contain;
@@ -214,8 +215,8 @@ img {
 }
 
 .social-media li {
-    display: inline-block; 
-    text-align: center; 
+    display: inline-block;
+    text-align: center;
 }
 
 .social-media i {
@@ -225,7 +226,7 @@ img {
 }
 
 .social-media i:hover {
-    color: #353D32;
+    color: #353d32;
 }
 
 .social-media a {
@@ -264,7 +265,6 @@ img {
 }
 
 @media (min-width: 576px) {
-
     .title h2 {
         font-size: 1.8rem;
         letter-spacing: 1.5px;
@@ -290,24 +290,24 @@ img {
         width: 350px;
     }
 
-    #nfImg img{
+    #nfImg img {
         height: 180px;
         width: 360px;
         object-fit: contain;
     }
-    
+
     #horrorImg img {
         object-fit: contain;
         height: 180px;
         width: 360px;
     }
-    
+
     #classicsImg img {
         object-fit: contain;
         height: 180px;
         width: 360px;
     }
-    
+
     #mfImg img {
         object-fit: contain;
         height: 180px;
@@ -330,7 +330,7 @@ img {
 @media (min-width: 768px) {
     .title h2 {
         font-size: 2.1rem;
-       margin-bottom: 15px;
+        margin-bottom: 15px;
         margin-top: 15px;
         letter-spacing: 2px;
     }
@@ -373,28 +373,28 @@ img {
         font-size: 1.8rem;
     }
 
-   #nfImg img {
-    height: 234px;
-    width: 468px;
-    object-fit: contain;
+    #nfImg img {
+        height: 234px;
+        width: 468px;
+        object-fit: contain;
     }
-    
+
     #horrorImg img {
-    height: 234px;
-    width: 468px;
-    object-fit: contain;
+        height: 234px;
+        width: 468px;
+        object-fit: contain;
     }
 
     #classicsImg img {
-    height: 234px;
-    width: 468px;
-    object-fit: contain;  
+        height: 234px;
+        width: 468px;
+        object-fit: contain;
     }
 
     #mfImg img {
-    height: 234px;
-    width: 468px;
-    object-fit: contain;
+        height: 234px;
+        width: 468px;
+        object-fit: contain;
     }
 
     #modalImg img {
@@ -413,7 +413,6 @@ img {
     p {
         margin: 25px;
         font-size: 1rem;
-        
     }
     #modalImg img {
         width: 300px;
@@ -422,7 +421,7 @@ img {
 }
 
 @media (min-width: 992px) {
-   .title h2 {
+    .title h2 {
         font-size: 2.5rem;
         margin-bottom: 0 !important;
         letter-spacing: 2px;
@@ -446,24 +445,24 @@ img {
         font-size: 1rem;
     }
     #nfImg img {
-    height: 327px;
-    width: 655px;
-    object-fit: contain;
+        height: 327px;
+        width: 655px;
+        object-fit: contain;
     }
     #horrorImg img {
-    height: 327px;
-    width: 655px;
-    object-fit: contain;
-    }   
+        height: 327px;
+        width: 655px;
+        object-fit: contain;
+    }
     #classicsImg img {
-    height: 327px;
-    width: 655px;
-    object-fit: contain;  
+        height: 327px;
+        width: 655px;
+        object-fit: contain;
     }
     #mfImg img {
-    height: 327px;
-    width: 655px;
-    object-fit: contain;
+        height: 327px;
+        width: 655px;
+        object-fit: contain;
     }
     .modal-content {
         margin: 11% auto;
@@ -528,27 +527,27 @@ img {
         font-size: 2.5rem;
     }
     #nfImg img {
-    height: 280px;
-    width: 561px;
-    object-fit: contain;
+        height: 280px;
+        width: 561px;
+        object-fit: contain;
     }
-        
+
     #horrorImg img {
-    height: 280px;
-    width: 561px;
-    object-fit: contain;
+        height: 280px;
+        width: 561px;
+        object-fit: contain;
     }
-    
+
     #classicsImg img {
-    height: 280px;
-    width: 561px;
-    object-fit: contain;  
+        height: 280px;
+        width: 561px;
+        object-fit: contain;
     }
-    
+
     #mfImg img {
-    height: 280px;
-    width: 561px;
-    object-fit: contain;
+        height: 280px;
+        width: 561px;
+        object-fit: contain;
     }
 }
 
@@ -560,13 +559,12 @@ img {
 }
 
 @media (min-width: 1024px) {
-   body #modalImg img {
-    width: 300px;
-    height: 180px;
+    body #modalImg img {
+        width: 300px;
+        height: 180px;
     }
 }
 
- 
 /* Styling specific to Nest Hub */
 @media (width: 1024px), (height: 600px) {
     .container {
@@ -580,7 +578,7 @@ img {
 
     .title h2 {
         margin-bottom: 10px;
-        margin-top: 10px; 
+        margin-top: 10px;
     }
 
     #question-text {
@@ -598,25 +596,25 @@ img {
         height: 234px;
         width: 468px;
         object-fit: contain;
-        }
-        
-        #horrorImg img {
+    }
+
+    #horrorImg img {
         height: 234px;
         width: 468px;
         object-fit: contain;
-        }
-    
-        #classicsImg img {
-        height: 234px;
-        width: 468px;
-        object-fit: contain;  
-        }
-    
-        #mfImg img {
+    }
+
+    #classicsImg img {
         height: 234px;
         width: 468px;
         object-fit: contain;
-        }
+    }
+
+    #mfImg img {
+        height: 234px;
+        width: 468px;
+        object-fit: contain;
+    }
     p {
         margin-bottom: 0;
     }
@@ -629,16 +627,15 @@ img {
     .modal-content {
         margin: 8% auto;
     }
-} 
+}
 
 /* Styling specific to very small mobile screen, e.g Galaxy Fold */
- @media (max-width: 280px) { 
-
+@media (max-width: 280px) {
     .btn-option {
         width: 200px !important;
     }
 
-   .title h2 {
+    .title h2 {
         font-size: 1rem;
     }
 
@@ -646,24 +643,24 @@ img {
         height: 70vh;
     }
 
-    #nfImg img{
+    #nfImg img {
         height: 144px;
         width: 200px;
         object-fit: contain;
     }
-    
+
     #horrorImg img {
         object-fit: contain;
         height: 144px;
         width: 200px;
     }
-    
+
     #classicsImg img {
         object-fit: contain;
         height: 144px;
         width: 200px;
     }
-    
+
     #mfImg img {
         object-fit: contain;
         height: 144px;
