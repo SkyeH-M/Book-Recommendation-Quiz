@@ -221,6 +221,9 @@ My site was assessed by the Web Accessibility Evaluation Tool (WAVE) whereby any
 * In order to raise my Lighthouse scores slightly I converted all site images to webp format to improve loading times
 * Main script files were placed just before the end of the body tag in the HTML file so that basic CSS and HTML is loaded before any JavaScript to promote good user experience and quicker load times
 
+### Jest
+* I initially attempted to use Jest to perform tests on my JavaScript file as this was taught within the interactive front end module, however, I didn't have enough time to dedicate to trying to fully understand how to create my own tests in an effective and correct manner. For this reason I decided to use the above testing tools, along with JS Hint to test my project instead as I didn't want to use Jest for the sake of hitting criteria without fully understanding what I was doing. 
+
 ### JS Hint
 * [JS Hint Report](./docs/JSHint.png)
 * After copying and pasting the entire contents of my JavaScript file into the JS Hint program I originally received 29 warnings. These warnings were predominately due to the use of 'let' and 'const' throughout my file, along with the use of arrow functions. These warnings were removed by adding a comment which updated the JS Hint version to allow the use of let, const, and arrow function syntax. This comment was as follows /*jshint esversion: 6 */ which I found on Slack and was first raised (to my knowledge) by user yoni_emeritus in 2018. After adding this comment my warnings reduced to zero.
@@ -258,6 +261,12 @@ The entirety of this site has been tested throughout development extensively, in
   * The social media links in the footer of the page always open to a new tab when clicked on so that user's aren't permanently directed away from the quiz site.
   * The social media links also turn a dark shade of green (the same as the container background colour) when hovered over on all devices that have a mouse or cursor. 
 
+* Chrome Dev Tools warnings
+  * There are 2 warnings that are intermittently featured in the Chrome console tab
+  1. 'Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.' After researching this warning seems to be a default browser warning derived from Google, I have not found a solution to this that I can understand. As this doesn't impact the functioning of my quiz I'm satisfied to leave this here.
+  2. 'DevTools failed to load source map: Could not load content for chrome-extension://cfhdojbkjhnklbpkdaibdccddilifddb/browser-polyfill.js.map: System error: net::ERR_FILE_NOT_FOUND'. After also researching this warning I've determined, as far as I'm aware, that this warning relates to an extension(s) in Chrome and so again I don't believe this is in my control.
+
+
 ## Bugs
 
 * Unfortunately I do not have screenshots of all bugs that occured during development, where an image is available it will be included to illustrate the bug.
@@ -271,6 +280,7 @@ The entirety of this site has been tested throughout development extensively, in
 | 5. The image of recommended books is displayed to the user after the quiz is submitted, however upon clicking the restart button the image either remains visible at the first question (sometimes in duplicate), or doesn't appear again once a new recommendation has been issued. [e.g](./docs/bugs/bug5.png) | Yes | As mentioned earlier this was fixed by changing the way I was inserted an image into the site. This was done by creating an image element and populating it with the file path for the relevant recommendation image, removing the hidden class when the recommendation is issued, and adding the hidden class once the restart button is clicked. |
 | 6. I had a bug where due to the short screen height my footer wouldn't occupy the bottom of the screen, and instead would rise up to meet the bottom of the content above it, [e.g](./docs/bugs/bug6.png) | Yes | This was rectified with the help of [Matthew James Taylor's article](https://matthewjamestaylor.com/bottom-footer). This article suggested to use CSS to set the to margin and padding of the html and body to 0, and set their height to 100%. In addition, to set the position of the footer to absolute, and its bottom value to 0, after doing so the footer sits at the bottom of the page on every device without being a 'sticky' footer. |
 | 7. Finally, when a user entered their name into the username field the username value would always be logged a step behind. For example, if you entered your username as 'A', and logged this value it'd return undefined. If you then refreshed the page and entered your username as 'B', the value of this would be 'A' | Yes | With the help of the tutor Oisin it was suggested that the storedUsername variable should be declared as a global variable outside of the storeUsername function so that it can be accessed. The storedUsername variable is then reassigned within the storeUsername function whenever the username is saved to session storage within this function. |
+| 8. If a user clicks the close modal button without entering a username an alert pops up stating 'Please enter your username'. When a user clicks 'ok' to close this alert the alert is repeated once and the user must click ok again to close this alert. This bug does not happen if a user attempts to click the username submit button without entering a username. | No | I've researched this issue online and haven't been able to find anything that has solved the bug, most comments suggest that the alert may be being called twice which isn't the case in my code. However, this is minimally obtrusive so is something that can be fixed in the future |
 
 ## Credits 
 ### Code Sections
