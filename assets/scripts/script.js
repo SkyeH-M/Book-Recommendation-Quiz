@@ -163,7 +163,7 @@ function initEventListeners() {
         eachOption.onclick = () => {
             genreArray.push(questions[currentQuestionIndex].answers[index].correspondingGenre);
             if (currentQuestionIndex === 9) {
-                eachOption.style.background = "#5d6859";
+            eachOption.style.background = "#5d6859";
             } 
             if (genreArray.length >= 10) {
                 document.getElementById("A").disabled = true;

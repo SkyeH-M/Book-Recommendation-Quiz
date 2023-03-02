@@ -47,9 +47,8 @@ body {
     text-align: center;
 }
 
-#modalImg img {
-    height: 153px;
-    margin-top: 30px !important;
+body #modalImg img {
+    margin-top: 30px;
 }
 
 #closeBtn {
@@ -93,11 +92,11 @@ p {
     padding: 10px;
 }
 
-.container {
+body .body .container {
     width: 80vw;
     max-width: 80%;
     background-color: #353d32;
-    height: 70vh !important;
+    height: 70vh;
     box-shadow: 0 0 5px 4px;
     display: flex;
     flex-direction: column;
@@ -119,10 +118,9 @@ p {
     cursor: pointer;
 }
 
-.btn-option:hover, .btn-restart:hover, .btn-submit:hover{
+body .body .btn-option:hover, .btn-restart:hover, .btn-submit:hover {
     background-color: #aab5a6 !important;
 }
-
 
 .options {
     padding: 10px;
@@ -148,7 +146,7 @@ p {
 
 #question-text {
     font-size: 0.8rem;
-    padding: 10px;
+    padding: 20px;
 }
 
 .form {
@@ -241,8 +239,8 @@ img {
         margin-bottom: 0;
         font-size: 1.3rem;
     }
-    .container {
-        margin-top: 0 !important;
+   body .body .container {
+        margin-top: 0;
     }
     .modal-content {
         height: 60%;
@@ -256,12 +254,6 @@ img {
     }
     p {
         font-size: 0.8rem;
-    }
-}
-
-@media (min-width: 390px) {
-    .container {
-        margin-top: 20px !important;
     }
 }
 
@@ -323,8 +315,9 @@ img {
         height: 60%;
         margin: 13% auto;
     }
-    .container {
-        margin-top: 0 !important;
+
+    body #modalImg img {
+        margin-top: 60px;
     }
 }
 
@@ -339,10 +332,6 @@ img {
     h1 {
         margin-bottom: 10px;
         font-size: 1.1rem;
-    }
-
-    .container {
-        margin-top: 20px !important;
     }
 
     #nameLabel {
@@ -398,8 +387,8 @@ img {
         object-fit: contain;
     }
 
-    #modalImg img {
-        margin-top: 0;
+    body #modalImg img {
+        margin-top: 70px;
     }
     .modal-content {
         margin: 16% auto;
@@ -416,15 +405,15 @@ img {
         font-size: 1rem;
     }
     #modalImg img {
-        width: 300px;
-        height: 180px;
+        width: 360px;
+        height: 216px;
     }
 }
 
 @media (min-width: 992px) {
-    .title h2 {
+    body .title h2 {
         font-size: 2.5rem;
-        margin-bottom: 0 !important;
+        margin-bottom: 0;
         letter-spacing: 2px;
     }
     #question-text {
@@ -440,7 +429,7 @@ img {
         font-size: 1.2rem;
     }
     .btn-option {
-        font-size: 1rem !important;
+        font-size: 1rem;
     }
     .btn {
         font-size: 1rem;
@@ -470,9 +459,9 @@ img {
         padding: 0;
         height: 70%;
     }
-    .container {
-        height: 70vh !important;
-        margin-top: 10px !important;
+    body .body .container {
+        height: 70vh;
+        margin-top: 10px;
     }
     #closeBtn {
         font-size: 3rem;
@@ -495,21 +484,22 @@ img {
     .modal-content {
         margin: 8% auto;
     }
-    .title h2 {
+    body .title h2 {
         font-size: 2.5rem;
-        margin-bottom: 10px !important;
+        margin-bottom: 20px;
     }
     .btn-option {
         font-size: 1.2rem;
     }
-    .container {
-        margin-top: 10px !important;
+    body .body .container {
+        margin-top: 10px;
         margin-bottom: 10px;
-        height: 65vh !important;
+        height: 65vh;
     }
     h1 {
         font-size: 1.5rem;
     }
+
     p {
         font-size: 1.2rem;
         margin-bottom: 10px;
@@ -524,9 +514,11 @@ img {
         height: 216px;
         margin: 0;
     }
+
     .social-media i {
         font-size: 2.5rem;
     }
+
     #nfImg img {
         height: 280px;
         width: 561px;
@@ -553,6 +545,11 @@ img {
 }
 
 @media (min-width: 2500px) {
+
+    .container {
+        height: 80vh;
+    }
+
    .title h2 {
     font-size: 5rem;
     letter-spacing: 5px;
@@ -561,8 +558,47 @@ img {
    .modal h1 {
     font-size: 3rem;
     letter-spacing: 2px;
+    margin-bottom: 40px;
    }
 
+   #closeBtn {
+    font-size: 5rem;
+   }
+
+   #nameLabel {
+    font-size: 2rem;
+   }
+
+   #username {
+    font-size: 2rem;
+   }
+
+   #usernameSubmit {
+    font-size: 2rem;
+   }
+
+   p {
+    font-size: 1.8rem;
+    margin-top: 30px;
+   }
+
+  .modal-content #modalImg img {
+    width: 500px;
+    height: 300px;
+   }
+
+   #question-text {
+    font-size: 2.5rem;
+   }
+
+   .btn {
+    font-size: 2rem;
+   }
+
+   .btn-option {
+    font-size: 2rem;
+    width: 1000px;
+   }
 }
 
 @media (max-height: 1000px) {
@@ -572,26 +608,19 @@ img {
     }
 }
 
-@media (min-width: 1024px) {
-    body #modalImg img {
-        width: 300px;
-        height: 180px;
-    }
-}
-
 /* Styling specific to Nest Hub */
 @media (width: 1024px), (height: 600px) {
-    .container {
-        height: 70vh;
-        margin-top: 0 !important;
+
+    body .body .container {
+        height: 65vh;
     }
 
     .social-media i {
         font-size: 2rem;
     }
 
-    .title h2 {
-        margin-bottom: 10px;
+    body .title h2 {
+        margin-bottom: 0;
         margin-top: 10px;
     }
 
@@ -633,28 +662,31 @@ img {
         margin-bottom: 0;
     }
 
-    #modalImg img {
+    body #modalImg img {
         height: 130px;
         width: 190px;
+        margin-top: 20px;
     }
 
     .modal-content {
-        margin: 8% auto;
+        margin: 10% auto;
     }
 }
 
 /* Styling specific to very small mobile screen, e.g Galaxy Fold */
 @media (max-width: 280px) {
     .btn-option {
-        width: 200px !important;
+        width: 200px;
     }
 
     .title h2 {
         font-size: 1rem;
+        margin-bottom: 0;
     }
 
     .container {
         height: 70vh;
+        margin-top: 0;
     }
 
     #nfImg img {
@@ -681,7 +713,7 @@ img {
         width: 200px;
     }
     .modal-content {
-        margin: 25% auto;
+        margin: 20% auto;
     }
 
     #modalImg img {
