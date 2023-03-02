@@ -118,7 +118,9 @@ body .body .container {
     cursor: pointer;
 }
 
-body .body .btn-option:hover, .btn-restart:hover, .btn-submit:hover {
+body .body .btn-option:hover,
+.btn-restart:hover,
+.btn-submit:hover {
     background-color: #aab5a6 !important;
 }
 
@@ -239,7 +241,7 @@ img {
         margin-bottom: 0;
         font-size: 1.3rem;
     }
-   body .body .container {
+    body .body .container {
         margin-top: 0;
     }
     .modal-content {
@@ -318,7 +320,6 @@ img {
 
     body #modalImg img {
         margin-top: 60px;
-
     }
 }
 
@@ -547,60 +548,59 @@ img {
 }
 
 @media (min-width: 2500px) {
-
     .container {
         height: 80vh;
     }
 
-   .title h2 {
-    font-size: 5rem;
-    letter-spacing: 5px;
-   }
+    .title h2 {
+        font-size: 5rem;
+        letter-spacing: 5px;
+    }
 
-   .modal h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-   }
+    .modal h1 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+        margin-bottom: 40px;
+    }
 
-   #closeBtn {
-    font-size: 5rem;
-   }
+    #closeBtn {
+        font-size: 5rem;
+    }
 
-   #nameLabel {
-    font-size: 2rem;
-   }
+    #nameLabel {
+        font-size: 2rem;
+    }
 
-   #username {
-    font-size: 2rem;
-   }
+    #username {
+        font-size: 2rem;
+    }
 
-   #usernameSubmit {
-    font-size: 2rem;
-   }
+    #usernameSubmit {
+        font-size: 2rem;
+    }
 
-   p {
-    font-size: 1.8rem;
-    margin-top: 30px;
-   }
+    p {
+        font-size: 1.8rem;
+        margin-top: 30px;
+    }
 
-  .modal-content #modalImg img {
-    width: 500px;
-    height: 300px;
-   }
+    .modal-content #modalImg img {
+        width: 500px;
+        height: 300px;
+    }
 
-   #question-text {
-    font-size: 2.5rem;
-   }
+    #question-text {
+        font-size: 2.5rem;
+    }
 
-   .btn {
-    font-size: 2rem;
-   }
+    .btn {
+        font-size: 2rem;
+    }
 
-   .btn-option {
-    font-size: 2rem;
-    width: 1000px;
-   }
+    .btn-option {
+        font-size: 2rem;
+        width: 1000px;
+    }
 }
 
 @media (max-height: 1000px) {
@@ -612,7 +612,6 @@ img {
 
 /* Styling specific to Nest Hub */
 @media (width: 1024px), (height: 600px) {
-
     body .body .container {
         height: 65vh;
     }
@@ -732,3 +731,4 @@ img {
         font-size: 0.7rem;
     }
 }
+

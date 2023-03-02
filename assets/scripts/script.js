@@ -163,19 +163,18 @@ function initEventListeners() {
         eachOption.onclick = () => {
             genreArray.push(questions[currentQuestionIndex].answers[index].correspondingGenre);
             if (currentQuestionIndex === 9) {
-            eachOption.style.background = "#5d6859";
-            } 
+                eachOption.style.background = "#5d6859";
+            }
             // LinuxHint disable a button in JS based on condition
             if (genreArray.length >= 10) {
                 document.getElementById("A").disabled = true;
                 document.getElementById("B").disabled = true;
                 document.getElementById("C").disabled = true;
                 document.getElementById("D").disabled = true;
-            } 
+            }
             displayNextQuestion();
         };
     });
-    
 }
 
 /** calls initEventListeners, sets currentQuestionIndex to 0 and calls displayQuestion */
@@ -291,5 +290,6 @@ function closeModal() {
     }
 }
 startQuiz();
+
 
 
