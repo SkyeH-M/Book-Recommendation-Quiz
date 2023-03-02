@@ -144,6 +144,7 @@ inputField.addEventListener("keypress", function (event) {
 let currentQuestionIndex = 0;
 let genreArray = [];
 
+/** function sets question and answer text */
 function displayQuestion() {
     questionText.innerHTML = questions[currentQuestionIndex].question;
     answerOptions.forEach((eachOption, index) => {
@@ -151,7 +152,10 @@ function displayQuestion() {
         eachOption.innerHTML = questions[currentQuestionIndex].answers[index].option;
     });
 }
-
+/** Initialises event listeners, when option btn is clicked it's value is pushed to genreArray
+ * when option btn is clicked on the last question the option turns a darker green
+ * displayNextQuestion is called to progress quiz
+ */
 function initEventListeners() {
     restartBtn.addEventListener("click", restart);
     submitBtn.addEventListener("click", submit);
@@ -160,19 +164,27 @@ function initEventListeners() {
             genreArray.push(questions[currentQuestionIndex].answers[index].correspondingGenre);
             if (currentQuestionIndex === 9) {
                 eachOption.style.background = "#5d6859";
-            }
+            } 
+            if (genreArray.length >= 10) {
+                document.getElementById("A").disabled = true;
+                document.getElementById("B").disabled = true;
+                document.getElementById("C").disabled = true;
+                document.getElementById("D").disabled = true;
+            } 
             displayNextQuestion();
         };
     });
+    
 }
 
+/** calls initEventListeners, sets currentQuestionIndex to 0 and calls displayQuestion */
 function startQuiz() {
     initEventListeners();
     currentQuestionIndex = 0;
     displayQuestion();
 }
 
-/** create function to reset current question index, remove hide class from elements, call startQuiz() */
+/** create function to reset current question index, remove hide class from elements, reinable option btns, call startQuiz() */
 function restart() {
     currentQuestionIndex = 0;
     genreArray = [];
@@ -183,6 +195,10 @@ function restart() {
     });
     nfImg.classList.add("hide");
     sessionStorage.clear();
+    document.getElementById("A").disabled = false;
+    document.getElementById("B").disabled = false;
+    document.getElementById("C").disabled = false;
+    document.getElementById("D").disabled = false;
     startQuiz();
 }
 /** create displayNextQuestion(), currentQuestionIndex will be incremented
@@ -219,11 +235,11 @@ function showSubmitBtn() {
     }
 }
 
-function disableOpt() {
-    if (genreArray.length === 10) {
-        answerOptions.disabled = true;
-    }
-}
+// function disableOpt() {
+//     if (genreArray.length === 10) {
+//         document.getElementsByClassName("btn-option").disabled = true;
+//     }
+// }
 
 /** Calculates which genre is selected by the user most frequently, returns that letter
  * Created with credit to Geeks for Geeks Most frequent element in an array

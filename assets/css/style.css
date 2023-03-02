@@ -119,9 +119,10 @@ p {
     cursor: pointer;
 }
 
-.btn:hover {
+.btn-option:hover, .btn-restart:hover, .btn-submit:hover{
     background-color: #aab5a6 !important;
 }
+
 
 .options {
     padding: 10px;
@@ -549,6 +550,19 @@ img {
         width: 561px;
         object-fit: contain;
     }
+}
+
+@media (min-width: 2500px) {
+   .title h2 {
+    font-size: 5rem;
+    letter-spacing: 5px;
+   }
+
+   .modal h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+   }
+
 }
 
 @media (max-height: 1000px) {
