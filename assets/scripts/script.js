@@ -165,6 +165,7 @@ function initEventListeners() {
             if (currentQuestionIndex === 9) {
             eachOption.style.background = "#5d6859";
             } 
+            // LinuxHint disable a button in JS based on condition
             if (genreArray.length >= 10) {
                 document.getElementById("A").disabled = true;
                 document.getElementById("B").disabled = true;

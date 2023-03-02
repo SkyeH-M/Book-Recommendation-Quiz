@@ -318,6 +318,7 @@ img {
 
     body #modalImg img {
         margin-top: 60px;
+
     }
 }
 
@@ -387,9 +388,6 @@ img {
         object-fit: contain;
     }
 
-    body #modalImg img {
-        margin-top: 70px;
-    }
     .modal-content {
         margin: 16% auto;
         padding: 0;
@@ -404,9 +402,10 @@ img {
         margin: 25px;
         font-size: 1rem;
     }
-    #modalImg img {
+    body #modalImg img {
         width: 360px;
         height: 216px;
+        margin-top: 20px;
     }
 }
 
@@ -478,6 +477,9 @@ img {
     h1 {
         font-size: 1.5rem;
     }
+    body #modalImg img {
+        margin-top: 0;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -489,7 +491,7 @@ img {
         margin-bottom: 20px;
     }
     .btn-option {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     body .body .container {
         margin-top: 10px;
@@ -509,10 +511,10 @@ img {
         font-size: 1.5rem;
     }
 
-    #modalImg img {
+    body #modalImg img {
         width: 360px;
         height: 216px;
-        margin: 0;
+        margin-top: 0;
     }
 
     .social-media i {
@@ -716,7 +718,7 @@ img {
         margin: 20% auto;
     }
 
-    #modalImg img {
+    body #modalImg img {
         height: 130px;
         width: 190px;
         margin-top: 10px;
