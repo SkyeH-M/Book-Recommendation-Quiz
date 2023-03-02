@@ -219,6 +219,12 @@ function showSubmitBtn() {
     }
 }
 
+function disableOpt() {
+    if (genreArray.length === 10) {
+        answerOptions.disabled = true;
+    }
+}
+
 /** Calculates which genre is selected by the user most frequently, returns that letter
  * Created with credit to Geeks for Geeks Most frequent element in an array
  */
